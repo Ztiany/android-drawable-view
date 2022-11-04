@@ -1,0 +1,41 @@
+plugins {
+    id "com.android.library"
+    id "kotlin-android"
+}
+
+apply plugin: "com.vanniktech.maven.publish"
+
+android {
+    compileSdkVersion commonCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion buildVersion.minSdkVersion
+        targetSdkVersion buildVersion.targetSdkVersion
+        versionCode 1
+        versionName "1.0.1"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+}
+
+dependencies {
+    //androidx
+    implementation libraries.appcompat
+    implementation libraries.material
+    //kotlin
+    implementation libraries.kotlin
+    /*log*/
+    implementation libraries.timber
+}

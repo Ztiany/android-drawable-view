@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="By Coding"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/drawable_view01"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/drawable_view02"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/drawable_view03"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/drawable_view04"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:id="@+id/drawable_tv01"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/drawable_view05"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true" />
+
+            <View
+                android:id="@+id/drawable_view06"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/drawable_view07"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/drawable_view08"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="By CustomView"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <com.peter.viewgrouptutorial.drawable.ETextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cdv_drawable_type="gradient"
+                app:cgd_shape="oval"
+                app:cgd_shape_solid="@color/colorPrimary" />
+
+            <com.peter.viewgrouptutorial.drawable.ETextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cdv_drawable_type="gradient"
+                app:cgd_shape="rectangle"
+                app:cgd_shape_corner_style="@style/StyleGradientDrawableView_Round10"
+                app:cgd_shape_solid="@color/colorPrimary" />
+
+            <com.peter.viewgrouptutorial.drawable.ETextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cdv_drawable_type="gradient"
+                app:cgd_shape="rectangle"
+                app:cgd_shape_corner_style="@style/StyleGradientDrawableView_Round_TL20"
+                app:cgd_shape_solid="@color/colorPrimary" />
+
+            <com.peter.viewgrouptutorial.drawable.ETextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cdv_drawable_type="gradient"
+                app:cgd_shape="rectangle"
+                app:cgd_shape_corner_style="@style/StyleGradientDrawableView_Round_TL20"
+                app:cgd_shape_gradient_style="@style/CodingGradientDrawableGradient_1"
+                app:cgd_shape_stroke_style="@style/CodingGradientDrawableStroke_1" />
+
+            <com.peter.viewgrouptutorial.drawable.ETextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Click me"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cdv_drawable_type="selector"
+                app:csd_selector_state_normal="@style/CodingGradientDrawable_Gradient_1"
+                app:csd_selector_state_pressed="@style/CodingGradientDrawable_Solid_1" />
+
+            <com.peter.viewgrouptutorial.drawable.ETextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:enabled="true"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cdv_drawable_type="selector"
+                app:csd_selector_state_disabled="@style/CodingGradientDrawable_Solid_1"
+                app:csd_selector_state_normal="@style/CodingGradientDrawable_Gradient_1"
+                app:csd_selector_state_pressed="@drawable/img_scenery_a" />
+
+            <com.peter.viewgrouptutorial.drawable.ETextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:enabled="false"
+                android:gravity="center"
+                android:text="Click me"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cdv_drawable_type="selector"
+                app:csd_selector_state_disabled="@style/CodingGradientDrawable_Solid_1"
+                app:csd_selector_state_normal="@style/CodingGradientDrawable_Gradient_1"
+                app:csd_selector_state_pressed="@drawable/google_logo" />
+
+            <com.peter.viewgrouptutorial.drawable.ETextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Click me"
+                android:textStyle="bold"
+                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_1"
+                app:etv_text_color_disabled="@color/purple"
+                app:etv_text_color_normal="@color/black"
+                app:etv_text_color_pressed="@color/red" />
+
+            <com.peter.viewgrouptutorial.drawable.EButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Click me"
+                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_1"
+                app:etv_text_color_disabled="@color/purple"
+                app:etv_text_color_normal="@color/black"
+                app:etv_text_color_pressed="@color/red" />
+
+            <com.peter.viewgrouptutorial.drawable.EButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:enabled="false"
+                android:text="Disabled"
+                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_1"
+                app:etv_text_color_disabled="@color/purple"
+                app:etv_text_color_normal="@color/black"
+                app:etv_text_color_pressed="@color/red" />
+
+            <com.peter.viewgrouptutorial.drawable.EFrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                app:cdv_ripple_appearance="@style/CodingRippleDrawable_WithGradientGradient">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Click me"
+                    android:textColor="@color/red" />
+
+            </com.peter.viewgrouptutorial.drawable.EFrameLayout>
+
+            <com.peter.viewgrouptutorial.drawable.EFrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                app:cdv_ripple_appearance="@style/CodingRippleDrawable_WithSelector">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Click me"
+                    android:textColor="@color/red" />
+
+            </com.peter.viewgrouptutorial.drawable.EFrameLayout>
+
+            <com.peter.viewgrouptutorial.drawable.EFrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_2" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

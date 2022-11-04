@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="StyleShapeView">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="StyleShapeable_ImageView" parent="StyleShapeView">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:src">@drawable/img_scenery_a</item>
+    </style>
+
+</resources>

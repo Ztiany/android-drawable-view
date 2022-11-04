@@ -1,0 +1,73 @@
+<resources>
+
+    <style name="CodingGradientDrawableGradient_1">
+        <item name="cgd_gradient_start_color">#FF0000</item>
+        <item name="cgd_gradient_center_color">#0000FF</item>
+        <item name="cgd_gradient_end_color">#00FF00</item>
+    </style>
+
+    <style name="CodingGradientDrawableGradient_2">
+        <item name="cgd_gradient_start_color">#FF0000</item>
+        <item name="cgd_gradient_center_color">#0000FF</item>
+        <item name="cgd_gradient_end_color">#00FF00</item>
+        <item name="cgd_gradient_orientation">TOP_BOTTOM</item>
+    </style>
+
+    <style name="StyleGradientDrawableView_Round_TL20">
+        <item name="cgd_corner_top_left">20dp</item>
+    </style>
+
+    <style name="CodingGradientDrawableStroke_1">
+        <item name="cgd_stroke_dash_color">#FF0000</item>
+        <item name="cgd_stroke_dash_gap">10dp</item>
+        <item name="cgd_stroke_dash_width">4dp</item>
+        <item name="cgd_stroke_width">4dp</item>
+    </style>
+
+    <style name="CodingGradientDrawable_Gradient_1">
+        <item name="cgd_shape">rectangle</item>
+        <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round_TL20</item>
+        <item name="cgd_shape_gradient_style">@style/CodingGradientDrawableGradient_1</item>
+    </style>
+
+    <style name="CodingGradientDrawable_Gradient_2">
+        <item name="cgd_shape">rectangle</item>
+        <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round20</item>
+        <item name="cgd_shape_gradient_style">@style/CodingGradientDrawableGradient_2</item>
+    </style>
+
+    <style name="CodingGradientDrawable_Solid_1">
+        <item name="cgd_shape">rectangle</item>
+        <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round_TL20</item>
+        <item name="cgd_shape_solid">@color/gold</item>
+    </style>
+
+    <style name="CodingGradientDrawable_Solid_2">
+        <item name="cgd_shape">rectangle</item>
+        <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round_TL20</item>
+        <item name="cgd_shape_solid">@color/green</item>
+    </style>
+
+    <style name="CodingGradientDrawable_Solid_3">
+        <item name="cgd_shape">rectangle</item>
+        <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round_TL20</item>
+        <item name="cgd_shape_solid">@color/gray</item>
+    </style>
+
+    <style name="CodingSelectorDrawable_Solid_1">
+        <item name="csd_selector_state_normal">@style/CodingGradientDrawable_Solid_1</item>
+        <item name="csd_selector_state_pressed">@style/CodingGradientDrawable_Solid_2</item>
+        <item name="csd_selector_state_disabled">@style/CodingGradientDrawable_Solid_3</item>
+    </style>
+
+    <style name="CodingRippleDrawable_WithGradientGradient">
+        <item name="crd_ripple_color">@color/colorPrimary</item>
+        <item name="crd_ripple_content_drawable">@style/CodingGradientDrawable_Gradient_1</item>
+    </style>
+
+    <style name="CodingRippleDrawable_WithSelector">
+        <item name="crd_ripple_color">@color/colorPrimary</item>
+        <item name="crd_ripple_content_drawable">@style/CodingSelectorDrawable_Solid_1</item>
+    </style>
+
+</resources>

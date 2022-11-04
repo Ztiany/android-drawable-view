@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="By Coding"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/material_tv_01"
+                style="@style/StyleShapeView"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/material_tv_02"
+                style="@style/StyleShapeView"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/material_view_test1"
+                style="@style/StyleShapeView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="By CustomView"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <com.com.android.base.ui.shape.ShapeTextView
+                style="@style/StyleShapeView"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Click me"
+                android:textStyle="bold"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeColor_pressed="@color/black"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Hexagon"
+                app:stv_text_color_normal="@color/red"
+                app:stv_text_color_pressed="@color/black" />
+
+            <com.com.android.base.ui.shape.ShapeButton
+                style="@style/StyleShapeView"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Click me"
+                android:textStyle="bold"
+                app:msd_strokeColor_normal="@color/gold"
+                app:msd_strokeColor_pressed="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Hexagon"
+                app:stv_text_color_normal="@color/gold"
+                app:stv_text_color_pressed="@color/red" />
+
+            <com.com.android.base.ui.shape.ShapeFrameLayout
+                style="@style/StyleShapeView"
+                app:backgroundTint="@color/colorPrimary"
+                app:shapeAppearance="@style/StyleShapeable_Rounded10" />
+
+            <!-- 注意这里 padding 的数值是描边宽度的一半 -->
+            <com.com.android.base.ui.shape.ShapeFrameLayout
+                style="@style/StyleShapeView"
+                android:padding="2dp"
+                app:backgroundTint="@color/colorPrimary"
+                app:msd_strokeColor_disabled="#AABBDD"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Cut10" />
+
+            <com.com.android.base.ui.shape.ShapeFrameLayout
+                style="@style/StyleShapeView"
+                android:padding="2dp"
+                app:msd_background_normal="@color/colorPrimary"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Cut50Percent" />
+
+            <com.com.android.base.ui.shape.ShapeFrameLayout
+                style="@style/StyleShapeView"
+                android:padding="2dp"
+                app:msd_background_normal="@color/green"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Leaf" />
+
+            <com.com.android.base.ui.shape.ShapeFrameLayout
+                style="@style/StyleShapeView"
+                android:padding="2dp"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_TopCircle" />
+
+            <com.com.android.base.ui.shape.ShapeFrameLayout
+                style="@style/StyleShapeView"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:padding="2dp"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Hexagon" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

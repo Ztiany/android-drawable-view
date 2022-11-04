@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="StyleGradientDrawableView_Round5">
+        <item name="cgd_corner">5dp</item>
+    </style>
+
+    <style name="StyleGradientDrawableView_Round8">
+        <item name="cgd_corner">8dp</item>
+    </style>
+
+    <style name="StyleGradientDrawableView_Round10">
+        <item name="cgd_corner">10dp</item>
+    </style>
+
+    <style name="StyleGradientDrawableView_Round15">
+        <item name="cgd_corner">15dp</item>
+    </style>
+
+    <style name="StyleGradientDrawableView_Round20">
+        <item name="cgd_corner">20dp</item>
+    </style>
+
+</resources>
