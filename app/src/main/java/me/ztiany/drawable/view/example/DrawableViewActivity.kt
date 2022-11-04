@@ -13,7 +13,7 @@ class DrawableViewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_drawable_viewg)
+        setContentView(R.layout.activity_drawable_view)
 
         findViewById<View>(R.id.drawable_view01).background = CodeGradientDrawable.Builder(this@DrawableViewActivity).apply {
             solidColor(CodeColorStateList.valueOf(Color.parseColor("#FF0000")))
