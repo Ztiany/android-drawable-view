@@ -23,6 +23,8 @@ Lib-DrawableView.
 
 ![](drawable-view.jpg)
 
+Acknowledgment: The core code of Lib DrawableView is copied from [又一个减少冗余 Drawable 资源的解决方案](https://mp.weixin.qq.com/s/qxMoI7UTw3WtiRR6oIDGKA)。
+
 ## 3  Installation
 
 ```groovy
