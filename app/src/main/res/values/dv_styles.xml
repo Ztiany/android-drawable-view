@@ -54,6 +54,11 @@
         <item name="cgd_shape_solid">@color/gray</item>
     </style>
 
+    <style name="CodingGradientDrawable_Solid_4">
+        <item name="cgd_shape">rectangle</item>
+        <item name="cgd_shape_solid">@color/gold</item>
+    </style>
+
     <style name="CodingSelectorDrawable_Solid_1">
         <item name="csd_selector_state_normal">@style/CodingGradientDrawable_Solid_1</item>
         <item name="csd_selector_state_pressed">@style/CodingGradientDrawable_Solid_2</item>

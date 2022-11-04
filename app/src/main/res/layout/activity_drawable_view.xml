@@ -180,13 +180,12 @@
                 android:clickable="true"
                 android:enabled="true"
                 android:gravity="center"
-                android:text="Ztiany"
+                android:text="Click me"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cdv_drawable_type="selector"
-                app:csd_selector_state_disabled="@style/CodingGradientDrawable_Solid_1"
-                app:csd_selector_state_normal="@style/CodingGradientDrawable_Gradient_1"
-                app:csd_selector_state_pressed="@drawable/img_scenery_a" />
+                app:csd_selector_state_normal="@style/CodingGradientDrawable_Solid_4"
+                app:csd_selector_state_pressed="@drawable/google_logo" />
 
             <com.peter.viewgrouptutorial.drawable.ETextView
                 android:layout_width="150dp"
@@ -195,7 +194,7 @@
                 android:clickable="true"
                 android:enabled="false"
                 android:gravity="center"
-                android:text="Click me"
+                android:text="Disabled"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cdv_drawable_type="selector"
