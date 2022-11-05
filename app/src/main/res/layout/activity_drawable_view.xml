@@ -275,6 +275,13 @@
                 android:clickable="true"
                 app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_2" />
 
+            <com.peter.viewgrouptutorial.drawable.EEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:padding="3dp"
+                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Solid_1" />
+
         </LinearLayout>
 
     </LinearLayout>
