@@ -25,7 +25,12 @@ class CodeDrawableHelper(
 
     fun setBackground(view: View) {
         drawable?.let {
+            val left = view.paddingLeft
+            val top = view.paddingTop
+            val right = view.paddingRight
+            val bottom = view.paddingBottom
             view.background = it
+            view.setPadding(left, top, right, bottom)
         }
     }
 

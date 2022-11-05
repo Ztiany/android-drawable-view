@@ -1,6 +1,6 @@
 package com.peter.viewgrouptutorial.drawable
 
-interface CodeTextColorView {
+interface TextColorView {
 
     fun updateTextColor()
 

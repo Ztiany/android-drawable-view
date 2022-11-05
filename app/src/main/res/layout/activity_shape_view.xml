@@ -71,7 +71,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
-            <com.com.android.base.ui.shape.ShapeTextView
+            <com.com.android.base.ui.shape.ShapeableTextView
                 style="@style/StyleShapeView"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
@@ -88,7 +88,7 @@
                 app:stv_text_color_normal="@color/red"
                 app:stv_text_color_pressed="@color/black" />
 
-            <com.com.android.base.ui.shape.ShapeButton
+            <com.com.android.base.ui.shape.ShapeableButton
                 style="@style/StyleShapeView"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
@@ -105,13 +105,14 @@
                 app:stv_text_color_normal="@color/gold"
                 app:stv_text_color_pressed="@color/red" />
 
-            <com.com.android.base.ui.shape.ShapeFrameLayout
+            <com.com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
+                android:backgroundTintMode="src_over"
                 app:backgroundTint="@color/colorPrimary"
                 app:shapeAppearance="@style/StyleShapeable_Rounded10" />
 
             <!-- 注意这里 padding 的数值是描边宽度的一半 -->
-            <com.com.android.base.ui.shape.ShapeFrameLayout
+            <com.com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
                 android:padding="2dp"
                 app:backgroundTint="@color/colorPrimary"
@@ -120,30 +121,30 @@
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/StyleShapeable_Cut10" />
 
-            <com.com.android.base.ui.shape.ShapeFrameLayout
+            <com.com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
                 android:padding="2dp"
-                app:msd_background_normal="@color/colorPrimary"
+                app:msd_backgroundColor_normal="@color/colorPrimary"
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/StyleShapeable_Cut50Percent" />
 
-            <com.com.android.base.ui.shape.ShapeFrameLayout
+            <com.com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
                 android:padding="2dp"
-                app:msd_background_normal="@color/green"
+                app:msd_backgroundColor_normal="@color/green"
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/StyleShapeable_Leaf" />
 
-            <com.com.android.base.ui.shape.ShapeFrameLayout
+            <com.com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
                 android:padding="2dp"
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/StyleShapeable_TopCircle" />
 
-            <com.com.android.base.ui.shape.ShapeFrameLayout
+            <com.com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
@@ -152,6 +153,26 @@
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/StyleShapeable_Hexagon" />
+
+            <com.com.android.base.ui.shape.ShapeableFrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="2dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                app:msd_backgroundColor_normal="@color/green"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Leaf">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:text="Ztiany" />
+
+            </com.com.android.base.ui.shape.ShapeableFrameLayout>
 
         </LinearLayout>
 

@@ -2,13 +2,14 @@ package com.peter.viewgrouptutorial.drawable
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.annotation.AttrRes
 import com.google.android.material.textview.MaterialTextView
 
 class ETextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = android.R.attr.textViewStyle
-) : MaterialTextView(context, attrs, defStyleAttr), CodeDrawableView, CodeTextColorView {
+    @AttrRes defStyleAttr: Int = android.R.attr.textViewStyle
+) : MaterialTextView(context, attrs, defStyleAttr), DrawableView, TextColorView {
 
     private val codeDrawableHelper = CodeDrawableHelper(context, attrs, defStyleAttr)
 

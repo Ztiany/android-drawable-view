@@ -23,11 +23,11 @@
         <attr name="msd_strokeColor_pressed" format="color|reference" />
         <attr name="msd_strokeColor_normal" format="color|reference" />
 
-        <attr name="msd_background_disabled" format="color|reference" />
-        <attr name="msd_background_checked" format="color|reference" />
-        <attr name="msd_background_selected" format="color|reference" />
-        <attr name="msd_background_pressed" format="color|reference" />
-        <attr name="msd_background_normal" format="color|reference" />
+        <attr name="msd_backgroundColor_disabled" format="color|reference" />
+        <attr name="msd_backgroundColor_checked" format="color|reference" />
+        <attr name="msd_backgroundColor_selected" format="color|reference" />
+        <attr name="msd_backgroundColor_pressed" format="color|reference" />
+        <attr name="msd_backgroundColor_normal" format="color|reference" />
 
         <attr name="msd_shadow_color" format="color|reference" />
         <attr name="msd_use_tint_color_for_shadow" format="boolean" />
@@ -41,7 +41,7 @@
         <attr name="msd_padding_bottom" format="dimension|reference" />
     </declare-styleable>
 
-    <declare-styleable name="ShapeFrameLayout">
+    <declare-styleable name="ShapeableFrameLayout">
         <attr name="shapeAppearance" />
         <attr name="shapeAppearanceOverlay" />
         <attr name="msd_useShapeAppearance" />
@@ -53,11 +53,11 @@
         <attr name="msd_strokeColor_pressed" />
         <attr name="msd_strokeColor_normal" />
 
-        <attr name="msd_background_disabled" />
-        <attr name="msd_background_checked" />
-        <attr name="msd_background_selected" />
-        <attr name="msd_background_pressed" />
-        <attr name="msd_background_normal" />
+        <attr name="msd_backgroundColor_disabled" />
+        <attr name="msd_backgroundColor_checked" />
+        <attr name="msd_backgroundColor_selected" />
+        <attr name="msd_backgroundColor_pressed" />
+        <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
         <attr name="msd_use_tint_color_for_shadow" />
@@ -71,7 +71,7 @@
 
     </declare-styleable>
 
-    <declare-styleable name="ShapeConstraintLayout">
+    <declare-styleable name="ShapeableConstraintLayout">
         <attr name="shapeAppearance" />
         <attr name="shapeAppearanceOverlay" />
         <attr name="msd_useShapeAppearance" />
@@ -83,11 +83,11 @@
         <attr name="msd_strokeColor_pressed" />
         <attr name="msd_strokeColor_normal" />
 
-        <attr name="msd_background_disabled" />
-        <attr name="msd_background_checked" />
-        <attr name="msd_background_selected" />
-        <attr name="msd_background_pressed" />
-        <attr name="msd_background_normal" />
+        <attr name="msd_backgroundColor_disabled" />
+        <attr name="msd_backgroundColor_checked" />
+        <attr name="msd_backgroundColor_selected" />
+        <attr name="msd_backgroundColor_pressed" />
+        <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
         <attr name="msd_use_tint_color_for_shadow" />
@@ -101,7 +101,7 @@
 
     </declare-styleable>
 
-    <declare-styleable name="ShapeRelativeLayout">
+    <declare-styleable name="ShapeableRelativeLayout">
         <attr name="shapeAppearance" />
         <attr name="shapeAppearanceOverlay" />
         <attr name="msd_useShapeAppearance" />
@@ -113,11 +113,11 @@
         <attr name="msd_strokeColor_pressed" />
         <attr name="msd_strokeColor_normal" />
 
-        <attr name="msd_background_disabled" />
-        <attr name="msd_background_checked" />
-        <attr name="msd_background_selected" />
-        <attr name="msd_background_pressed" />
-        <attr name="msd_background_normal" />
+        <attr name="msd_backgroundColor_disabled" />
+        <attr name="msd_backgroundColor_checked" />
+        <attr name="msd_backgroundColor_selected" />
+        <attr name="msd_backgroundColor_pressed" />
+        <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
         <attr name="msd_use_tint_color_for_shadow" />
@@ -131,7 +131,7 @@
 
     </declare-styleable>
 
-    <declare-styleable name="ShapeLinearLayout">
+    <declare-styleable name="ShapeableLinearLayout">
         <attr name="shapeAppearance" />
         <attr name="shapeAppearanceOverlay" />
         <attr name="msd_useShapeAppearance" />
@@ -143,11 +143,11 @@
         <attr name="msd_strokeColor_pressed" />
         <attr name="msd_strokeColor_normal" />
 
-        <attr name="msd_background_disabled" />
-        <attr name="msd_background_checked" />
-        <attr name="msd_background_selected" />
-        <attr name="msd_background_pressed" />
-        <attr name="msd_background_normal" />
+        <attr name="msd_backgroundColor_disabled" />
+        <attr name="msd_backgroundColor_checked" />
+        <attr name="msd_backgroundColor_selected" />
+        <attr name="msd_backgroundColor_pressed" />
+        <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
         <attr name="msd_use_tint_color_for_shadow" />
@@ -161,7 +161,7 @@
 
     </declare-styleable>
 
-    <declare-styleable name="ShapeTextView">
+    <declare-styleable name="ShapeableTextView">
         <!-- 指定文字的状态颜色 -->
         <attr name="stv_text_color_disabled" format="color|reference" />
         <attr name="stv_text_color_checked" format="color|reference" />
@@ -181,11 +181,11 @@
         <attr name="msd_strokeColor_pressed" />
         <attr name="msd_strokeColor_normal" />
 
-        <attr name="msd_background_disabled" />
-        <attr name="msd_background_checked" />
-        <attr name="msd_background_selected" />
-        <attr name="msd_background_pressed" />
-        <attr name="msd_background_normal" />
+        <attr name="msd_backgroundColor_disabled" />
+        <attr name="msd_backgroundColor_checked" />
+        <attr name="msd_backgroundColor_selected" />
+        <attr name="msd_backgroundColor_pressed" />
+        <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
         <attr name="msd_use_tint_color_for_shadow" />
@@ -199,7 +199,7 @@
 
     </declare-styleable>
 
-    <declare-styleable name="ShapeButton">
+    <declare-styleable name="ShapeableButton">
         <!-- 指定文字的状态颜色 -->
         <attr name="stv_text_color_disabled" />
         <attr name="stv_text_color_checked" />
@@ -219,11 +219,11 @@
         <attr name="msd_strokeColor_pressed" />
         <attr name="msd_strokeColor_normal" />
 
-        <attr name="msd_background_disabled" />
-        <attr name="msd_background_checked" />
-        <attr name="msd_background_selected" />
-        <attr name="msd_background_pressed" />
-        <attr name="msd_background_normal" />
+        <attr name="msd_backgroundColor_disabled" />
+        <attr name="msd_backgroundColor_checked" />
+        <attr name="msd_backgroundColor_selected" />
+        <attr name="msd_backgroundColor_pressed" />
+        <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
         <attr name="msd_use_tint_color_for_shadow" />

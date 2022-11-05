@@ -19,17 +19,17 @@ class ShapeTextColorHelper(
     private var colorStateList: CodeColorStateList? = null
 
     init {
-        withStyleable(R.styleable.ShapeTextView) {
+        withStyleable(R.styleable.ShapeableTextView) {
             colorStateList = parseCodeColorStateListAttribute(this, buildResourceList())
         }
     }
 
     private fun buildResourceList() = listOf(
-        ResourceInfo(R.styleable.ShapeTextView_stv_text_color_disabled, StateEnabled, false),
-        ResourceInfo(R.styleable.ShapeTextView_stv_text_color_checked, StateChecked, true),
-        ResourceInfo(R.styleable.ShapeTextView_stv_text_color_selected, StateSelected, true),
-        ResourceInfo(R.styleable.ShapeTextView_stv_text_color_pressed, StatePressed, true),
-        ResourceInfo(R.styleable.ShapeTextView_stv_text_color_normal, null, false)
+        ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_disabled, StateEnabled, false),
+        ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_checked, StateChecked, true),
+        ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_selected, StateSelected, true),
+        ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_pressed, StatePressed, true),
+        ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_normal, null, false)
     )
 
     private fun withStyleable(styleId: IntArray, action: TypedArray.() -> Unit) {

@@ -2,23 +2,32 @@ package com.com.android.base.ui.shape
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.RelativeLayout
+import androidx.annotation.AttrRes
 import com.google.android.material.shape.ShapeAppearanceModel
+import com.google.android.material.textview.MaterialTextView
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
-class ShapeRelativeLayout @JvmOverloads constructor(
+class ShapeableTextView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
-) : RelativeLayout(context, attrs), EnhancedShapeable {
+    attrs: AttributeSet? = null,
+    @AttrRes defStyleAttr: Int = android.R.attr.textViewStyle
+) : MaterialTextView(context, attrs, defStyleAttr), EnhancedShapeable, EnhancedTextView {
 
-    private val mdHelper = MaterialShapeDrawableHelper(context, attrs)
+    private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr)
+
+    private val colorHelper = ShapeTextColorHelper(context, attrs, defStyleAttr)
 
     init {
         mdHelper.update(this)
+        colorHelper.setTextColor(this)
     }
 
     override fun updateShapeDrawable() {
         mdHelper.update(this)
+    }
+
+    override fun updateTextColor() {
+        colorHelper.setTextColor(this)
     }
 
     override fun setShapeAppearanceModel(shapeAppearanceModel: ShapeAppearanceModel) {

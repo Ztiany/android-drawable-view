@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.PorterDuff
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.DrawableUtils
 import com.google.android.material.shape.MaterialShapeDrawable
@@ -16,7 +17,7 @@ import com.peter.viewgrouptutorial.drawable.*
 import com.ztiany.android.drawable.view.R
 
 /**
- * the Shapeable function in material only supports following components:
+ * The Shapeable function in material only supports following components:
  *
  *  1. Chip
  *  2. MaterialCard
@@ -36,10 +37,7 @@ import com.ztiany.android.drawable.view.R
  *@author Ztiany
  */
 class MaterialShapeDrawableHelper(
-    context: Context,
-    attrs: AttributeSet?,
-    defaultStyleAttr: Int = 0,
-    defaultStyleRes: Int = 0
+    context: Context, attrs: AttributeSet?, defaultStyleAttr: Int = 0, defaultStyleRes: Int = 0
 ) {
 
     private var shapeAppearanceModel: ShapeAppearanceModel
@@ -99,19 +97,19 @@ class MaterialShapeDrawableHelper(
     }
 
     private fun createFillColorListCustomAttr(typedArray: TypedArray): ColorStateList {
-        return parseCodeColorStateListAttribute(typedArray, buildBackgroundResourceList()) ?: ColorStateList.valueOf(Color.WHITE)
+        return parseCodeColorStateListAttribute(typedArray, buildBackgroundResourceList()) ?: ColorStateList.valueOf(Color.TRANSPARENT)
     }
 
     private fun buildBackgroundResourceList() = listOf(
-        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_background_disabled, StateEnabled, false),
-        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_background_checked, StateChecked, true),
-        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_background_selected, StateSelected, true),
-        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_background_pressed, StatePressed, true),
-        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_background_normal, null, false)
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_backgroundColor_disabled, StateEnabled, false),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_backgroundColor_checked, StateChecked, true),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_backgroundColor_selected, StateSelected, true),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_backgroundColor_pressed, StatePressed, true),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_backgroundColor_normal, null, false)
     )
 
     private fun createStrokeListByCustomAttr(typedArray: TypedArray): ColorStateList {
-        return parseCodeColorStateListAttribute(typedArray, buildStrokeResourceList()) ?: ColorStateList.valueOf(Color.WHITE)
+        return parseCodeColorStateListAttribute(typedArray, buildStrokeResourceList()) ?: ColorStateList.valueOf(Color.TRANSPARENT)
     }
 
     private fun buildStrokeResourceList() = listOf(
@@ -171,7 +169,12 @@ class MaterialShapeDrawableHelper(
     }
 
     fun update(target: View) {
+        val left = target.paddingLeft
+        val top = target.paddingTop
+        val right = target.paddingRight
+        val bottom = target.paddingBottom
         target.background = drawable
+        target.setPadding(left, top, right, bottom)
     }
 
     fun updateShapeAppearanceModel(shapeAppearanceModel: ShapeAppearanceModel) {

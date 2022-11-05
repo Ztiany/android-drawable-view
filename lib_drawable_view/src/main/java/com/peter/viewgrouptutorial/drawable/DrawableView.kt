@@ -1,6 +1,6 @@
 package com.peter.viewgrouptutorial.drawable
 
-interface CodeDrawableView {
+interface DrawableView {
 
     fun updateDrawable()
 

@@ -2,15 +2,16 @@ package com.com.android.base.ui.shape
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.annotation.AttrRes
+import androidx.appcompat.widget.AppCompatButton
 import com.google.android.material.shape.ShapeAppearanceModel
-import com.google.android.material.textview.MaterialTextView
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
-class ShapeTextView @JvmOverloads constructor(
+class ShapeableButton @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = android.R.attr.textViewStyle
-) : MaterialTextView(context, attrs, defStyleAttr), EnhancedShapeable, EnhancedTextView {
+    @AttrRes defStyleAttr: Int = android.R.attr.buttonStyle
+) : AppCompatButton(context, attrs, defStyleAttr), EnhancedShapeable, EnhancedTextView {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr)
 
