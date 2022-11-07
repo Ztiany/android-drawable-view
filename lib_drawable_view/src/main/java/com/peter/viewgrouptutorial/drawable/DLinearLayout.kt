@@ -2,16 +2,16 @@ package com.peter.viewgrouptutorial.drawable
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.RelativeLayout
+import android.widget.LinearLayout
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 
-class ERelativeLayout @JvmOverloads constructor(
+class DLinearLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0,
     @StyleRes defStyleRes: Int = 0
-) : RelativeLayout(context, attrs, defStyleAttr, defStyleRes), DrawableView {
+) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), DrawableView {
 
     private val codeDrawableHelper = CodeDrawableHelper(context, attrs, defStyleAttr, defStyleRes)
 

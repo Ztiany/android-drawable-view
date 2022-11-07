@@ -3,13 +3,13 @@ package com.peter.viewgrouptutorial.drawable
 import android.content.Context
 import android.util.AttributeSet
 import androidx.annotation.AttrRes
-import androidx.appcompat.widget.AppCompatButton
+import com.google.android.material.textview.MaterialTextView
 
-class EButton @JvmOverloads constructor(
+class DTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    @AttrRes defStyleAttr: Int = android.R.attr.buttonStyle
-) : AppCompatButton(context, attrs, defStyleAttr), DrawableView, TextColorView {
+    @AttrRes defStyleAttr: Int = android.R.attr.textViewStyle
+) : MaterialTextView(context, attrs, defStyleAttr), DrawableView, TextColorView {
 
     private val codeDrawableHelper = CodeDrawableHelper(context, attrs, defStyleAttr)
 

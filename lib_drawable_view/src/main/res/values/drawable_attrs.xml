@@ -99,7 +99,7 @@
         <attr name="cdv_ripple_appearance" format="reference" />
     </declare-styleable>
 
-    <declare-styleable name="ETextView">
+    <declare-styleable name="DTextView">
         <!-- 指定文字的状态颜色 -->
         <attr name="etv_text_color_disabled" format="color|reference" />
         <attr name="etv_text_color_checked" format="color|reference" />
@@ -135,7 +135,7 @@
         <attr name="crd_ripple_mask_drawable" />
     </declare-styleable>
 
-    <declare-styleable name="EEditText">
+    <declare-styleable name="DEditText">
         <!-- 指定文字的状态颜色 -->
         <attr name="etv_text_color_disabled" />
         <attr name="etv_text_color_checked" />
@@ -171,7 +171,7 @@
         <attr name="crd_ripple_mask_drawable" />
     </declare-styleable>
 
-    <declare-styleable name="EButton">
+    <declare-styleable name="DButton">
         <!-- 指定文字的状态颜色 -->
         <attr name="etv_text_color_disabled" />
         <attr name="etv_text_color_checked" />
@@ -207,7 +207,7 @@
         <attr name="crd_ripple_mask_drawable" />
     </declare-styleable>
 
-    <declare-styleable name="EFrameLayout">
+    <declare-styleable name="DFrameLayout">
         <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
         <attr name="cdv_selector_appearance" />
@@ -236,37 +236,7 @@
         <attr name="crd_ripple_mask_drawable" />
     </declare-styleable>
 
-    <declare-styleable name="EConstraintLayout">
-
-        <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
-        <attr name="cdv_drawable_type" />
-        <attr name="cdv_selector_appearance" />
-        <attr name="cdv_gradient_appearance" />
-        <attr name="cdv_ripple_appearance" />
-
-        <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
-        <attr name="csd_selector_state_disabled" />
-        <attr name="csd_selector_state_checked" />
-        <attr name="csd_selector_state_selected" />
-        <attr name="csd_selector_state_pressed" />
-        <attr name="csd_selector_state_normal" />
-
-        <!-- 当 cdv_drawable_type = gradient 时，可以按需指定下面属性-->
-        <attr name="cgd_shape" />
-        <attr name="cgd_shape_solid" />
-        <attr name="cgd_shape_corner_style" />
-        <attr name="cgd_shape_size_style" />
-        <attr name="cgd_shape_gradient_style" />
-        <attr name="cgd_shape_stroke_style" />
-        <attr name="cgd_shape_padding_style" />
-
-        <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
-        <attr name="crd_ripple_color" />
-        <attr name="crd_ripple_content_drawable" />
-        <attr name="crd_ripple_mask_drawable" />
-    </declare-styleable>
-
-    <declare-styleable name="ELinearLayout">
+    <declare-styleable name="DConstraintLayout">
 
         <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
@@ -296,7 +266,37 @@
         <attr name="crd_ripple_mask_drawable" />
     </declare-styleable>
 
-    <declare-styleable name="ERelativeLayout">
+    <declare-styleable name="DLinearLayout">
+
+        <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
+        <attr name="cdv_drawable_type" />
+        <attr name="cdv_selector_appearance" />
+        <attr name="cdv_gradient_appearance" />
+        <attr name="cdv_ripple_appearance" />
+
+        <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
+        <attr name="csd_selector_state_disabled" />
+        <attr name="csd_selector_state_checked" />
+        <attr name="csd_selector_state_selected" />
+        <attr name="csd_selector_state_pressed" />
+        <attr name="csd_selector_state_normal" />
+
+        <!-- 当 cdv_drawable_type = gradient 时，可以按需指定下面属性-->
+        <attr name="cgd_shape" />
+        <attr name="cgd_shape_solid" />
+        <attr name="cgd_shape_corner_style" />
+        <attr name="cgd_shape_size_style" />
+        <attr name="cgd_shape_gradient_style" />
+        <attr name="cgd_shape_stroke_style" />
+        <attr name="cgd_shape_padding_style" />
+
+        <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
+        <attr name="crd_ripple_color" />
+        <attr name="crd_ripple_content_drawable" />
+        <attr name="crd_ripple_mask_drawable" />
+    </declare-styleable>
+
+    <declare-styleable name="DRelativeLayout">
 
         <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />

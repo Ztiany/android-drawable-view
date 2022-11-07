@@ -17,17 +17,17 @@ class CodeTextColorStateListHelper(
     private var colorStateList: CodeColorStateList? = null
 
     init {
-        withStyleable(R.styleable.ETextView) {
+        withStyleable(R.styleable.DTextView) {
             colorStateList = parseCodeColorStateListAttribute(this, buildResourceList())
         }
     }
 
     private fun buildResourceList() = listOf(
-        ResourceInfo(R.styleable.ETextView_etv_text_color_disabled, StateEnabled, false),
-        ResourceInfo(R.styleable.ETextView_etv_text_color_checked, StateChecked, true),
-        ResourceInfo(R.styleable.ETextView_etv_text_color_selected, StateSelected, true),
-        ResourceInfo(R.styleable.ETextView_etv_text_color_pressed, StatePressed, true),
-        ResourceInfo(R.styleable.ETextView_etv_text_color_normal, null, false)
+        ResourceInfo(R.styleable.DTextView_etv_text_color_disabled, StateEnabled, false),
+        ResourceInfo(R.styleable.DTextView_etv_text_color_checked, StateChecked, true),
+        ResourceInfo(R.styleable.DTextView_etv_text_color_selected, StateSelected, true),
+        ResourceInfo(R.styleable.DTextView_etv_text_color_pressed, StatePressed, true),
+        ResourceInfo(R.styleable.DTextView_etv_text_color_normal, null, false)
     )
 
     private fun withStyleable(styleId: IntArray, action: TypedArray.() -> Unit) {
