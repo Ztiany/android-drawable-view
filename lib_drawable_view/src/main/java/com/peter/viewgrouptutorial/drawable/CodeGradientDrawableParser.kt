@@ -44,7 +44,7 @@ private fun internalParseGradientDrawableAttribute(
 
         size?.let { size(it[0], it[2], PX_UNIT) }
         gradientBuilder?.let { gradient(it) }
-        cornerBuilder?.let { corner(it) }
+        corner(cornerBuilder)
         strokeBuilder?.let { stroke(it) }
         paddingBuilder?.let { padding(it) }
     }.build()
@@ -141,7 +141,13 @@ private fun parseCornerAttribute(context: Context, typedArray: TypedArray): Corn
     val cornerResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_corner_style, -1)
     if (cornerResourceId == -1) {
         return Corner.Builder(context).apply {
-            radius(0F, radiusUnit = PX_UNIT)
+            radii(
+                topLeftRadius = 0F,
+                topRightRadius = 0F,
+                bottomLeftRadius = 0F,
+                bottomRightRadius = 0F,
+                radiusUnit = PX_UNIT
+            )
         }
     }
 
