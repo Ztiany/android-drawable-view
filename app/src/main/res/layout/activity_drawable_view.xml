@@ -130,7 +130,7 @@
                 android:textStyle="bold"
                 app:cdv_drawable_type="gradient"
                 app:cgd_shape="rectangle"
-                app:cgd_shape_corner_style="@style/StyleGradientDrawableView_Round10"
+                app:cgd_shape_corner_style="@style/StyleCodeDrawable_Shape_CornerStyle_Rounded10"
                 app:cgd_shape_solid="@color/colorPrimary" />
 
             <com.peter.viewgrouptutorial.drawable.ETextView
