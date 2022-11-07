@@ -137,10 +137,12 @@ private fun parseSizeAttribute(context: Context, typedArray: TypedArray): IntArr
     return intArrayOf(width, height)
 }
 
-private fun parseCornerAttribute(context: Context, typedArray: TypedArray): Corner.Builder? {
+private fun parseCornerAttribute(context: Context, typedArray: TypedArray): Corner.Builder {
     val cornerResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_corner_style, -1)
     if (cornerResourceId == -1) {
-        return null
+        return Corner.Builder(context).apply {
+            radius(0F, radiusUnit = PX_UNIT)
+        }
     }
 
     val cornerTypedValue = ContextThemeWrapper(context, cornerResourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawableCorner)
@@ -164,7 +166,7 @@ private fun parseCornerAttribute(context: Context, typedArray: TypedArray): Corn
     cornerTypedValue.recycle()
 
     return Corner.Builder(context).apply {
-        this.radii(
+        radii(
             topLeftRadius = topLeftRadius,
             topRightRadius = topRightRadius,
             bottomLeftRadius = bottomLeftRadius,
