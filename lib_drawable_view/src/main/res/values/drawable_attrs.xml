@@ -65,6 +65,7 @@
         </attr>
 
         <attr name="cgd_shape_solid" format="color|reference" />
+
         <attr name="cgd_shape_corner_style" format="reference" />
         <attr name="cgd_shape_size_style" format="reference" />
         <attr name="cgd_shape_gradient_style" format="reference" />
@@ -75,6 +76,7 @@
     <declare-styleable name="CodingSelectorDrawable">
         <attr name="csd_selector_state_disabled" format="reference" />
         <attr name="csd_selector_state_checked" format="reference" />
+        <attr name="csd_selector_state_focused" format="reference" />
         <attr name="csd_selector_state_selected" format="reference" />
         <attr name="csd_selector_state_pressed" format="reference" />
         <attr name="csd_selector_state_normal" format="reference" />
@@ -101,11 +103,12 @@
 
     <declare-styleable name="DTextView">
         <!-- 指定文字的状态颜色 -->
-        <attr name="etv_text_color_disabled" format="color|reference" />
-        <attr name="etv_text_color_checked" format="color|reference" />
-        <attr name="etv_text_color_selected" format="color|reference" />
-        <attr name="etv_text_color_pressed" format="color|reference" />
-        <attr name="etv_text_color_normal" format="color|reference" />
+        <attr name="dtv_text_color_disabled" format="color|reference" />
+        <attr name="dtv_text_color_focused" format="color|reference" />
+        <attr name="dtv_text_color_checked" format="color|reference" />
+        <attr name="dtv_text_color_selected" format="color|reference" />
+        <attr name="dtv_text_color_pressed" format="color|reference" />
+        <attr name="dtv_text_color_normal" format="color|reference" />
 
         <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
@@ -115,6 +118,7 @@
 
         <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
+        <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
         <attr name="csd_selector_state_selected" />
         <attr name="csd_selector_state_pressed" />
@@ -137,11 +141,12 @@
 
     <declare-styleable name="DEditText">
         <!-- 指定文字的状态颜色 -->
-        <attr name="etv_text_color_disabled" />
-        <attr name="etv_text_color_checked" />
-        <attr name="etv_text_color_selected" />
-        <attr name="etv_text_color_pressed" />
-        <attr name="etv_text_color_normal" />
+        <attr name="dtv_text_color_disabled" />
+        <attr name="dtv_text_color_focused" />
+        <attr name="dtv_text_color_checked" />
+        <attr name="dtv_text_color_selected" />
+        <attr name="dtv_text_color_pressed" />
+        <attr name="dtv_text_color_normal" />
 
         <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
@@ -151,6 +156,7 @@
 
         <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
+        <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
         <attr name="csd_selector_state_selected" />
         <attr name="csd_selector_state_pressed" />
@@ -173,11 +179,12 @@
 
     <declare-styleable name="DButton">
         <!-- 指定文字的状态颜色 -->
-        <attr name="etv_text_color_disabled" />
-        <attr name="etv_text_color_checked" />
-        <attr name="etv_text_color_selected" />
-        <attr name="etv_text_color_pressed" />
-        <attr name="etv_text_color_normal" />
+        <attr name="dtv_text_color_disabled" />
+        <attr name="dtv_text_color_focused" />
+        <attr name="dtv_text_color_checked" />
+        <attr name="dtv_text_color_selected" />
+        <attr name="dtv_text_color_pressed" />
+        <attr name="dtv_text_color_normal" />
 
         <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
@@ -187,6 +194,7 @@
 
         <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
+        <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
         <attr name="csd_selector_state_selected" />
         <attr name="csd_selector_state_pressed" />
@@ -216,6 +224,7 @@
 
         <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
+        <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
         <attr name="csd_selector_state_selected" />
         <attr name="csd_selector_state_pressed" />
@@ -246,6 +255,7 @@
 
         <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
+        <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
         <attr name="csd_selector_state_selected" />
         <attr name="csd_selector_state_pressed" />
@@ -276,6 +286,7 @@
 
         <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
+        <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
         <attr name="csd_selector_state_selected" />
         <attr name="csd_selector_state_pressed" />
@@ -306,6 +317,38 @@
 
         <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
+        <attr name="csd_selector_state_focused" />
+        <attr name="csd_selector_state_checked" />
+        <attr name="csd_selector_state_selected" />
+        <attr name="csd_selector_state_pressed" />
+        <attr name="csd_selector_state_normal" />
+
+        <!-- 当 cdv_drawable_type = gradient 时，可以按需指定下面属性-->
+        <attr name="cgd_shape" />
+        <attr name="cgd_shape_solid" />
+        <attr name="cgd_shape_corner_style" />
+        <attr name="cgd_shape_size_style" />
+        <attr name="cgd_shape_gradient_style" />
+        <attr name="cgd_shape_stroke_style" />
+        <attr name="cgd_shape_padding_style" />
+
+        <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
+        <attr name="crd_ripple_color" />
+        <attr name="crd_ripple_content_drawable" />
+        <attr name="crd_ripple_mask_drawable" />
+    </declare-styleable>
+
+    <declare-styleable name="DView">
+
+        <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
+        <attr name="cdv_drawable_type" />
+        <attr name="cdv_selector_appearance" />
+        <attr name="cdv_gradient_appearance" />
+        <attr name="cdv_ripple_appearance" />
+
+        <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
+        <attr name="csd_selector_state_disabled" />
+        <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
         <attr name="csd_selector_state_selected" />
         <attr name="csd_selector_state_pressed" />

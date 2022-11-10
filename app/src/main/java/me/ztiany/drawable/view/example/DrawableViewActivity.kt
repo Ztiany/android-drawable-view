@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
-import com.peter.viewgrouptutorial.drawable.*
+import com.android.base.ui.drawable.*
 
 class DrawableViewActivity : AppCompatActivity() {
 
