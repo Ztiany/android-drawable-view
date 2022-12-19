@@ -168,7 +168,7 @@ private fun parseCornerAttribute(context: Context, typedArray: TypedArray): Corn
     topLeftRadius = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_top_left, topLeftRadius)
     topRightRadius = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_top_right, topRightRadius)
     bottomLeftRadius = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_bottom_left, bottomLeftRadius)
-    bottomRightRadius = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_top_right, bottomRightRadius)
+    bottomRightRadius = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_bottom_right, bottomRightRadius)
     cornerTypedValue.recycle()
 
     return Corner.Builder(context).apply {
