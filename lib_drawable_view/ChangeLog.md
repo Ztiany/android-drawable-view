@@ -12,4 +12,9 @@
 
 ## V 1.9.10
 
-- rename `stroke_dash_color` to `stroke_color`
+- rename `stroke_dash_color` to `stroke_color`.
+
+## V 1.1.0
+
+- support direct gradient attributes.
+

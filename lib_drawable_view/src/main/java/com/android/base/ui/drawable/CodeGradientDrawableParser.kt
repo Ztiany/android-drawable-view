@@ -3,9 +3,12 @@ package com.android.base.ui.drawable
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.Color
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.util.Log
 import android.view.ContextThemeWrapper
+import androidx.core.content.res.use
 import com.ztiany.android.drawable.view.R
 
 /** refer [R.styleable.CodingGradientDrawable] */
@@ -42,7 +45,7 @@ private fun internalParseGradientDrawableAttribute(
             solidColor(CodeColorStateList.valueOf(typedArray.getColor(R.styleable.CodingGradientDrawable_cgd_shape_solid, Color.WHITE)))
         }
 
-        size?.let { size(it[0], it[2], PX_UNIT) }
+        size.let { size(it[0], it[1], PX_UNIT) }
         gradientBuilder?.let { gradient(it) }
         corner(cornerBuilder)
         strokeBuilder?.let { stroke(it) }
@@ -50,13 +53,43 @@ private fun internalParseGradientDrawableAttribute(
     }.build()
 }
 
+private class GradientValues {
+    var centerX: Float = 0.5F
+    var centerY: Float = 0.5F
+    var useLevel: Boolean = false
+    var type: Int = GradientDrawable.LINEAR_GRADIENT
+    var radius: Float = 0.5F
+    var orientation: GradientDrawable.Orientation = GradientDrawable.Orientation.LEFT_RIGHT
+    var gradientColors: IntArray? = null
+}
+
 private fun parseGradientAttribute(context: Context, typedArray: TypedArray): Gradient.Builder? {
+    val gradientValues = GradientValues()
     val gradientResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_gradient_style, -1)
-    if (gradientResourceId == -1) {
+    if (gradientResourceId != -1) {
+        ContextThemeWrapper(context, gradientResourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawableGradient).use {
+            getGradientAttributeValue(it, gradientValues)
+        }
+    }
+
+    getGradientAttributeValue2(typedArray, gradientValues)
+
+    val gradientColors = gradientValues.gradientColors
+    if (gradientColors == null || gradientColors.isEmpty()) {
         return null
     }
 
-    val gradientTypedValue = ContextThemeWrapper(context, gradientResourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawableGradient)
+    return Gradient.Builder(context).apply {
+        gradientType(gradientValues.type)
+        useLevel(gradientValues.useLevel)
+        orientation(gradientValues.orientation)
+        gradientColors(gradientColors)
+        gradientCenter(gradientValues.centerX, gradientValues.centerY)
+        gradientRadius(gradientValues.radius, PX_UNIT)
+    }
+}
+
+private fun getGradientAttributeValue(gradientTypedValue: TypedArray, gradientValues: GradientValues) {
     val colorList = mutableListOf<Int>()
     if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawableGradient_cgd_gradient_start_color)) {
         colorList.add(gradientTypedValue.getColor(R.styleable.CodingGradientDrawableGradient_cgd_gradient_start_color, Color.WHITE))
@@ -67,117 +100,283 @@ private fun parseGradientAttribute(context: Context, typedArray: TypedArray): Gr
     if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawableGradient_cgd_gradient_end_color)) {
         colorList.add(gradientTypedValue.getColor(R.styleable.CodingGradientDrawableGradient_cgd_gradient_end_color, Color.WHITE))
     }
-    val orientation = gradientTypedValue.getColor(
-        R.styleable.CodingGradientDrawableGradient_cgd_gradient_orientation, GradientDrawable.Orientation.LEFT_RIGHT.ordinal
-    )
-    val centerX = gradientTypedValue.getFloat(R.styleable.CodingGradientDrawableGradient_cgd_gradient_center_x, 0.5F)
-    val centerY = gradientTypedValue.getFloat(R.styleable.CodingGradientDrawableGradient_cgd_gradient_center_y, 0.5F)
-    val radius = gradientTypedValue.getDimension(R.styleable.CodingGradientDrawableGradient_cgd_gradient_radius, 0.5F)
-    val userLevel = gradientTypedValue.getBoolean(R.styleable.CodingGradientDrawableGradient_cgd_gradient_radius, false)
-    val type = gradientTypedValue.getInt(R.styleable.CodingGradientDrawableGradient_cgd_gradient_type, GradientDrawable.LINEAR_GRADIENT)
-    gradientTypedValue.recycle()
+    if (colorList.isNotEmpty()) {
+        gradientValues.gradientColors = colorList.toIntArray()
+    } else {
+        return
+    }
 
-    return Gradient.Builder(context).apply {
-        gradientType(type)
-        useLevel(userLevel)
-        orientation(GradientDrawable.Orientation.values()[orientation])
-        gradientColors(colorList.toIntArray())
-        gradientCenter(centerX, centerY)
-        gradientRadius(radius, PX_UNIT)
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawableGradient_cgd_gradient_orientation)) {
+        val orientation = gradientTypedValue.getColor(
+            R.styleable.CodingGradientDrawableGradient_cgd_gradient_orientation, GradientDrawable.Orientation.LEFT_RIGHT.ordinal
+        )
+        gradientValues.orientation = GradientDrawable.Orientation.values()[orientation]
+    }
+
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawableGradient_cgd_gradient_center_x)) {
+        gradientValues.centerX = gradientTypedValue.getFloat(R.styleable.CodingGradientDrawableGradient_cgd_gradient_center_x, 0.5F)
+    }
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawableGradient_cgd_gradient_center_y)) {
+        gradientValues.centerY = gradientTypedValue.getFloat(R.styleable.CodingGradientDrawableGradient_cgd_gradient_center_y, 0.5F)
+    }
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawableGradient_cgd_gradient_radius)) {
+        gradientValues.radius = gradientTypedValue.getDimension(R.styleable.CodingGradientDrawableGradient_cgd_gradient_radius, 0.5F)
+    }
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawableGradient_cgd_gradient_radius)) {
+        gradientValues.useLevel = gradientTypedValue.getBoolean(R.styleable.CodingGradientDrawableGradient_cgd_gradient_radius, false)
+    }
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawableGradient_cgd_gradient_type)) {
+        gradientValues.type =
+            gradientTypedValue.getInt(R.styleable.CodingGradientDrawableGradient_cgd_gradient_type, GradientDrawable.LINEAR_GRADIENT)
     }
 }
 
+private fun getGradientAttributeValue2(gradientTypedValue: TypedArray, gradientValues: GradientValues) {
+    val colorList = mutableListOf<Int>()
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_gradient_start_color)) {
+        colorList.add(gradientTypedValue.getColor(R.styleable.CodingGradientDrawable_cgd_direct_gradient_start_color, Color.WHITE))
+    }
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_gradient_center_color)) {
+        colorList.add(gradientTypedValue.getColor(R.styleable.CodingGradientDrawable_cgd_direct_gradient_center_color, Color.WHITE))
+    }
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_gradient_end_color)) {
+        colorList.add(gradientTypedValue.getColor(R.styleable.CodingGradientDrawable_cgd_direct_gradient_end_color, Color.WHITE))
+    }
+    if (colorList.isNotEmpty()) {
+        gradientValues.gradientColors = colorList.toIntArray()
+    } else {
+        return
+    }
+
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_gradient_orientation)) {
+        val orientation = gradientTypedValue.getColor(
+            R.styleable.CodingGradientDrawable_cgd_direct_gradient_orientation, GradientDrawable.Orientation.LEFT_RIGHT.ordinal
+        )
+        gradientValues.orientation = GradientDrawable.Orientation.values()[orientation]
+    }
+
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_gradient_center_x)) {
+        gradientValues.centerX = gradientTypedValue.getFloat(R.styleable.CodingGradientDrawable_cgd_direct_gradient_center_x, 0.5F)
+    }
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_gradient_center_y)) {
+        gradientValues.centerY = gradientTypedValue.getFloat(R.styleable.CodingGradientDrawable_cgd_direct_gradient_center_y, 0.5F)
+    }
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_gradient_radius)) {
+        gradientValues.radius = gradientTypedValue.getDimension(R.styleable.CodingGradientDrawable_cgd_direct_gradient_radius, 0.5F)
+    }
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_gradient_radius)) {
+        gradientValues.useLevel = gradientTypedValue.getBoolean(R.styleable.CodingGradientDrawable_cgd_direct_gradient_radius, false)
+    }
+    if (gradientTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_gradient_type)) {
+        gradientValues.type = gradientTypedValue.getInt(R.styleable.CodingGradientDrawable_cgd_direct_gradient_type, GradientDrawable.LINEAR_GRADIENT)
+    }
+}
+
+private class StrokeValues {
+    var dashWidth: Float = 0.5F
+    var dashGap: Float = 0.5F
+    var width: Float = 0.5F
+    var color: Int = 0
+}
+
 private fun parseStrokeAttribute(context: Context, typedArray: TypedArray): Stroke.Builder? {
+    val strokeValues = StrokeValues()
     val strokeResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_stroke_style, -1)
-    if (strokeResourceId == -1) {
+    if (strokeResourceId != -1) {
+        ContextThemeWrapper(context, strokeResourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawableStroke).use {
+            getStrokeAttributeValue(it, strokeValues)
+        }
+    }
+
+    getStrokeAttributeValue2(typedArray, strokeValues)
+
+    if (strokeValues.width == 0F) {
         return null
     }
 
-    val strokeTypedValue = ContextThemeWrapper(context, strokeResourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawableStroke)
-    val dashWidth = strokeTypedValue.getDimension(R.styleable.CodingGradientDrawableStroke_cgd_stroke_dash_width, 0F)
-    val dashGap = strokeTypedValue.getDimension(R.styleable.CodingGradientDrawableStroke_cgd_stroke_dash_gap, 0F)
-    val width = strokeTypedValue.getDimension(R.styleable.CodingGradientDrawableStroke_cgd_stroke_width, 0F)
-    val color = strokeTypedValue.getColor(R.styleable.CodingGradientDrawableStroke_cgd_stroke_color, Color.TRANSPARENT)
-    strokeTypedValue.recycle()
-
     return Stroke.Builder(context).apply {
-        setStroke(width, CodeColorStateList.valueOf(color), dashWidth, dashGap, unit = PX_UNIT)
+        setStroke(strokeValues.width, CodeColorStateList.valueOf(strokeValues.color), strokeValues.dashWidth, strokeValues.dashGap, unit = PX_UNIT)
+    }
+}
+
+private fun getStrokeAttributeValue(strokeTypedValue: TypedArray, strokeValues: StrokeValues) {
+    if (strokeTypedValue.hasValue(R.styleable.CodingGradientDrawableStroke_cgd_stroke_dash_width)) {
+        strokeValues.dashWidth = strokeTypedValue.getDimension(R.styleable.CodingGradientDrawableStroke_cgd_stroke_dash_width, 0F)
+    }
+    if (strokeTypedValue.hasValue(R.styleable.CodingGradientDrawableStroke_cgd_stroke_dash_gap)) {
+        strokeValues.dashGap = strokeTypedValue.getDimension(R.styleable.CodingGradientDrawableStroke_cgd_stroke_dash_gap, 0F)
+    }
+    if (strokeTypedValue.hasValue(R.styleable.CodingGradientDrawableStroke_cgd_stroke_width)) {
+        strokeValues.width = strokeTypedValue.getDimension(R.styleable.CodingGradientDrawableStroke_cgd_stroke_width, 0F)
+    }
+    if (strokeTypedValue.hasValue(R.styleable.CodingGradientDrawableStroke_cgd_stroke_color)) {
+        strokeValues.color = strokeTypedValue.getColor(R.styleable.CodingGradientDrawableStroke_cgd_stroke_color, Color.TRANSPARENT)
+    }
+}
+
+private fun getStrokeAttributeValue2(strokeTypedValue: TypedArray, strokeValues: StrokeValues) {
+    if (strokeTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_stroke_dash_width)) {
+        strokeValues.dashWidth = strokeTypedValue.getDimension(R.styleable.CodingGradientDrawable_cgd_direct_stroke_dash_width, 0F)
+    }
+    if (strokeTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_stroke_dash_gap)) {
+        strokeValues.dashGap = strokeTypedValue.getDimension(R.styleable.CodingGradientDrawable_cgd_direct_stroke_dash_gap, 0F)
+    }
+    if (strokeTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_stroke_width)) {
+        strokeValues.width = strokeTypedValue.getDimension(R.styleable.CodingGradientDrawable_cgd_direct_stroke_width, 0F)
+    }
+    if (strokeTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_stroke_color)) {
+        strokeValues.color = strokeTypedValue.getColor(R.styleable.CodingGradientDrawable_cgd_direct_stroke_color, Color.TRANSPARENT)
     }
 }
 
 private fun parsePaddingAttribute(context: Context, typedArray: TypedArray): Padding.Builder? {
+    val paddings = Rect()
     val paddingResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_padding_style, -1)
-    if (paddingResourceId == -1) {
-        return null
-    }
-
-    val paddingTypedValue = ContextThemeWrapper(context, paddingResourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawablePadding)
-    val left = paddingTypedValue.getDimensionPixelOffset(R.styleable.CodingGradientDrawablePadding_cgd_padding_left, 0)
-    val right = paddingTypedValue.getDimensionPixelOffset(R.styleable.CodingGradientDrawablePadding_cgd_padding_right, 0)
-    val top = paddingTypedValue.getDimensionPixelOffset(R.styleable.CodingGradientDrawablePadding_cgd_padding_top, 0)
-    val bottom = paddingTypedValue.getDimensionPixelOffset(R.styleable.CodingGradientDrawablePadding_cgd_padding_bottom, 0)
-    paddingTypedValue.recycle()
-
-    return Padding.Builder(context).apply {
-        setPadding(top, bottom, left, right, unit = PX_UNIT)
-    }
-}
-
-private fun parseSizeAttribute(context: Context, typedArray: TypedArray): IntArray? {
-    val sizeResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_size_style, -1)
-    if (sizeResourceId == -1) {
-        return null
-    }
-
-    val sizeTypedValue = ContextThemeWrapper(context, sizeResourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawableSize)
-    val width = sizeTypedValue.getDimensionPixelSize(R.styleable.CodingGradientDrawableSize_cgd_width, 0)
-    val height = sizeTypedValue.getDimensionPixelSize(R.styleable.CodingGradientDrawableSize_cgd_height, 0)
-    sizeTypedValue.recycle()
-
-    return intArrayOf(width, height)
-}
-
-private fun parseCornerAttribute(context: Context, typedArray: TypedArray): Corner.Builder {
-    val cornerResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_corner_style, -1)
-    if (cornerResourceId == -1) {
-        return Corner.Builder(context).apply {
-            radii(
-                topLeftRadius = 0F,
-                topRightRadius = 0F,
-                bottomLeftRadius = 0F,
-                bottomRightRadius = 0F,
-                radiusUnit = PX_UNIT
-            )
+    if (paddingResourceId != -1) {
+        ContextThemeWrapper(context, paddingResourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawablePadding).use {
+            getPaddingAttributeValue(it, paddings)
         }
     }
 
-    val cornerTypedValue = ContextThemeWrapper(context, cornerResourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawableCorner)
-    var topLeftRadius = 0F
-    var topRightRadius = 0F
-    var bottomLeftRadius = 0F
-    var bottomRightRadius = 0F
+    getPaddingAttributeValue2(typedArray, paddings)
 
-    if (cornerTypedValue.hasValue(R.styleable.CodingGradientDrawableCorner_cgd_corner)) {
-        val corner = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner, 0F)
-        topLeftRadius = corner
-        topRightRadius = corner
-        bottomLeftRadius = corner
-        bottomRightRadius = corner
+    return if (paddings.isEmpty) {
+        null
+    } else {
+        Padding.Builder(context).apply {
+            setPadding(paddings.top, paddings.bottom, paddings.left, paddings.right, unit = PX_UNIT)
+        }
+    }
+}
+
+private fun getPaddingAttributeValue(paddingTypedValue: TypedArray, paddings: Rect) {
+    if (paddingTypedValue.hasValue(R.styleable.CodingGradientDrawablePadding_cgd_padding_left)) {
+        paddings.left = paddingTypedValue.getDimensionPixelOffset(R.styleable.CodingGradientDrawablePadding_cgd_padding_left, 0)
+    }
+    if (paddingTypedValue.hasValue(R.styleable.CodingGradientDrawablePadding_cgd_padding_right)) {
+        paddings.right = paddingTypedValue.getDimensionPixelOffset(R.styleable.CodingGradientDrawablePadding_cgd_padding_right, 0)
+    }
+    if (paddingTypedValue.hasValue(R.styleable.CodingGradientDrawablePadding_cgd_padding_top)) {
+        paddings.top = paddingTypedValue.getDimensionPixelOffset(R.styleable.CodingGradientDrawablePadding_cgd_padding_top, 0)
+    }
+    if (paddingTypedValue.hasValue(R.styleable.CodingGradientDrawablePadding_cgd_padding_bottom)) {
+        paddings.bottom = paddingTypedValue.getDimensionPixelOffset(R.styleable.CodingGradientDrawablePadding_cgd_padding_bottom, 0)
+    }
+}
+
+private fun getPaddingAttributeValue2(paddingTypedValue: TypedArray, paddings: Rect) {
+    if (paddingTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_padding_left)) {
+        paddings.left = paddingTypedValue.getDimensionPixelOffset(R.styleable.CodingGradientDrawable_cgd_direct_padding_left, 0)
+    }
+    if (paddingTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_padding_right)) {
+        paddings.right = paddingTypedValue.getDimensionPixelOffset(R.styleable.CodingGradientDrawable_cgd_direct_padding_right, 0)
+    }
+    if (paddingTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_padding_top)) {
+        paddings.top = paddingTypedValue.getDimensionPixelOffset(R.styleable.CodingGradientDrawable_cgd_direct_padding_top, 0)
+    }
+    if (paddingTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_padding_bottom)) {
+        paddings.bottom = paddingTypedValue.getDimensionPixelOffset(R.styleable.CodingGradientDrawable_cgd_direct_padding_bottom, 0)
+    }
+}
+
+private fun parseSizeAttribute(context: Context, typedArray: TypedArray): IntArray {
+    val defaultSize = intArrayOf(-1, -1)
+
+    val sizeResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_size_style, -1)
+    if (sizeResourceId != -1) {
+        ContextThemeWrapper(context, sizeResourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawableSize).use {
+            getSizeAttributeValue(it, defaultSize)
+        }
     }
 
-    topLeftRadius = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_top_left, topLeftRadius)
-    topRightRadius = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_top_right, topRightRadius)
-    bottomLeftRadius = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_bottom_left, bottomLeftRadius)
-    bottomRightRadius = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_bottom_right, bottomRightRadius)
-    cornerTypedValue.recycle()
+    getSizeAttributeValue2(typedArray, defaultSize)
+
+    return defaultSize
+}
+
+private fun getSizeAttributeValue(sizeTypedValue: TypedArray, size: IntArray) {
+    if (sizeTypedValue.hasValue(R.styleable.CodingGradientDrawableSize_cgd_width)) {
+        size[0] = sizeTypedValue.getDimensionPixelSize(R.styleable.CodingGradientDrawableSize_cgd_width, -1)
+    }
+    if (sizeTypedValue.hasValue(R.styleable.CodingGradientDrawableSize_cgd_height)) {
+        size[1] = sizeTypedValue.getDimensionPixelSize(R.styleable.CodingGradientDrawableSize_cgd_height, -1)
+    }
+}
+
+private fun getSizeAttributeValue2(sizeTypedValue: TypedArray, size: IntArray) {
+    if (sizeTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_width)) {
+        size[0] = sizeTypedValue.getDimensionPixelSize(R.styleable.CodingGradientDrawable_cgd_direct_width, -1)
+    }
+    if (sizeTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_height)) {
+        size[1] = sizeTypedValue.getDimensionPixelSize(R.styleable.CodingGradientDrawable_cgd_direct_height, -1)
+    }
+}
+
+private fun parseCornerAttribute(context: Context, typedArray: TypedArray): Corner.Builder {
+    val corners = floatArrayOf(0F, 0F, 0F, 0F)
+
+    val cornerResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_corner_style, -1)
+    if (cornerResourceId != -1) {
+        ContextThemeWrapper(context, cornerResourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawableCorner).use {
+            getCornerAttributeValues(it, corners)
+        }
+    }
+
+    getCornerAttributeValues2(typedArray, corners)
 
     return Corner.Builder(context).apply {
         radii(
-            topLeftRadius = topLeftRadius,
-            topRightRadius = topRightRadius,
-            bottomLeftRadius = bottomLeftRadius,
-            bottomRightRadius = bottomRightRadius,
+            topLeftRadius = corners[0],
+            topRightRadius = corners[1],
+            bottomLeftRadius = corners[2],
+            bottomRightRadius = corners[3],
             radiusUnit = PX_UNIT
         )
+    }
+}
+
+private fun getCornerAttributeValues(cornerTypedValue: TypedArray, cornerValue: FloatArray) {
+    if (cornerTypedValue.hasValue(R.styleable.CodingGradientDrawableCorner_cgd_corner)) {
+        val corner = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner, 0F)
+        cornerValue[0] = corner
+        cornerValue[1] = corner
+        cornerValue[2] = corner
+        cornerValue[3] = corner
+    }
+
+    if (cornerTypedValue.hasValue(R.styleable.CodingGradientDrawableCorner_cgd_corner_top_left)) {
+        cornerValue[0] = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_top_left, cornerValue[0])
+    }
+    if (cornerTypedValue.hasValue(R.styleable.CodingGradientDrawableCorner_cgd_corner_top_right)) {
+        cornerValue[1] = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_top_right, cornerValue[1])
+    }
+    if (cornerTypedValue.hasValue(R.styleable.CodingGradientDrawableCorner_cgd_corner_bottom_left)) {
+        cornerValue[2] = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_bottom_left, cornerValue[2])
+    }
+    if (cornerTypedValue.hasValue(R.styleable.CodingGradientDrawableCorner_cgd_corner_bottom_right)) {
+        cornerValue[3] = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawableCorner_cgd_corner_bottom_right, cornerValue[3])
+    }
+}
+
+private fun getCornerAttributeValues2(cornerTypedValue: TypedArray, cornerValue: FloatArray) {
+    if (cornerTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_corner)) {
+        val corner = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawable_cgd_direct_corner, 0F)
+        cornerValue[0] = corner
+        cornerValue[1] = corner
+        cornerValue[2] = corner
+        cornerValue[3] = corner
+    }
+
+    if (cornerTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_corner_top_left)) {
+        cornerValue[0] = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawable_cgd_direct_corner_top_left, cornerValue[0])
+    }
+    if (cornerTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_corner_top_right)) {
+        cornerValue[1] = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawable_cgd_direct_corner_top_right, cornerValue[1])
+    }
+    if (cornerTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_corner_bottom_left)) {
+        cornerValue[2] = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawable_cgd_direct_corner_bottom_left, cornerValue[2])
+    }
+    if (cornerTypedValue.hasValue(R.styleable.CodingGradientDrawable_cgd_direct_corner_bottom_right)) {
+        cornerValue[3] = cornerTypedValue.getDimension(R.styleable.CodingGradientDrawable_cgd_direct_corner_bottom_right, cornerValue[3])
     }
 }
