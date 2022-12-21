@@ -18,7 +18,7 @@
     </style>
 
     <style name="CodingGradientDrawableStroke_1">
-        <item name="cgd_stroke_dash_color">#FF0000</item>
+        <item name="cgd_stroke_color">#FF0000</item>
         <item name="cgd_stroke_dash_gap">10dp</item>
         <item name="cgd_stroke_dash_width">4dp</item>
         <item name="cgd_stroke_width">4dp</item>

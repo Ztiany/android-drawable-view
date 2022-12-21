@@ -17,7 +17,7 @@
     <declare-styleable name="CodingGradientDrawableStroke">
         <attr name="cgd_stroke_dash_width" format="dimension|reference" />
         <attr name="cgd_stroke_dash_gap" format="dimension|reference" />
-        <attr name="cgd_stroke_dash_color" format="color|reference" />
+        <attr name="cgd_stroke_color" format="color|reference" />
         <attr name="cgd_stroke_width" format="dimension|reference" />
     </declare-styleable>
 

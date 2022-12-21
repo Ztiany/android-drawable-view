@@ -97,7 +97,7 @@ private fun parseStrokeAttribute(context: Context, typedArray: TypedArray): Stro
     val dashWidth = strokeTypedValue.getDimension(R.styleable.CodingGradientDrawableStroke_cgd_stroke_dash_width, 0F)
     val dashGap = strokeTypedValue.getDimension(R.styleable.CodingGradientDrawableStroke_cgd_stroke_dash_gap, 0F)
     val width = strokeTypedValue.getDimension(R.styleable.CodingGradientDrawableStroke_cgd_stroke_width, 0F)
-    val color = strokeTypedValue.getColor(R.styleable.CodingGradientDrawableStroke_cgd_stroke_dash_color, Color.TRANSPARENT)
+    val color = strokeTypedValue.getColor(R.styleable.CodingGradientDrawableStroke_cgd_stroke_color, Color.TRANSPARENT)
     strokeTypedValue.recycle()
 
     return Stroke.Builder(context).apply {

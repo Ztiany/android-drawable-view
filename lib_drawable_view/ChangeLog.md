@@ -9,3 +9,7 @@
 ## V 1.9.0
 
 - fix bug: parsing bottom-right wrong.
+
+## V 1.9.10
+
+- rename `stroke_dash_color` to `stroke_color`
