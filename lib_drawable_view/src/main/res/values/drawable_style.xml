@@ -2,23 +2,23 @@
 <resources>
 
     <style name="StyleCodeDrawable_Shape_CornerStyle_Rounded5">
-        <item name="cgd_corner">5dp</item>
+        <item name="corner_style_corner">5dp</item>
     </style>
 
     <style name="StyleCodeDrawable_Shape_CornerStyle_Rounded8">
-        <item name="cgd_corner">8dp</item>
+        <item name="corner_style_corner">8dp</item>
     </style>
 
     <style name="StyleCodeDrawable_Shape_CornerStyle_Rounded10">
-        <item name="cgd_corner">10dp</item>
+        <item name="corner_style_corner">10dp</item>
     </style>
 
     <style name="StyleCodeDrawable_Shape_CornerStyle_Rounded15">
-        <item name="cgd_corner">15dp</item>
+        <item name="corner_style_corner">15dp</item>
     </style>
 
     <style name="StyleCodeDrawable_Shape_CornerStyle_Rounded20">
-        <item name="cgd_corner">20dp</item>
+        <item name="corner_style_corner">20dp</item>
     </style>
 
 </resources>

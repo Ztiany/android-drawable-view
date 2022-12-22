@@ -141,11 +141,11 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cdv_drawable_type="gradient"
-                app:cgd_direct_corner="10dp"
-                app:cgd_direct_corner_bottom_right="40dp"
-                app:cgd_direct_corner_top_right="30dp"
-                app:cgd_direct_stroke_color="@color/red"
-                app:cgd_direct_stroke_width="10dp"
+                app:cgd_corner="10dp"
+                app:cgd_corner_bottom_right="40dp"
+                app:cgd_corner_top_right="30dp"
+                app:cgd_stroke_color="@color/red"
+                app:cgd_stroke_width="10dp"
                 app:cgd_shape="rectangle"
                 app:cgd_shape_solid="@color/black" />
 
@@ -186,8 +186,8 @@
                 app:cdv_drawable_type="gradient"
                 app:cgd_shape="rectangle"
                 app:cgd_shape_corner_style="@style/StyleGradientDrawableView_Round_TL20"
-                app:cgd_shape_gradient_style="@style/CodingGradientDrawableGradient_1"
-                app:cgd_shape_stroke_style="@style/CodingGradientDrawableStroke_1" />
+                app:cgd_shape_gradient_style="@style/GradientStyle_1"
+                app:cgd_shape_stroke_style="@style/StrokeStyle_1" />
 
 
             <com.android.base.ui.drawable.DTextView

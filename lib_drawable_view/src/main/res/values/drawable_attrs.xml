@@ -1,34 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="CodingGradientDrawableCorner">
+    <declare-styleable name="CornerStyle">
+        <attr name="corner_style_corner" format="dimension|reference" />
+        <attr name="corner_style_corner_top_left" format="dimension|reference" />
+        <attr name="corner_style_corner_top_right" format="dimension|reference" />
+        <attr name="corner_style_corner_bottom_left" format="dimension|reference" />
+        <attr name="corner_style_corner_bottom_right" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SizeStyle">
+        <attr name="size_style_width" format="dimension|reference" />
+        <attr name="size_style_height" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="StrokeStyle">
+        <attr name="stroke_style_stroke_dash_width" format="dimension|reference" />
+        <attr name="stroke_style_stroke_dash_gap" format="dimension|reference" />
+        <attr name="stroke_style_stroke_color" format="color|reference" />
+        <attr name="stroke_style_stroke_width" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="PaddingStyle">
+        <attr name="padding_style_padding_left" format="dimension|reference" />
+        <attr name="padding_style_padding_right" format="dimension|reference" />
+        <attr name="padding_style_padding_top" format="dimension|reference" />
+        <attr name="padding_style_padding_bottom" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="GradientStyle">
+        <attr name="gradient_style_gradient_start_color" format="color|reference" />
+        <attr name="gradient_style_gradient_center_color" format="color|reference" />
+        <attr name="gradient_style_gradient_end_color" format="color|reference" />
+        <!-- value 与 GradientDrawable 中的常量对应 -->
+        <attr name="gradient_style_gradient_orientation" format="enum">
+            <enum name="TOP_BOTTOM" value="0" />
+            <enum name="TR_BL" value="1" />
+            <enum name="RIGHT_LEFT" value="2" />
+            <enum name="BR_TL" value="3" />
+            <enum name="BOTTOM_TOP" value="4" />
+            <enum name="BL_TR" value="5" />
+            <enum name="LEFT_RIGHT" value="6" />
+            <enum name="TL_BR" value="7" />
+        </attr>
+        <attr name="gradient_style_gradient_center_x" format="float" />
+        <attr name="gradient_style_gradient_center_y" format="float" />
+        <attr name="gradient_style_gradient_radius" format="dimension|reference" />
+        <attr name="gradient_style_gradient_user_level" format="boolean" />
+        <!-- value 与 GradientDrawable 中的常量对应 -->
+        <attr name="gradient_style_gradient_type" format="enum">
+            <enum name="linear" value="0" />
+            <enum name="radial" value="1" />
+            <enum name="sweep" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CodingGradientDrawable">
+        <!-- value 与 GradientDrawable 中的常量对应 -->
+        <attr name="cgd_shape" format="enum">
+            <enum name="rectangle" value="0" />
+            <enum name="oval" value="1" />
+            <enum name="line" value="2" />
+            <enum name="ring" value="3" />
+        </attr>
+        <attr name="cgd_shape_solid" format="color|reference" />
+
+        <!--以引用的方式设置属性-->
+        <attr name="cgd_shape_corner_style" format="reference" />
+        <attr name="cgd_shape_size_style" format="reference" />
+        <attr name="cgd_shape_gradient_style" format="reference" />
+        <attr name="cgd_shape_stroke_style" format="reference" />
+        <attr name="cgd_shape_padding_style" format="reference" />
+
+        <!--如果不想以引用的方式设置属性，也可以直接使用下列属性直接设置，优先级大于 style 系列 -->
         <attr name="cgd_corner" format="dimension|reference" />
         <attr name="cgd_corner_top_left" format="dimension|reference" />
         <attr name="cgd_corner_top_right" format="dimension|reference" />
         <attr name="cgd_corner_bottom_left" format="dimension|reference" />
         <attr name="cgd_corner_bottom_right" format="dimension|reference" />
-    </declare-styleable>
-
-    <declare-styleable name="CodingGradientDrawableSize">
         <attr name="cgd_width" format="dimension|reference" />
         <attr name="cgd_height" format="dimension|reference" />
-    </declare-styleable>
-
-    <declare-styleable name="CodingGradientDrawableStroke">
         <attr name="cgd_stroke_dash_width" format="dimension|reference" />
         <attr name="cgd_stroke_dash_gap" format="dimension|reference" />
         <attr name="cgd_stroke_color" format="color|reference" />
         <attr name="cgd_stroke_width" format="dimension|reference" />
-    </declare-styleable>
-
-    <declare-styleable name="CodingGradientDrawablePadding">
-        <attr name="cgd_padding_left" format="dimension|reference" />
-        <attr name="cgd_padding_right" format="dimension|reference" />
-        <attr name="cgd_padding_top" format="dimension|reference" />
-        <attr name="cgd_padding_bottom" format="dimension|reference" />
-    </declare-styleable>
-
-    <declare-styleable name="CodingGradientDrawableGradient">
         <attr name="cgd_gradient_start_color" format="color|reference" />
         <attr name="cgd_gradient_center_color" format="color|reference" />
         <attr name="cgd_gradient_end_color" format="color|reference" />
@@ -53,64 +108,10 @@
             <enum name="radial" value="1" />
             <enum name="sweep" value="2" />
         </attr>
-    </declare-styleable>
-
-    <declare-styleable name="CodingGradientDrawable">
-        <!-- value 与 GradientDrawable 中的常量对应 -->
-        <attr name="cgd_shape" format="enum">
-            <enum name="rectangle" value="0" />
-            <enum name="oval" value="1" />
-            <enum name="line" value="2" />
-            <enum name="ring" value="3" />
-        </attr>
-        <attr name="cgd_shape_solid" format="color|reference" />
-
-        <attr name="cgd_shape_corner_style" format="reference" />
-        <attr name="cgd_shape_size_style" format="reference" />
-        <attr name="cgd_shape_gradient_style" format="reference" />
-        <attr name="cgd_shape_stroke_style" format="reference" />
-        <attr name="cgd_shape_padding_style" format="reference" />
-
-        <!--如果不想以引用的方式设置属性，也可以直接使用 direct 系列的属性直接设置，优先级大于 style 系列 -->
-        <attr name="cgd_direct_corner" format="dimension|reference" />
-        <attr name="cgd_direct_corner_top_left" format="dimension|reference" />
-        <attr name="cgd_direct_corner_top_right" format="dimension|reference" />
-        <attr name="cgd_direct_corner_bottom_left" format="dimension|reference" />
-        <attr name="cgd_direct_corner_bottom_right" format="dimension|reference" />
-        <attr name="cgd_direct_width" format="dimension|reference" />
-        <attr name="cgd_direct_height" format="dimension|reference" />
-        <attr name="cgd_direct_stroke_dash_width" format="dimension|reference" />
-        <attr name="cgd_direct_stroke_dash_gap" format="dimension|reference" />
-        <attr name="cgd_direct_stroke_color" format="color|reference" />
-        <attr name="cgd_direct_stroke_width" format="dimension|reference" />
-        <attr name="cgd_direct_gradient_start_color" format="color|reference" />
-        <attr name="cgd_direct_gradient_center_color" format="color|reference" />
-        <attr name="cgd_direct_gradient_end_color" format="color|reference" />
-        <!-- value 与 GradientDrawable 中的常量对应 -->
-        <attr name="cgd_direct_gradient_orientation" format="enum">
-            <enum name="TOP_BOTTOM" value="0" />
-            <enum name="TR_BL" value="1" />
-            <enum name="RIGHT_LEFT" value="2" />
-            <enum name="BR_TL" value="3" />
-            <enum name="BOTTOM_TOP" value="4" />
-            <enum name="BL_TR" value="5" />
-            <enum name="LEFT_RIGHT" value="6" />
-            <enum name="TL_BR" value="7" />
-        </attr>
-        <attr name="cgd_direct_gradient_center_x" format="float" />
-        <attr name="cgd_direct_gradient_center_y" format="float" />
-        <attr name="cgd_direct_gradient_radius" format="dimension|reference" />
-        <attr name="cgd_direct_gradient_user_level" format="boolean" />
-        <!-- value 与 GradientDrawable 中的常量对应 -->
-        <attr name="cgd_direct_gradient_type" format="enum">
-            <enum name="linear" value="0" />
-            <enum name="radial" value="1" />
-            <enum name="sweep" value="2" />
-        </attr>
-        <attr name="cgd_direct_padding_left" format="dimension|reference" />
-        <attr name="cgd_direct_padding_right" format="dimension|reference" />
-        <attr name="cgd_direct_padding_top" format="dimension|reference" />
-        <attr name="cgd_direct_padding_bottom" format="dimension|reference" />
+        <attr name="cgd_padding_left" format="dimension|reference" />
+        <attr name="cgd_padding_right" format="dimension|reference" />
+        <attr name="cgd_padding_top" format="dimension|reference" />
+        <attr name="cgd_padding_bottom" format="dimension|reference" />
     </declare-styleable>
 
     <declare-styleable name="CodingSelectorDrawable">
@@ -165,30 +166,30 @@
         <attr name="cgd_shape_stroke_style" />
         <attr name="cgd_shape_padding_style" />
 
-        <attr name="cgd_direct_corner" />
-        <attr name="cgd_direct_corner_top_left" />
-        <attr name="cgd_direct_corner_top_right" />
-        <attr name="cgd_direct_corner_bottom_left" />
-        <attr name="cgd_direct_corner_bottom_right" />
-        <attr name="cgd_direct_width" />
-        <attr name="cgd_direct_height" />
-        <attr name="cgd_direct_stroke_dash_width" />
-        <attr name="cgd_direct_stroke_dash_gap" />
-        <attr name="cgd_direct_stroke_color" />
-        <attr name="cgd_direct_stroke_width" />
-        <attr name="cgd_direct_padding_left" />
-        <attr name="cgd_direct_padding_right" />
-        <attr name="cgd_direct_padding_top" />
-        <attr name="cgd_direct_padding_bottom" />
-        <attr name="cgd_direct_gradient_start_color" />
-        <attr name="cgd_direct_gradient_center_color" />
-        <attr name="cgd_direct_gradient_end_color" />
-        <attr name="cgd_direct_gradient_orientation" />
-        <attr name="cgd_direct_gradient_center_x" />
-        <attr name="cgd_direct_gradient_center_y" />
-        <attr name="cgd_direct_gradient_radius" />
-        <attr name="cgd_direct_gradient_user_level" />
-        <attr name="cgd_direct_gradient_type" />
+        <attr name="cgd_corner" />
+        <attr name="cgd_corner_top_left" />
+        <attr name="cgd_corner_top_right" />
+        <attr name="cgd_corner_bottom_left" />
+        <attr name="cgd_corner_bottom_right" />
+        <attr name="cgd_width" />
+        <attr name="cgd_height" />
+        <attr name="cgd_stroke_dash_width" />
+        <attr name="cgd_stroke_dash_gap" />
+        <attr name="cgd_stroke_color" />
+        <attr name="cgd_stroke_width" />
+        <attr name="cgd_padding_left" />
+        <attr name="cgd_padding_right" />
+        <attr name="cgd_padding_top" />
+        <attr name="cgd_padding_bottom" />
+        <attr name="cgd_gradient_start_color" />
+        <attr name="cgd_gradient_center_color" />
+        <attr name="cgd_gradient_end_color" />
+        <attr name="cgd_gradient_orientation" />
+        <attr name="cgd_gradient_center_x" />
+        <attr name="cgd_gradient_center_y" />
+        <attr name="cgd_gradient_radius" />
+        <attr name="cgd_gradient_user_level" />
+        <attr name="cgd_gradient_type" />
 
         <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
@@ -236,30 +237,30 @@
         <attr name="cgd_shape_stroke_style" />
         <attr name="cgd_shape_padding_style" />
 
-        <attr name="cgd_direct_corner" />
-        <attr name="cgd_direct_corner_top_left" />
-        <attr name="cgd_direct_corner_top_right" />
-        <attr name="cgd_direct_corner_bottom_left" />
-        <attr name="cgd_direct_corner_bottom_right" />
-        <attr name="cgd_direct_width" />
-        <attr name="cgd_direct_height" />
-        <attr name="cgd_direct_stroke_dash_width" />
-        <attr name="cgd_direct_stroke_dash_gap" />
-        <attr name="cgd_direct_stroke_color" />
-        <attr name="cgd_direct_stroke_width" />
-        <attr name="cgd_direct_padding_left" />
-        <attr name="cgd_direct_padding_right" />
-        <attr name="cgd_direct_padding_top" />
-        <attr name="cgd_direct_padding_bottom" />
-        <attr name="cgd_direct_gradient_start_color" />
-        <attr name="cgd_direct_gradient_center_color" />
-        <attr name="cgd_direct_gradient_end_color" />
-        <attr name="cgd_direct_gradient_orientation" />
-        <attr name="cgd_direct_gradient_center_x" />
-        <attr name="cgd_direct_gradient_center_y" />
-        <attr name="cgd_direct_gradient_radius" />
-        <attr name="cgd_direct_gradient_user_level" />
-        <attr name="cgd_direct_gradient_type" />
+        <attr name="cgd_corner" />
+        <attr name="cgd_corner_top_left" />
+        <attr name="cgd_corner_top_right" />
+        <attr name="cgd_corner_bottom_left" />
+        <attr name="cgd_corner_bottom_right" />
+        <attr name="cgd_width" />
+        <attr name="cgd_height" />
+        <attr name="cgd_stroke_dash_width" />
+        <attr name="cgd_stroke_dash_gap" />
+        <attr name="cgd_stroke_color" />
+        <attr name="cgd_stroke_width" />
+        <attr name="cgd_padding_left" />
+        <attr name="cgd_padding_right" />
+        <attr name="cgd_padding_top" />
+        <attr name="cgd_padding_bottom" />
+        <attr name="cgd_gradient_start_color" />
+        <attr name="cgd_gradient_center_color" />
+        <attr name="cgd_gradient_end_color" />
+        <attr name="cgd_gradient_orientation" />
+        <attr name="cgd_gradient_center_x" />
+        <attr name="cgd_gradient_center_y" />
+        <attr name="cgd_gradient_radius" />
+        <attr name="cgd_gradient_user_level" />
+        <attr name="cgd_gradient_type" />
 
         <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
@@ -299,30 +300,30 @@
         <attr name="cgd_shape_stroke_style" />
         <attr name="cgd_shape_padding_style" />
 
-        <attr name="cgd_direct_corner" />
-        <attr name="cgd_direct_corner_top_left" />
-        <attr name="cgd_direct_corner_top_right" />
-        <attr name="cgd_direct_corner_bottom_left" />
-        <attr name="cgd_direct_corner_bottom_right" />
-        <attr name="cgd_direct_width" />
-        <attr name="cgd_direct_height" />
-        <attr name="cgd_direct_stroke_dash_width" />
-        <attr name="cgd_direct_stroke_dash_gap" />
-        <attr name="cgd_direct_stroke_color" />
-        <attr name="cgd_direct_stroke_width" />
-        <attr name="cgd_direct_padding_left" />
-        <attr name="cgd_direct_padding_right" />
-        <attr name="cgd_direct_padding_top" />
-        <attr name="cgd_direct_padding_bottom" />
-        <attr name="cgd_direct_gradient_start_color" />
-        <attr name="cgd_direct_gradient_center_color" />
-        <attr name="cgd_direct_gradient_end_color" />
-        <attr name="cgd_direct_gradient_orientation" />
-        <attr name="cgd_direct_gradient_center_x" />
-        <attr name="cgd_direct_gradient_center_y" />
-        <attr name="cgd_direct_gradient_radius" />
-        <attr name="cgd_direct_gradient_user_level" />
-        <attr name="cgd_direct_gradient_type" />
+        <attr name="cgd_corner" />
+        <attr name="cgd_corner_top_left" />
+        <attr name="cgd_corner_top_right" />
+        <attr name="cgd_corner_bottom_left" />
+        <attr name="cgd_corner_bottom_right" />
+        <attr name="cgd_width" />
+        <attr name="cgd_height" />
+        <attr name="cgd_stroke_dash_width" />
+        <attr name="cgd_stroke_dash_gap" />
+        <attr name="cgd_stroke_color" />
+        <attr name="cgd_stroke_width" />
+        <attr name="cgd_padding_left" />
+        <attr name="cgd_padding_right" />
+        <attr name="cgd_padding_top" />
+        <attr name="cgd_padding_bottom" />
+        <attr name="cgd_gradient_start_color" />
+        <attr name="cgd_gradient_center_color" />
+        <attr name="cgd_gradient_end_color" />
+        <attr name="cgd_gradient_orientation" />
+        <attr name="cgd_gradient_center_x" />
+        <attr name="cgd_gradient_center_y" />
+        <attr name="cgd_gradient_radius" />
+        <attr name="cgd_gradient_user_level" />
+        <attr name="cgd_gradient_type" />
 
         <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
@@ -354,30 +355,30 @@
         <attr name="cgd_shape_stroke_style" />
         <attr name="cgd_shape_padding_style" />
 
-        <attr name="cgd_direct_corner" />
-        <attr name="cgd_direct_corner_top_left" />
-        <attr name="cgd_direct_corner_top_right" />
-        <attr name="cgd_direct_corner_bottom_left" />
-        <attr name="cgd_direct_corner_bottom_right" />
-        <attr name="cgd_direct_width" />
-        <attr name="cgd_direct_height" />
-        <attr name="cgd_direct_stroke_dash_width" />
-        <attr name="cgd_direct_stroke_dash_gap" />
-        <attr name="cgd_direct_stroke_color" />
-        <attr name="cgd_direct_stroke_width" />
-        <attr name="cgd_direct_padding_left" />
-        <attr name="cgd_direct_padding_right" />
-        <attr name="cgd_direct_padding_top" />
-        <attr name="cgd_direct_padding_bottom" />
-        <attr name="cgd_direct_gradient_start_color" />
-        <attr name="cgd_direct_gradient_center_color" />
-        <attr name="cgd_direct_gradient_end_color" />
-        <attr name="cgd_direct_gradient_orientation" />
-        <attr name="cgd_direct_gradient_center_x" />
-        <attr name="cgd_direct_gradient_center_y" />
-        <attr name="cgd_direct_gradient_radius" />
-        <attr name="cgd_direct_gradient_user_level" />
-        <attr name="cgd_direct_gradient_type" />
+        <attr name="cgd_corner" />
+        <attr name="cgd_corner_top_left" />
+        <attr name="cgd_corner_top_right" />
+        <attr name="cgd_corner_bottom_left" />
+        <attr name="cgd_corner_bottom_right" />
+        <attr name="cgd_width" />
+        <attr name="cgd_height" />
+        <attr name="cgd_stroke_dash_width" />
+        <attr name="cgd_stroke_dash_gap" />
+        <attr name="cgd_stroke_color" />
+        <attr name="cgd_stroke_width" />
+        <attr name="cgd_padding_left" />
+        <attr name="cgd_padding_right" />
+        <attr name="cgd_padding_top" />
+        <attr name="cgd_padding_bottom" />
+        <attr name="cgd_gradient_start_color" />
+        <attr name="cgd_gradient_center_color" />
+        <attr name="cgd_gradient_end_color" />
+        <attr name="cgd_gradient_orientation" />
+        <attr name="cgd_gradient_center_x" />
+        <attr name="cgd_gradient_center_y" />
+        <attr name="cgd_gradient_radius" />
+        <attr name="cgd_gradient_user_level" />
+        <attr name="cgd_gradient_type" />
 
         <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
@@ -410,30 +411,30 @@
         <attr name="cgd_shape_stroke_style" />
         <attr name="cgd_shape_padding_style" />
 
-        <attr name="cgd_direct_corner" />
-        <attr name="cgd_direct_corner_top_left" />
-        <attr name="cgd_direct_corner_top_right" />
-        <attr name="cgd_direct_corner_bottom_left" />
-        <attr name="cgd_direct_corner_bottom_right" />
-        <attr name="cgd_direct_width" />
-        <attr name="cgd_direct_height" />
-        <attr name="cgd_direct_stroke_dash_width" />
-        <attr name="cgd_direct_stroke_dash_gap" />
-        <attr name="cgd_direct_stroke_color" />
-        <attr name="cgd_direct_stroke_width" />
-        <attr name="cgd_direct_padding_left" />
-        <attr name="cgd_direct_padding_right" />
-        <attr name="cgd_direct_padding_top" />
-        <attr name="cgd_direct_padding_bottom" />
-        <attr name="cgd_direct_gradient_start_color" />
-        <attr name="cgd_direct_gradient_center_color" />
-        <attr name="cgd_direct_gradient_end_color" />
-        <attr name="cgd_direct_gradient_orientation" />
-        <attr name="cgd_direct_gradient_center_x" />
-        <attr name="cgd_direct_gradient_center_y" />
-        <attr name="cgd_direct_gradient_radius" />
-        <attr name="cgd_direct_gradient_user_level" />
-        <attr name="cgd_direct_gradient_type" />
+        <attr name="cgd_corner" />
+        <attr name="cgd_corner_top_left" />
+        <attr name="cgd_corner_top_right" />
+        <attr name="cgd_corner_bottom_left" />
+        <attr name="cgd_corner_bottom_right" />
+        <attr name="cgd_width" />
+        <attr name="cgd_height" />
+        <attr name="cgd_stroke_dash_width" />
+        <attr name="cgd_stroke_dash_gap" />
+        <attr name="cgd_stroke_color" />
+        <attr name="cgd_stroke_width" />
+        <attr name="cgd_padding_left" />
+        <attr name="cgd_padding_right" />
+        <attr name="cgd_padding_top" />
+        <attr name="cgd_padding_bottom" />
+        <attr name="cgd_gradient_start_color" />
+        <attr name="cgd_gradient_center_color" />
+        <attr name="cgd_gradient_end_color" />
+        <attr name="cgd_gradient_orientation" />
+        <attr name="cgd_gradient_center_x" />
+        <attr name="cgd_gradient_center_y" />
+        <attr name="cgd_gradient_radius" />
+        <attr name="cgd_gradient_user_level" />
+        <attr name="cgd_gradient_type" />
 
         <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
@@ -466,30 +467,30 @@
         <attr name="cgd_shape_stroke_style" />
         <attr name="cgd_shape_padding_style" />
 
-        <attr name="cgd_direct_corner" />
-        <attr name="cgd_direct_corner_top_left" />
-        <attr name="cgd_direct_corner_top_right" />
-        <attr name="cgd_direct_corner_bottom_left" />
-        <attr name="cgd_direct_corner_bottom_right" />
-        <attr name="cgd_direct_width" />
-        <attr name="cgd_direct_height" />
-        <attr name="cgd_direct_stroke_dash_width" />
-        <attr name="cgd_direct_stroke_dash_gap" />
-        <attr name="cgd_direct_stroke_color" />
-        <attr name="cgd_direct_stroke_width" />
-        <attr name="cgd_direct_padding_left" />
-        <attr name="cgd_direct_padding_right" />
-        <attr name="cgd_direct_padding_top" />
-        <attr name="cgd_direct_padding_bottom" />
-        <attr name="cgd_direct_gradient_start_color" />
-        <attr name="cgd_direct_gradient_center_color" />
-        <attr name="cgd_direct_gradient_end_color" />
-        <attr name="cgd_direct_gradient_orientation" />
-        <attr name="cgd_direct_gradient_center_x" />
-        <attr name="cgd_direct_gradient_center_y" />
-        <attr name="cgd_direct_gradient_radius" />
-        <attr name="cgd_direct_gradient_user_level" />
-        <attr name="cgd_direct_gradient_type" />
+        <attr name="cgd_corner" />
+        <attr name="cgd_corner_top_left" />
+        <attr name="cgd_corner_top_right" />
+        <attr name="cgd_corner_bottom_left" />
+        <attr name="cgd_corner_bottom_right" />
+        <attr name="cgd_width" />
+        <attr name="cgd_height" />
+        <attr name="cgd_stroke_dash_width" />
+        <attr name="cgd_stroke_dash_gap" />
+        <attr name="cgd_stroke_color" />
+        <attr name="cgd_stroke_width" />
+        <attr name="cgd_padding_left" />
+        <attr name="cgd_padding_right" />
+        <attr name="cgd_padding_top" />
+        <attr name="cgd_padding_bottom" />
+        <attr name="cgd_gradient_start_color" />
+        <attr name="cgd_gradient_center_color" />
+        <attr name="cgd_gradient_end_color" />
+        <attr name="cgd_gradient_orientation" />
+        <attr name="cgd_gradient_center_x" />
+        <attr name="cgd_gradient_center_y" />
+        <attr name="cgd_gradient_radius" />
+        <attr name="cgd_gradient_user_level" />
+        <attr name="cgd_gradient_type" />
 
         <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
@@ -522,30 +523,30 @@
         <attr name="cgd_shape_stroke_style" />
         <attr name="cgd_shape_padding_style" />
 
-        <attr name="cgd_direct_corner" />
-        <attr name="cgd_direct_corner_top_left" />
-        <attr name="cgd_direct_corner_top_right" />
-        <attr name="cgd_direct_corner_bottom_left" />
-        <attr name="cgd_direct_corner_bottom_right" />
-        <attr name="cgd_direct_width" />
-        <attr name="cgd_direct_height" />
-        <attr name="cgd_direct_stroke_dash_width" />
-        <attr name="cgd_direct_stroke_dash_gap" />
-        <attr name="cgd_direct_stroke_color" />
-        <attr name="cgd_direct_stroke_width" />
-        <attr name="cgd_direct_padding_left" />
-        <attr name="cgd_direct_padding_right" />
-        <attr name="cgd_direct_padding_top" />
-        <attr name="cgd_direct_padding_bottom" />
-        <attr name="cgd_direct_gradient_start_color" />
-        <attr name="cgd_direct_gradient_center_color" />
-        <attr name="cgd_direct_gradient_end_color" />
-        <attr name="cgd_direct_gradient_orientation" />
-        <attr name="cgd_direct_gradient_center_x" />
-        <attr name="cgd_direct_gradient_center_y" />
-        <attr name="cgd_direct_gradient_radius" />
-        <attr name="cgd_direct_gradient_user_level" />
-        <attr name="cgd_direct_gradient_type" />
+        <attr name="cgd_corner" />
+        <attr name="cgd_corner_top_left" />
+        <attr name="cgd_corner_top_right" />
+        <attr name="cgd_corner_bottom_left" />
+        <attr name="cgd_corner_bottom_right" />
+        <attr name="cgd_width" />
+        <attr name="cgd_height" />
+        <attr name="cgd_stroke_dash_width" />
+        <attr name="cgd_stroke_dash_gap" />
+        <attr name="cgd_stroke_color" />
+        <attr name="cgd_stroke_width" />
+        <attr name="cgd_padding_left" />
+        <attr name="cgd_padding_right" />
+        <attr name="cgd_padding_top" />
+        <attr name="cgd_padding_bottom" />
+        <attr name="cgd_gradient_start_color" />
+        <attr name="cgd_gradient_center_color" />
+        <attr name="cgd_gradient_end_color" />
+        <attr name="cgd_gradient_orientation" />
+        <attr name="cgd_gradient_center_x" />
+        <attr name="cgd_gradient_center_y" />
+        <attr name="cgd_gradient_radius" />
+        <attr name="cgd_gradient_user_level" />
+        <attr name="cgd_gradient_type" />
 
         <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
@@ -578,30 +579,30 @@
         <attr name="cgd_shape_stroke_style" />
         <attr name="cgd_shape_padding_style" />
 
-        <attr name="cgd_direct_corner" />
-        <attr name="cgd_direct_corner_top_left" />
-        <attr name="cgd_direct_corner_top_right" />
-        <attr name="cgd_direct_corner_bottom_left" />
-        <attr name="cgd_direct_corner_bottom_right" />
-        <attr name="cgd_direct_width" />
-        <attr name="cgd_direct_height" />
-        <attr name="cgd_direct_stroke_dash_width" />
-        <attr name="cgd_direct_stroke_dash_gap" />
-        <attr name="cgd_direct_stroke_color" />
-        <attr name="cgd_direct_stroke_width" />
-        <attr name="cgd_direct_padding_left" />
-        <attr name="cgd_direct_padding_right" />
-        <attr name="cgd_direct_padding_top" />
-        <attr name="cgd_direct_padding_bottom" />
-        <attr name="cgd_direct_gradient_start_color" />
-        <attr name="cgd_direct_gradient_center_color" />
-        <attr name="cgd_direct_gradient_end_color" />
-        <attr name="cgd_direct_gradient_orientation" />
-        <attr name="cgd_direct_gradient_center_x" />
-        <attr name="cgd_direct_gradient_center_y" />
-        <attr name="cgd_direct_gradient_radius" />
-        <attr name="cgd_direct_gradient_user_level" />
-        <attr name="cgd_direct_gradient_type" />
+        <attr name="cgd_corner" />
+        <attr name="cgd_corner_top_left" />
+        <attr name="cgd_corner_top_right" />
+        <attr name="cgd_corner_bottom_left" />
+        <attr name="cgd_corner_bottom_right" />
+        <attr name="cgd_width" />
+        <attr name="cgd_height" />
+        <attr name="cgd_stroke_dash_width" />
+        <attr name="cgd_stroke_dash_gap" />
+        <attr name="cgd_stroke_color" />
+        <attr name="cgd_stroke_width" />
+        <attr name="cgd_padding_left" />
+        <attr name="cgd_padding_right" />
+        <attr name="cgd_padding_top" />
+        <attr name="cgd_padding_bottom" />
+        <attr name="cgd_gradient_start_color" />
+        <attr name="cgd_gradient_center_color" />
+        <attr name="cgd_gradient_end_color" />
+        <attr name="cgd_gradient_orientation" />
+        <attr name="cgd_gradient_center_x" />
+        <attr name="cgd_gradient_center_y" />
+        <attr name="cgd_gradient_radius" />
+        <attr name="cgd_gradient_user_level" />
+        <attr name="cgd_gradient_type" />
 
         <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />

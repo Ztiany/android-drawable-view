@@ -18,3 +18,6 @@
 
 - support direct gradient attributes.
 
+## V 1.1.1
+
+- rename all attribute names.
