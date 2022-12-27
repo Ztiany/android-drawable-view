@@ -11,8 +11,6 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.appcompat.widget.DrawableUtils
 import com.android.base.ui.drawable.*
-import com.android.base.ui.drawable.ResourceInfo
-import com.android.base.ui.drawable.parseCodeColorStateListAttribute
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.ztiany.android.drawable.view.R
@@ -166,8 +164,22 @@ class MaterialShapeDrawableHelper(
             setShadowColor(shapeTypedValue.getColor(R.styleable.MaterialShapeDrawableView_msd_shadow_color, Color.BLACK))
         }
 
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_use_tint_color_for_shadow)) {
-            setUseTintColorForShadow(shapeTypedValue.getBoolean(R.styleable.MaterialShapeDrawableView_msd_use_tint_color_for_shadow, true))
+        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_shadow_use_tint)) {
+            setUseTintColorForShadow(shapeTypedValue.getBoolean(R.styleable.MaterialShapeDrawableView_msd_shadow_use_tint, true))
+        }
+
+        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_shadow_elevation)) {
+            elevation = shapeTypedValue.getDimension(R.styleable.MaterialShapeDrawableView_msd_shadow_elevation, 0F)
+        }
+
+        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_shadow_compat_mode)) {
+            shadowCompatibilityMode = shapeTypedValue.getInt(
+                R.styleable.MaterialShapeDrawableView_msd_shadow_compat_mode, MaterialShapeDrawable.SHADOW_COMPAT_MODE_DEFAULT
+            )
+        }
+
+        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_shadow_compat_rotation)) {
+            shadowCompatRotation = shapeTypedValue.getInt(R.styleable.MaterialShapeDrawableView_msd_shadow_compat_rotation, 0)
         }
     }
 

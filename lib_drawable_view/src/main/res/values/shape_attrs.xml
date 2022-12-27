@@ -32,7 +32,14 @@
         <attr name="msd_backgroundColor_normal" format="color|reference" />
 
         <attr name="msd_shadow_color" format="color|reference" />
-        <attr name="msd_use_tint_color_for_shadow" format="boolean" />
+        <attr name="msd_shadow_use_tint" format="boolean" />
+        <attr name="msd_shadow_elevation" format="dimension|reference" />
+        <attr name="msd_shadow_compat_rotation" format="integer" />
+        <attr name="msd_shadow_compat_mode" format="enum">
+            <enum name="DEFAULT" value="0" />
+            <enum name="NEVER" value="1" />
+            <enum name="ALWAYS" value="2" />
+        </attr>
 
         <attr name="msd_padding" format="dimension|reference" />
         <attr name="msd_padding_vertical" format="dimension|reference" />
@@ -64,7 +71,11 @@
         <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
-        <attr name="msd_use_tint_color_for_shadow" />
+        <attr name="msd_shadow_use_tint" />
+        <attr name="msd_shadow_elevation" />
+        <attr name="msd_shadow_compat_rotation" />
+        <attr name="msd_shadow_compat_mode" />
+
         <attr name="msd_padding" />
         <attr name="msd_padding_vertical" />
         <attr name="msd_padding_horizontal" />
@@ -96,7 +107,11 @@
         <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
-        <attr name="msd_use_tint_color_for_shadow" />
+        <attr name="msd_shadow_use_tint" />
+        <attr name="msd_shadow_elevation" />
+        <attr name="msd_shadow_compat_rotation" />
+        <attr name="msd_shadow_compat_mode" />
+
         <attr name="msd_padding" />
         <attr name="msd_padding_vertical" />
         <attr name="msd_padding_horizontal" />
@@ -128,7 +143,11 @@
         <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
-        <attr name="msd_use_tint_color_for_shadow" />
+        <attr name="msd_shadow_use_tint" />
+        <attr name="msd_shadow_elevation" />
+        <attr name="msd_shadow_compat_rotation" />
+        <attr name="msd_shadow_compat_mode" />
+
         <attr name="msd_padding" />
         <attr name="msd_padding_vertical" />
         <attr name="msd_padding_horizontal" />
@@ -160,7 +179,11 @@
         <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
-        <attr name="msd_use_tint_color_for_shadow" />
+        <attr name="msd_shadow_use_tint" />
+        <attr name="msd_shadow_elevation" />
+        <attr name="msd_shadow_compat_rotation" />
+        <attr name="msd_shadow_compat_mode" />
+
         <attr name="msd_padding" />
         <attr name="msd_padding_vertical" />
         <attr name="msd_padding_horizontal" />
@@ -192,7 +215,11 @@
         <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
-        <attr name="msd_use_tint_color_for_shadow" />
+        <attr name="msd_shadow_use_tint" />
+        <attr name="msd_shadow_elevation" />
+        <attr name="msd_shadow_compat_rotation" />
+        <attr name="msd_shadow_compat_mode" />
+
         <attr name="msd_padding" />
         <attr name="msd_padding_vertical" />
         <attr name="msd_padding_horizontal" />
@@ -233,7 +260,11 @@
         <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
-        <attr name="msd_use_tint_color_for_shadow" />
+        <attr name="msd_shadow_use_tint" />
+        <attr name="msd_shadow_elevation" />
+        <attr name="msd_shadow_compat_rotation" />
+        <attr name="msd_shadow_compat_mode" />
+
         <attr name="msd_padding" />
         <attr name="msd_padding_vertical" />
         <attr name="msd_padding_horizontal" />
@@ -274,7 +305,11 @@
         <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
-        <attr name="msd_use_tint_color_for_shadow" />
+        <attr name="msd_shadow_use_tint" />
+        <attr name="msd_shadow_elevation" />
+        <attr name="msd_shadow_compat_rotation" />
+        <attr name="msd_shadow_compat_mode" />
+
         <attr name="msd_padding" />
         <attr name="msd_padding_vertical" />
         <attr name="msd_padding_horizontal" />
@@ -315,7 +350,11 @@
         <attr name="msd_backgroundColor_normal" />
 
         <attr name="msd_shadow_color" />
-        <attr name="msd_use_tint_color_for_shadow" />
+        <attr name="msd_shadow_use_tint" />
+        <attr name="msd_shadow_elevation" />
+        <attr name="msd_shadow_compat_rotation" />
+        <attr name="msd_shadow_compat_mode" />
+
         <attr name="msd_padding" />
         <attr name="msd_padding_vertical" />
         <attr name="msd_padding_horizontal" />

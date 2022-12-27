@@ -111,6 +111,16 @@
                 app:backgroundTint="@color/colorPrimary"
                 app:shapeAppearance="@style/StyleShapeable_Rounded10" />
 
+            <com.android.base.ui.shape.ShapeableFrameLayout
+                style="@style/StyleShapeView"
+                android:padding="2dp"
+                app:msd_backgroundColor_normal="@color/green"
+                app:msd_padding="2dp"
+                app:msd_shadow_color="@color/red"
+                app:msd_shadow_compat_mode="ALWAYS"
+                app:msd_shadow_elevation="5dp"
+                app:shapeAppearance="@style/StyleShapeable_Rounded10" />
+
             <!-- 注意这里 padding 的数值是描边宽度的一半 -->
             <com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"

@@ -21,3 +21,7 @@
 ## V 1.1.1
 
 - rename all attribute names.
+
+## V 1.1.2
+
+- ShapeableView add shadow support
