@@ -24,4 +24,8 @@
 
 ## V 1.1.2
 
-- ShapeableView add shadow support
+- ShapeableView add shadow support.
+
+## V 1.1.3
+
+- abbreviate style attribute name.

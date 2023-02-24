@@ -1,27 +1,27 @@
 <resources>
 
     <style name="GradientStyle_1">
-        <item name="gradient_style_gradient_start_color">#FF0000</item>
-        <item name="gradient_style_gradient_center_color">#0000FF</item>
-        <item name="gradient_style_gradient_end_color">#00FF00</item>
+        <item name="gradient_style_start_color">#FF0000</item>
+        <item name="gradient_style_center_color">#0000FF</item>
+        <item name="gradient_style_end_color">#00FF00</item>
     </style>
 
     <style name="GradientStyle_2">
-        <item name="gradient_style_gradient_start_color">#FF0000</item>
-        <item name="gradient_style_gradient_center_color">#0000FF</item>
-        <item name="gradient_style_gradient_end_color">#00FF00</item>
-        <item name="gradient_style_gradient_orientation">TOP_BOTTOM</item>
+        <item name="gradient_style_start_color">#FF0000</item>
+        <item name="gradient_style_center_color">#0000FF</item>
+        <item name="gradient_style_end_color">#00FF00</item>
+        <item name="gradient_style_orientation">TOP_BOTTOM</item>
     </style>
 
     <style name="StyleGradientDrawableView_Round_TL20">
-        <item name="corner_style_corner_top_left">20dp</item>
+        <item name="corner_style_top_left">20dp</item>
     </style>
 
     <style name="StrokeStyle_1">
-        <item name="stroke_style_stroke_color">#FF0000</item>
-        <item name="stroke_style_stroke_dash_gap">10dp</item>
-        <item name="stroke_style_stroke_dash_width">4dp</item>
-        <item name="stroke_style_stroke_width">4dp</item>
+        <item name="stroke_style_color">#FF0000</item>
+        <item name="stroke_style_dash_gap">10dp</item>
+        <item name="stroke_style_dash_width">4dp</item>
+        <item name="stroke_style_width">4dp</item>
     </style>
 
     <style name="CodingGradientDrawable_Gradient_1">

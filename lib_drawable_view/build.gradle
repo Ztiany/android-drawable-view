@@ -11,8 +11,6 @@ android {
     defaultConfig {
         minSdkVersion buildVersion.minSdkVersion
         targetSdkVersion buildVersion.targetSdkVersion
-        versionCode 1102
-        versionName "1.1.2"
     }
 
     lintOptions {

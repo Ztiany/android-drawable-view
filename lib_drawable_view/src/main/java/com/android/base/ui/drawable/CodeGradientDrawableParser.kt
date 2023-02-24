@@ -91,14 +91,14 @@ private fun parseGradientAttribute(context: Context, typedArray: TypedArray): Gr
 
 private fun getGradientAttributeValue(gradientTypedValue: TypedArray, gradientValues: GradientValues) {
     val colorList = mutableListOf<Int>()
-    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_gradient_start_color)) {
-        colorList.add(gradientTypedValue.getColor(R.styleable.GradientStyle_gradient_style_gradient_start_color, Color.WHITE))
+    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_start_color)) {
+        colorList.add(gradientTypedValue.getColor(R.styleable.GradientStyle_gradient_style_start_color, Color.WHITE))
     }
-    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_gradient_center_color)) {
-        colorList.add(gradientTypedValue.getColor(R.styleable.GradientStyle_gradient_style_gradient_center_color, Color.WHITE))
+    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_center_color)) {
+        colorList.add(gradientTypedValue.getColor(R.styleable.GradientStyle_gradient_style_center_color, Color.WHITE))
     }
-    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_gradient_end_color)) {
-        colorList.add(gradientTypedValue.getColor(R.styleable.GradientStyle_gradient_style_gradient_end_color, Color.WHITE))
+    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_end_color)) {
+        colorList.add(gradientTypedValue.getColor(R.styleable.GradientStyle_gradient_style_end_color, Color.WHITE))
     }
     if (colorList.isNotEmpty()) {
         gradientValues.gradientColors = colorList.toIntArray()
@@ -106,28 +106,28 @@ private fun getGradientAttributeValue(gradientTypedValue: TypedArray, gradientVa
         return
     }
 
-    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_gradient_orientation)) {
+    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_orientation)) {
         val orientation = gradientTypedValue.getColor(
-            R.styleable.GradientStyle_gradient_style_gradient_orientation, GradientDrawable.Orientation.LEFT_RIGHT.ordinal
+            R.styleable.GradientStyle_gradient_style_orientation, GradientDrawable.Orientation.LEFT_RIGHT.ordinal
         )
         gradientValues.orientation = GradientDrawable.Orientation.values()[orientation]
     }
 
-    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_gradient_center_x)) {
-        gradientValues.centerX = gradientTypedValue.getFloat(R.styleable.GradientStyle_gradient_style_gradient_center_x, 0.5F)
+    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_center_x)) {
+        gradientValues.centerX = gradientTypedValue.getFloat(R.styleable.GradientStyle_gradient_style_center_x, 0.5F)
     }
-    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_gradient_center_y)) {
-        gradientValues.centerY = gradientTypedValue.getFloat(R.styleable.GradientStyle_gradient_style_gradient_center_y, 0.5F)
+    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_center_y)) {
+        gradientValues.centerY = gradientTypedValue.getFloat(R.styleable.GradientStyle_gradient_style_center_y, 0.5F)
     }
-    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_gradient_radius)) {
-        gradientValues.radius = gradientTypedValue.getDimension(R.styleable.GradientStyle_gradient_style_gradient_radius, 0.5F)
+    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_radius)) {
+        gradientValues.radius = gradientTypedValue.getDimension(R.styleable.GradientStyle_gradient_style_radius, 0.5F)
     }
-    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_gradient_radius)) {
-        gradientValues.useLevel = gradientTypedValue.getBoolean(R.styleable.GradientStyle_gradient_style_gradient_radius, false)
+    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_radius)) {
+        gradientValues.useLevel = gradientTypedValue.getBoolean(R.styleable.GradientStyle_gradient_style_radius, false)
     }
-    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_gradient_type)) {
+    if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_type)) {
         gradientValues.type =
-            gradientTypedValue.getInt(R.styleable.GradientStyle_gradient_style_gradient_type, GradientDrawable.LINEAR_GRADIENT)
+            gradientTypedValue.getInt(R.styleable.GradientStyle_gradient_style_type, GradientDrawable.LINEAR_GRADIENT)
     }
 }
 
@@ -200,17 +200,17 @@ private fun parseStrokeAttribute(context: Context, typedArray: TypedArray): Stro
 }
 
 private fun getStrokeAttributeValue(strokeTypedValue: TypedArray, strokeValues: StrokeValues) {
-    if (strokeTypedValue.hasValue(R.styleable.StrokeStyle_stroke_style_stroke_dash_width)) {
-        strokeValues.dashWidth = strokeTypedValue.getDimension(R.styleable.StrokeStyle_stroke_style_stroke_dash_width, 0F)
+    if (strokeTypedValue.hasValue(R.styleable.StrokeStyle_stroke_style_dash_width)) {
+        strokeValues.dashWidth = strokeTypedValue.getDimension(R.styleable.StrokeStyle_stroke_style_dash_width, 0F)
     }
-    if (strokeTypedValue.hasValue(R.styleable.StrokeStyle_stroke_style_stroke_dash_gap)) {
-        strokeValues.dashGap = strokeTypedValue.getDimension(R.styleable.StrokeStyle_stroke_style_stroke_dash_gap, 0F)
+    if (strokeTypedValue.hasValue(R.styleable.StrokeStyle_stroke_style_dash_gap)) {
+        strokeValues.dashGap = strokeTypedValue.getDimension(R.styleable.StrokeStyle_stroke_style_dash_gap, 0F)
     }
-    if (strokeTypedValue.hasValue(R.styleable.StrokeStyle_stroke_style_stroke_width)) {
-        strokeValues.width = strokeTypedValue.getDimension(R.styleable.StrokeStyle_stroke_style_stroke_width, 0F)
+    if (strokeTypedValue.hasValue(R.styleable.StrokeStyle_stroke_style_width)) {
+        strokeValues.width = strokeTypedValue.getDimension(R.styleable.StrokeStyle_stroke_style_width, 0F)
     }
-    if (strokeTypedValue.hasValue(R.styleable.StrokeStyle_stroke_style_stroke_color)) {
-        strokeValues.color = strokeTypedValue.getColor(R.styleable.StrokeStyle_stroke_style_stroke_color, Color.TRANSPARENT)
+    if (strokeTypedValue.hasValue(R.styleable.StrokeStyle_stroke_style_color)) {
+        strokeValues.color = strokeTypedValue.getColor(R.styleable.StrokeStyle_stroke_style_color, Color.TRANSPARENT)
     }
 }
 
@@ -250,17 +250,17 @@ private fun parsePaddingAttribute(context: Context, typedArray: TypedArray): Pad
 }
 
 private fun getPaddingAttributeValue(paddingTypedValue: TypedArray, paddings: Rect) {
-    if (paddingTypedValue.hasValue(R.styleable.PaddingStyle_padding_style_padding_left)) {
-        paddings.left = paddingTypedValue.getDimensionPixelOffset(R.styleable.PaddingStyle_padding_style_padding_left, 0)
+    if (paddingTypedValue.hasValue(R.styleable.PaddingStyle_padding_style_left)) {
+        paddings.left = paddingTypedValue.getDimensionPixelOffset(R.styleable.PaddingStyle_padding_style_left, 0)
     }
-    if (paddingTypedValue.hasValue(R.styleable.PaddingStyle_padding_style_padding_right)) {
-        paddings.right = paddingTypedValue.getDimensionPixelOffset(R.styleable.PaddingStyle_padding_style_padding_right, 0)
+    if (paddingTypedValue.hasValue(R.styleable.PaddingStyle_padding_style_right)) {
+        paddings.right = paddingTypedValue.getDimensionPixelOffset(R.styleable.PaddingStyle_padding_style_right, 0)
     }
-    if (paddingTypedValue.hasValue(R.styleable.PaddingStyle_padding_style_padding_top)) {
-        paddings.top = paddingTypedValue.getDimensionPixelOffset(R.styleable.PaddingStyle_padding_style_padding_top, 0)
+    if (paddingTypedValue.hasValue(R.styleable.PaddingStyle_padding_style_top)) {
+        paddings.top = paddingTypedValue.getDimensionPixelOffset(R.styleable.PaddingStyle_padding_style_top, 0)
     }
-    if (paddingTypedValue.hasValue(R.styleable.PaddingStyle_padding_style_padding_bottom)) {
-        paddings.bottom = paddingTypedValue.getDimensionPixelOffset(R.styleable.PaddingStyle_padding_style_padding_bottom, 0)
+    if (paddingTypedValue.hasValue(R.styleable.PaddingStyle_padding_style_bottom)) {
+        paddings.bottom = paddingTypedValue.getDimensionPixelOffset(R.styleable.PaddingStyle_padding_style_bottom, 0)
     }
 }
 
@@ -336,25 +336,25 @@ private fun parseCornerAttribute(context: Context, typedArray: TypedArray): Corn
 }
 
 private fun getCornerAttributeValues(cornerTypedValue: TypedArray, cornerValue: FloatArray) {
-    if (cornerTypedValue.hasValue(R.styleable.CornerStyle_corner_style_corner)) {
-        val corner = cornerTypedValue.getDimension(R.styleable.CornerStyle_corner_style_corner, 0F)
+    if (cornerTypedValue.hasValue(R.styleable.CornerStyle_corner_style_all)) {
+        val corner = cornerTypedValue.getDimension(R.styleable.CornerStyle_corner_style_all, 0F)
         cornerValue[0] = corner
         cornerValue[1] = corner
         cornerValue[2] = corner
         cornerValue[3] = corner
     }
 
-    if (cornerTypedValue.hasValue(R.styleable.CornerStyle_corner_style_corner_top_left)) {
-        cornerValue[0] = cornerTypedValue.getDimension(R.styleable.CornerStyle_corner_style_corner_top_left, cornerValue[0])
+    if (cornerTypedValue.hasValue(R.styleable.CornerStyle_corner_style_top_left)) {
+        cornerValue[0] = cornerTypedValue.getDimension(R.styleable.CornerStyle_corner_style_top_left, cornerValue[0])
     }
-    if (cornerTypedValue.hasValue(R.styleable.CornerStyle_corner_style_corner_top_right)) {
-        cornerValue[1] = cornerTypedValue.getDimension(R.styleable.CornerStyle_corner_style_corner_top_right, cornerValue[1])
+    if (cornerTypedValue.hasValue(R.styleable.CornerStyle_corner_style_top_right)) {
+        cornerValue[1] = cornerTypedValue.getDimension(R.styleable.CornerStyle_corner_style_top_right, cornerValue[1])
     }
-    if (cornerTypedValue.hasValue(R.styleable.CornerStyle_corner_style_corner_bottom_left)) {
-        cornerValue[2] = cornerTypedValue.getDimension(R.styleable.CornerStyle_corner_style_corner_bottom_left, cornerValue[2])
+    if (cornerTypedValue.hasValue(R.styleable.CornerStyle_corner_style_bottom_left)) {
+        cornerValue[2] = cornerTypedValue.getDimension(R.styleable.CornerStyle_corner_style_bottom_left, cornerValue[2])
     }
-    if (cornerTypedValue.hasValue(R.styleable.CornerStyle_corner_style_corner_bottom_right)) {
-        cornerValue[3] = cornerTypedValue.getDimension(R.styleable.CornerStyle_corner_style_corner_bottom_right, cornerValue[3])
+    if (cornerTypedValue.hasValue(R.styleable.CornerStyle_corner_style_bottom_right)) {
+        cornerValue[3] = cornerTypedValue.getDimension(R.styleable.CornerStyle_corner_style_bottom_right, cornerValue[3])
     }
 }
 

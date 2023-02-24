@@ -2,11 +2,11 @@
 <resources>
 
     <declare-styleable name="CornerStyle">
-        <attr name="corner_style_corner" format="dimension|reference" />
-        <attr name="corner_style_corner_top_left" format="dimension|reference" />
-        <attr name="corner_style_corner_top_right" format="dimension|reference" />
-        <attr name="corner_style_corner_bottom_left" format="dimension|reference" />
-        <attr name="corner_style_corner_bottom_right" format="dimension|reference" />
+        <attr name="corner_style_all" format="dimension|reference" />
+        <attr name="corner_style_top_left" format="dimension|reference" />
+        <attr name="corner_style_top_right" format="dimension|reference" />
+        <attr name="corner_style_bottom_left" format="dimension|reference" />
+        <attr name="corner_style_bottom_right" format="dimension|reference" />
     </declare-styleable>
 
     <declare-styleable name="SizeStyle">
@@ -15,25 +15,25 @@
     </declare-styleable>
 
     <declare-styleable name="StrokeStyle">
-        <attr name="stroke_style_stroke_dash_width" format="dimension|reference" />
-        <attr name="stroke_style_stroke_dash_gap" format="dimension|reference" />
-        <attr name="stroke_style_stroke_color" format="color|reference" />
-        <attr name="stroke_style_stroke_width" format="dimension|reference" />
+        <attr name="stroke_style_dash_width" format="dimension|reference" />
+        <attr name="stroke_style_dash_gap" format="dimension|reference" />
+        <attr name="stroke_style_color" format="color|reference" />
+        <attr name="stroke_style_width" format="dimension|reference" />
     </declare-styleable>
 
     <declare-styleable name="PaddingStyle">
-        <attr name="padding_style_padding_left" format="dimension|reference" />
-        <attr name="padding_style_padding_right" format="dimension|reference" />
-        <attr name="padding_style_padding_top" format="dimension|reference" />
-        <attr name="padding_style_padding_bottom" format="dimension|reference" />
+        <attr name="padding_style_left" format="dimension|reference" />
+        <attr name="padding_style_right" format="dimension|reference" />
+        <attr name="padding_style_top" format="dimension|reference" />
+        <attr name="padding_style_bottom" format="dimension|reference" />
     </declare-styleable>
 
     <declare-styleable name="GradientStyle">
-        <attr name="gradient_style_gradient_start_color" format="color|reference" />
-        <attr name="gradient_style_gradient_center_color" format="color|reference" />
-        <attr name="gradient_style_gradient_end_color" format="color|reference" />
+        <attr name="gradient_style_start_color" format="color|reference" />
+        <attr name="gradient_style_center_color" format="color|reference" />
+        <attr name="gradient_style_end_color" format="color|reference" />
         <!-- value 与 GradientDrawable 中的常量对应 -->
-        <attr name="gradient_style_gradient_orientation" format="enum">
+        <attr name="gradient_style_orientation" format="enum">
             <enum name="TOP_BOTTOM" value="0" />
             <enum name="TR_BL" value="1" />
             <enum name="RIGHT_LEFT" value="2" />
@@ -43,12 +43,12 @@
             <enum name="LEFT_RIGHT" value="6" />
             <enum name="TL_BR" value="7" />
         </attr>
-        <attr name="gradient_style_gradient_center_x" format="float" />
-        <attr name="gradient_style_gradient_center_y" format="float" />
-        <attr name="gradient_style_gradient_radius" format="dimension|reference" />
-        <attr name="gradient_style_gradient_user_level" format="boolean" />
+        <attr name="gradient_style_center_x" format="float" />
+        <attr name="gradient_style_center_y" format="float" />
+        <attr name="gradient_style_radius" format="dimension|reference" />
+        <attr name="gradient_style_user_level" format="boolean" />
         <!-- value 与 GradientDrawable 中的常量对应 -->
-        <attr name="gradient_style_gradient_type" format="enum">
+        <attr name="gradient_style_type" format="enum">
             <enum name="linear" value="0" />
             <enum name="radial" value="1" />
             <enum name="sweep" value="2" />
