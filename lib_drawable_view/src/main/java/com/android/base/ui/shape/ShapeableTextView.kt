@@ -3,7 +3,8 @@ package com.android.base.ui.shape
 import android.content.Context
 import android.util.AttributeSet
 import androidx.annotation.AttrRes
-import com.android.base.ui.common.TextColorView
+import androidx.appcompat.widget.AppCompatTextView
+import com.android.base.ui.common.TextColor
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.google.android.material.textview.MaterialTextView
 
@@ -12,7 +13,7 @@ class ShapeableTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = android.R.attr.textViewStyle
-) : MaterialTextView(context, attrs, defStyleAttr), EnhancedShapeable, TextColorView {
+) : AppCompatTextView(context, attrs, defStyleAttr), EnhancedShapeable, TextColor {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr)
 

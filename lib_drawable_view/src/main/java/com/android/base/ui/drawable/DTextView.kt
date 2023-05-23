@@ -3,14 +3,15 @@ package com.android.base.ui.drawable
 import android.content.Context
 import android.util.AttributeSet
 import androidx.annotation.AttrRes
-import com.android.base.ui.common.TextColorView
+import androidx.appcompat.widget.AppCompatTextView
+import com.android.base.ui.common.TextColor
 import com.google.android.material.textview.MaterialTextView
 
 class DTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = android.R.attr.textViewStyle
-) : MaterialTextView(context, attrs, defStyleAttr), DrawableView, TextColorView {
+) : AppCompatTextView(context, attrs, defStyleAttr), DrawableView, TextColor {
 
     private val codeDrawableHelper = CodeDrawableHelper(context, attrs, defStyleAttr)
 

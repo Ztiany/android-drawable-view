@@ -29,3 +29,8 @@
 ## V 1.1.3
 
 - abbreviate style attribute name.
+
+## V 1.1.4
+
+- Change DTextView's parent to AppCompatTextView.
+- Change ShapeableTextView's parent to AppCompatTextView.

@@ -1,6 +1,6 @@
 package com.android.base.ui.common
 
-interface TextColorView {
+interface TextColor {
 
     fun updateTextColor()
 

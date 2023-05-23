@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.annotation.AttrRes
 import androidx.appcompat.widget.AppCompatEditText
-import com.android.base.ui.common.TextColorView
+import com.android.base.ui.common.TextColor
 import com.google.android.material.shape.ShapeAppearanceModel
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
@@ -12,7 +12,7 @@ class ShapeableEditText @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = android.R.attr.editTextStyle
-) : AppCompatEditText(context, attrs, defStyleAttr), EnhancedShapeable, TextColorView {
+) : AppCompatEditText(context, attrs, defStyleAttr), EnhancedShapeable, TextColor {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr)
 
