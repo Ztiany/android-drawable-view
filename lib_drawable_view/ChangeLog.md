@@ -34,3 +34,7 @@
 
 - Change DTextView's parent to AppCompatTextView.
 - Change ShapeableTextView's parent to AppCompatTextView.
+
+## V 1.1.5
+
+- Rename styles.

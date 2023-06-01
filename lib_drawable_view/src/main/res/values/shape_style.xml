@@ -1,88 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="StyleShapeable_Rectangular">
+    <style name="Style.Shapeable.Rectangular" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">0dp</item>
     </style>
 
-    <style name="StyleShapeable_Rounded5">
+    <style name="Style.Shapeable.Rounded5" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">5dp</item>
     </style>
 
-    <style name="StyleShapeable_Rounded8">
+    <style name="Style.Shapeable.Rounded8" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
     </style>
 
-    <style name="StyleShapeable_Rounded10">
+    <style name="Style.Shapeable.Rounded10" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">10dp</item>
     </style>
 
-    <style name="StyleShapeable_Rounded12">
+    <style name="Style.Shapeable.Rounded12" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">12dp</item>
     </style>
 
-    <style name="StyleShapeable_Rounded15">
+    <style name="Style.Shapeable.Rounded15" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">15dp</item>
     </style>
 
-    <style name="StyleShapeable_Rounded20">
+    <style name="Style.Shapeable.Rounded20" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">20dp</item>
     </style>
 
-    <style name="StyleShapeable_Circle">
+    <style name="Style.Shapeable.Circle" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
 
-    <style name="StyleShapeable_Cut10">
+    <style name="Style.Shapeable.Cut10" parent="">
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">10dp</item>
     </style>
 
-    <style name="StyleShapeable_Cut50Percent">
+    <style name="Style.Shapeable.Cut50Percent" parent="">
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">50%</item>
     </style>
 
-    <style name="StyleShapeable_Leaf">
+    <style name="Style.Shapeable.Leaf" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">50%</item>
         <item name="cornerSizeBottomRight">50%</item>
     </style>
 
-    <style name="StyleShapeable_TopCircle">
+    <style name="Style.Shapeable.TopCircle" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">50%</item>
         <item name="cornerSizeTopRight">50%</item>
     </style>
 
-    <style name="StyleShapeable_BottomCircle">
+    <style name="Style.Shapeable.BottomCircle" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeBottomLeft">50%</item>
         <item name="cornerSizeBottomRight">50%</item>
     </style>
 
-    <style name="StyleShapeable_LeftCircle">
+    <style name="Style.Shapeable.LeftCircle" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">50%</item>
         <item name="cornerSizeBottomLeft">50%</item>
     </style>
 
-    <style name="StyleShapeable_RightCircle">
+    <style name="Style.Shapeable.RightCircle" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopRight">50%</item>
         <item name="cornerSizeBottomRight">50%</item>
     </style>
 
     <!-- 这种 Style 要求宽度必须大于高度 -->
-    <style name="StyleShapeable_Hexagon">
+    <style name="Style.Shapeable.Hexagon" parent="">
         <item name="cornerFamily">cut</item>
         <item name="cornerSizeTopLeft">50%</item>
         <item name="cornerSizeTopRight">50%</item>
