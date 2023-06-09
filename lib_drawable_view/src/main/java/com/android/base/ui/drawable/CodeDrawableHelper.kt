@@ -45,7 +45,7 @@ class CodeDrawableHelper(
             when (codingDrawableView.getInt(R.styleable.CodingDrawableView_cdv_drawable_type, -1)) {
                 1/*gradient*/ -> buildGradientDrawable()
                 2/*selector*/ -> buildSelectorDrawable()
-                3/*selector*/ -> buildRippleDrawable()
+                3/*ripple*/ -> buildRippleDrawable()
                 else -> throw IllegalArgumentException("Unsupported drawable type")
             }
             return
