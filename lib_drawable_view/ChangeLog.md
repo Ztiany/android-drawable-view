@@ -38,3 +38,7 @@
 ## V 1.1.5
 
 - Rename styles.
+
+## V 1.1.6
+
+- fix comments.
