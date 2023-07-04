@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -159,7 +160,7 @@
                 android:textStyle="bold"
                 app:cdv_drawable_type="gradient"
                 app:cgd_shape="rectangle"
-                app:cgd_shape_corner_style="@style/Style.CodeDrawable.Shape.CornerStyle.Rounded10"
+                app:cgd_shape_corner_style="@style/CornerAppearance.Rounded10"
                 app:cgd_shape_solid="@color/colorPrimary" />
 
             <com.android.base.ui.drawable.DTextView

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Style.CodeDrawable.Shape.CornerStyle.Rounded5" parent="">
+    <style name="CornerAppearance.Rounded5" parent="">
         <item name="corner_style_all">5dp</item>
     </style>
 
-    <style name="Style.CodeDrawable.Shape.CornerStyle.Rounded8" parent="">
+    <style name="CornerAppearance.Rounded8" parent="">
         <item name="corner_style_all">8dp</item>
     </style>
 
-    <style name="Style.CodeDrawable.Shape.CornerStyle.Rounded10" parent="">
+    <style name="CornerAppearance.Rounded10" parent="">
         <item name="corner_style_all">10dp</item>
     </style>
 
-    <style name="Style.CodeDrawable.Shape.CornerStyle.Rounded15" parent="">
+    <style name="CornerAppearance.Rounded15" parent="">
         <item name="corner_style_all">15dp</item>
     </style>
 
-    <style name="Style.CodeDrawable.Shape.CornerStyle.Rounded20" parent="">
+    <style name="CornerAppearance.Rounded20" parent="">
         <item name="corner_style_all">20dp</item>
     </style>
 

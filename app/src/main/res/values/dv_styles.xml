@@ -32,7 +32,7 @@
 
     <style name="CodingGradientDrawable_Gradient_2">
         <item name="cgd_shape">rectangle</item>
-        <item name="cgd_shape_corner_style">@style/Style.CodeDrawable.Shape.CornerStyle.Rounded20</item>
+        <item name="cgd_shape_corner_style">@style/CornerAppearance.Rounded20</item>
         <item name="cgd_shape_gradient_style">@style/GradientStyle_2</item>
     </style>
 

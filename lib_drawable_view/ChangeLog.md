@@ -42,3 +42,7 @@
 ## V 1.1.6
 
 - fix comments.
+
+## V 1.1.6
+
+- Rename styles.

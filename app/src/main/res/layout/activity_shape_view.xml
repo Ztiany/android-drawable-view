@@ -84,7 +84,7 @@
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeColor_pressed="@color/black"
                 app:msd_strokeWidth="4dp"
-                app:shapeAppearance="@style/Style.Shapeable.Hexagon"
+                app:shapeAppearance="@style/ShapeAppearance.Hexagon"
                 app:stv_text_color_normal="@color/red"
                 app:stv_text_color_pressed="@color/black" />
 
@@ -101,7 +101,7 @@
                 app:msd_strokeColor_normal="@color/gold"
                 app:msd_strokeColor_pressed="@color/red"
                 app:msd_strokeWidth="4dp"
-                app:shapeAppearance="@style/Style.Shapeable.Hexagon"
+                app:shapeAppearance="@style/ShapeAppearance.Hexagon"
                 app:stv_text_color_normal="@color/gold"
                 app:stv_text_color_pressed="@color/red" />
 
@@ -109,7 +109,7 @@
                 style="@style/StyleShapeView"
                 android:backgroundTintMode="src_over"
                 app:backgroundTint="@color/colorPrimary"
-                app:shapeAppearance="@style/Style.Shapeable.Rounded10" />
+                app:shapeAppearance="@style/ShapeAppearance.Rounded10" />
 
             <com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
@@ -119,7 +119,7 @@
                 app:msd_shadow_color="@color/red"
                 app:msd_shadow_compat_mode="ALWAYS"
                 app:msd_shadow_elevation="5dp"
-                app:shapeAppearance="@style/Style.Shapeable.Rounded10" />
+                app:shapeAppearance="@style/ShapeAppearance.Rounded10" />
 
             <!-- 注意这里 padding 的数值是描边宽度的一半 -->
             <com.android.base.ui.shape.ShapeableFrameLayout
@@ -129,7 +129,7 @@
                 app:msd_strokeColor_disabled="#AABBDD"
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeWidth="4dp"
-                app:shapeAppearance="@style/Style.Shapeable.Cut10" />
+                app:shapeAppearance="@style/ShapeAppearance.Cut10" />
 
             <com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
@@ -137,7 +137,7 @@
                 app:msd_backgroundColor_normal="@color/colorPrimary"
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeWidth="4dp"
-                app:shapeAppearance="@style/Style.Shapeable.Cut50Percent" />
+                app:shapeAppearance="@style/ShapeAppearance.Cut50Percent" />
 
             <com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
@@ -145,14 +145,14 @@
                 app:msd_backgroundColor_normal="@color/green"
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeWidth="4dp"
-                app:shapeAppearance="@style/Style.Shapeable.Leaf" />
+                app:shapeAppearance="@style/ShapeAppearance.Leaf" />
 
             <com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
                 android:padding="2dp"
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeWidth="4dp"
-                app:shapeAppearance="@style/Style.Shapeable.TopCircle" />
+                app:shapeAppearance="@style/ShapeAppearance.TopCircle" />
 
             <com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
@@ -162,7 +162,7 @@
                 android:padding="2dp"
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeWidth="4dp"
-                app:shapeAppearance="@style/Style.Shapeable.Hexagon" />
+                app:shapeAppearance="@style/ShapeAppearance.Hexagon" />
 
             <com.android.base.ui.shape.ShapeableFrameLayout
                 android:layout_width="wrap_content"
@@ -173,7 +173,7 @@
                 app:msd_backgroundColor_normal="@color/green"
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeWidth="4dp"
-                app:shapeAppearance="@style/Style.Shapeable.Leaf">
+                app:shapeAppearance="@style/ShapeAppearance.Leaf">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -191,7 +191,7 @@
                 android:layout_marginTop="10dp"
                 android:padding="4dp"
                 app:msd_backgroundColor_normal="@color/white"
-                app:shapeAppearance="@style/Style.Shapeable.Rounded10"
+                app:shapeAppearance="@style/ShapeAppearance.Rounded10"
                 app:stv_text_color_focused="@color/black"
                 app:stv_text_color_normal="@color/red" />
 
@@ -202,7 +202,7 @@
                 android:layout_marginTop="10dp"
                 android:padding="4dp"
                 app:msd_backgroundColor_normal="@color/white"
-                app:shapeAppearance="@style/Style.Shapeable.Rounded10"
+                app:shapeAppearance="@style/ShapeAppearance.Rounded10"
                 app:stv_text_color_focused="@color/red"
                 app:stv_text_color_normal="@color/black" />
 
