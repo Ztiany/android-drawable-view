@@ -13,7 +13,7 @@ class ShapeableView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0,
     @StyleRes defStyleRes: Int = 0
-) : View(context, attrs, defStyleAttr, defStyleRes), EnhancedShapeable {
+) : View(context, attrs, defStyleAttr, defStyleRes), RecoverableShapeable {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr, defStyleRes)
 
@@ -21,7 +21,7 @@ class ShapeableView @JvmOverloads constructor(
         mdHelper.update(this)
     }
 
-    override fun updateShapeDrawable() {
+    override fun recoverShapeDrawable() {
         mdHelper.update(this)
     }
 

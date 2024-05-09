@@ -13,7 +13,7 @@ class ShapeableLinearLayout @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0,
     @StyleRes defStyleRes: Int = 0
-) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), EnhancedShapeable {
+) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), RecoverableShapeable {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr, defStyleRes)
 
@@ -21,7 +21,7 @@ class ShapeableLinearLayout @JvmOverloads constructor(
         mdHelper.update(this)
     }
 
-    override fun updateShapeDrawable() {
+    override fun recoverShapeDrawable() {
         mdHelper.update(this)
     }
 

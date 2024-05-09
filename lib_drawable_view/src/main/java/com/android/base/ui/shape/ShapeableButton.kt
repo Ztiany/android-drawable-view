@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.annotation.AttrRes
 import androidx.appcompat.widget.AppCompatButton
-import com.android.base.ui.common.TextColor
+import com.android.base.ui.common.RecoverableTextColor
 import com.google.android.material.shape.ShapeAppearanceModel
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
@@ -12,7 +12,7 @@ class ShapeableButton @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = android.R.attr.buttonStyle
-) : AppCompatButton(context, attrs, defStyleAttr), EnhancedShapeable, TextColor {
+) : AppCompatButton(context, attrs, defStyleAttr), RecoverableShapeable, RecoverableTextColor {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr)
 
@@ -23,11 +23,11 @@ class ShapeableButton @JvmOverloads constructor(
         colorHelper.setTextColor(this)
     }
 
-    override fun updateShapeDrawable() {
+    override fun recoverShapeDrawable() {
         mdHelper.update(this)
     }
 
-    override fun updateTextColor() {
+    override fun recoverTextColor() {
         colorHelper.setTextColor(this)
     }
 

@@ -3,20 +3,15 @@
 
     <!-- MaterialShapeDrawable -->
     <declare-styleable name="MaterialShapeDrawableView">
+        <!-- 引用 material 中的 shape 属性 -->
         <attr name="shapeAppearance" />
         <attr name="shapeAppearanceOverlay" />
 
         <!-- 是否使用 shapeAppearance 初始化 Shape，默认是 true，请暂时不用修改默认值，否则会引发崩溃。 -->
         <attr name="msd_useShapeAppearance" format="boolean" />
 
+        <!-- 描边 -->
         <attr name="msd_strokeWidth" format="dimension" />
-
-        <attr name="msd_PaintStyle" format="enum">
-            <enum name="FILL" value="1" />
-            <enum name="STROKE" value="2" />
-            <enum name="FILL_AND_STROKE" value="3" />
-        </attr>
-
         <attr name="msd_strokeColor_disabled" format="color|reference" />
         <attr name="msd_strokeColor_focused" format="color|reference" />
         <attr name="msd_strokeColor_checked" format="color|reference" />
@@ -24,30 +19,13 @@
         <attr name="msd_strokeColor_pressed" format="color|reference" />
         <attr name="msd_strokeColor_normal" format="color|reference" />
 
+        <!-- 背景 -->
         <attr name="msd_backgroundColor_disabled" format="color|reference" />
         <attr name="msd_backgroundColor_focused" format="color|reference" />
         <attr name="msd_backgroundColor_checked" format="color|reference" />
         <attr name="msd_backgroundColor_selected" format="color|reference" />
         <attr name="msd_backgroundColor_pressed" format="color|reference" />
         <attr name="msd_backgroundColor_normal" format="color|reference" />
-
-        <attr name="msd_shadow_color" format="color|reference" />
-        <attr name="msd_shadow_use_tint" format="boolean" />
-        <attr name="msd_shadow_elevation" format="dimension|reference" />
-        <attr name="msd_shadow_compat_rotation" format="integer" />
-        <attr name="msd_shadow_compat_mode" format="enum">
-            <enum name="DEFAULT" value="0" />
-            <enum name="NEVER" value="1" />
-            <enum name="ALWAYS" value="2" />
-        </attr>
-
-        <attr name="msd_padding" format="dimension|reference" />
-        <attr name="msd_padding_vertical" format="dimension|reference" />
-        <attr name="msd_padding_horizontal" format="dimension|reference" />
-        <attr name="msd_padding_left" format="dimension|reference" />
-        <attr name="msd_padding_right" format="dimension|reference" />
-        <attr name="msd_padding_top" format="dimension|reference" />
-        <attr name="msd_padding_bottom" format="dimension|reference" />
     </declare-styleable>
 
     <declare-styleable name="ShapeableFrameLayout">
@@ -69,21 +47,6 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
-
-        <attr name="msd_shadow_color" />
-        <attr name="msd_shadow_use_tint" />
-        <attr name="msd_shadow_elevation" />
-        <attr name="msd_shadow_compat_rotation" />
-        <attr name="msd_shadow_compat_mode" />
-
-        <attr name="msd_padding" />
-        <attr name="msd_padding_vertical" />
-        <attr name="msd_padding_horizontal" />
-        <attr name="msd_padding_left" />
-        <attr name="msd_padding_right" />
-        <attr name="msd_padding_top" />
-        <attr name="msd_padding_bottom" />
-
     </declare-styleable>
 
     <declare-styleable name="ShapeableConstraintLayout">
@@ -105,21 +68,6 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
-
-        <attr name="msd_shadow_color" />
-        <attr name="msd_shadow_use_tint" />
-        <attr name="msd_shadow_elevation" />
-        <attr name="msd_shadow_compat_rotation" />
-        <attr name="msd_shadow_compat_mode" />
-
-        <attr name="msd_padding" />
-        <attr name="msd_padding_vertical" />
-        <attr name="msd_padding_horizontal" />
-        <attr name="msd_padding_left" />
-        <attr name="msd_padding_right" />
-        <attr name="msd_padding_top" />
-        <attr name="msd_padding_bottom" />
-
     </declare-styleable>
 
     <declare-styleable name="ShapeableRelativeLayout">
@@ -141,21 +89,6 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
-
-        <attr name="msd_shadow_color" />
-        <attr name="msd_shadow_use_tint" />
-        <attr name="msd_shadow_elevation" />
-        <attr name="msd_shadow_compat_rotation" />
-        <attr name="msd_shadow_compat_mode" />
-
-        <attr name="msd_padding" />
-        <attr name="msd_padding_vertical" />
-        <attr name="msd_padding_horizontal" />
-        <attr name="msd_padding_left" />
-        <attr name="msd_padding_right" />
-        <attr name="msd_padding_top" />
-        <attr name="msd_padding_bottom" />
-
     </declare-styleable>
 
     <declare-styleable name="ShapeableLinearLayout">
@@ -177,21 +110,6 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
-
-        <attr name="msd_shadow_color" />
-        <attr name="msd_shadow_use_tint" />
-        <attr name="msd_shadow_elevation" />
-        <attr name="msd_shadow_compat_rotation" />
-        <attr name="msd_shadow_compat_mode" />
-
-        <attr name="msd_padding" />
-        <attr name="msd_padding_vertical" />
-        <attr name="msd_padding_horizontal" />
-        <attr name="msd_padding_left" />
-        <attr name="msd_padding_right" />
-        <attr name="msd_padding_top" />
-        <attr name="msd_padding_bottom" />
-
     </declare-styleable>
 
     <declare-styleable name="ShapeableView">
@@ -213,21 +131,6 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
-
-        <attr name="msd_shadow_color" />
-        <attr name="msd_shadow_use_tint" />
-        <attr name="msd_shadow_elevation" />
-        <attr name="msd_shadow_compat_rotation" />
-        <attr name="msd_shadow_compat_mode" />
-
-        <attr name="msd_padding" />
-        <attr name="msd_padding_vertical" />
-        <attr name="msd_padding_horizontal" />
-        <attr name="msd_padding_left" />
-        <attr name="msd_padding_right" />
-        <attr name="msd_padding_top" />
-        <attr name="msd_padding_bottom" />
-
     </declare-styleable>
 
     <declare-styleable name="ShapeableTextView">
@@ -258,21 +161,6 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
-
-        <attr name="msd_shadow_color" />
-        <attr name="msd_shadow_use_tint" />
-        <attr name="msd_shadow_elevation" />
-        <attr name="msd_shadow_compat_rotation" />
-        <attr name="msd_shadow_compat_mode" />
-
-        <attr name="msd_padding" />
-        <attr name="msd_padding_vertical" />
-        <attr name="msd_padding_horizontal" />
-        <attr name="msd_padding_left" />
-        <attr name="msd_padding_right" />
-        <attr name="msd_padding_top" />
-        <attr name="msd_padding_bottom" />
-
     </declare-styleable>
 
     <declare-styleable name="ShapeableButton">
@@ -303,21 +191,6 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
-
-        <attr name="msd_shadow_color" />
-        <attr name="msd_shadow_use_tint" />
-        <attr name="msd_shadow_elevation" />
-        <attr name="msd_shadow_compat_rotation" />
-        <attr name="msd_shadow_compat_mode" />
-
-        <attr name="msd_padding" />
-        <attr name="msd_padding_vertical" />
-        <attr name="msd_padding_horizontal" />
-        <attr name="msd_padding_left" />
-        <attr name="msd_padding_right" />
-        <attr name="msd_padding_top" />
-        <attr name="msd_padding_bottom" />
-
     </declare-styleable>
 
     <declare-styleable name="ShapeableEditText">
@@ -348,21 +221,6 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
-
-        <attr name="msd_shadow_color" />
-        <attr name="msd_shadow_use_tint" />
-        <attr name="msd_shadow_elevation" />
-        <attr name="msd_shadow_compat_rotation" />
-        <attr name="msd_shadow_compat_mode" />
-
-        <attr name="msd_padding" />
-        <attr name="msd_padding_vertical" />
-        <attr name="msd_padding_horizontal" />
-        <attr name="msd_padding_left" />
-        <attr name="msd_padding_right" />
-        <attr name="msd_padding_top" />
-        <attr name="msd_padding_bottom" />
-
     </declare-styleable>
 
 </resources>

@@ -1,7 +1,9 @@
-package com.android.base.ui.drawable
+package com.android.base.ui.drawable.parser
 
 import android.content.res.TypedArray
 import android.graphics.Color
+import com.android.base.ui.drawable.drawable.CodeColorStateList
+import com.android.base.ui.drawable.drawable.SelectorColorItem
 
 internal fun parseCodeColorStateListAttribute(typedArray: TypedArray, targets: List<ResourceInfo>): CodeColorStateList? {
     val colorList = mutableListOf<StateInfo<Int>>()

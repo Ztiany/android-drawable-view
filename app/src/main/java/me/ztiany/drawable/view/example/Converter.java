@@ -7,9 +7,9 @@ import android.util.TypedValue;
 /**
  * UnitConverter helps to convert dp or sp size into pixel.
  */
-public class UnitConverter {
+class Converter {
 
-    private UnitConverter(){
+    private Converter() {
         throw new UnsupportedOperationException("no need instantiation");
     }
 
@@ -50,8 +50,8 @@ public class UnitConverter {
      * 各种单位转换
      * <p>该方法存在于TypedValue</p>
      *
-     * @param unit    单位
-     * @param value   值
+     * @param unit  单位
+     * @param value 值
      * @return 转换结果
      */
     public static float applyDimension(int unit, float value) {

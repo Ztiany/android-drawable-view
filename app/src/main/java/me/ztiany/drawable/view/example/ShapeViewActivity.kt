@@ -6,7 +6,13 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.google.android.material.shape.*
+import com.google.android.material.shape.CornerTreatment
+import com.google.android.material.shape.EdgeTreatment
+import com.google.android.material.shape.MaterialShapeDrawable
+import com.google.android.material.shape.RoundedCornerTreatment
+import com.google.android.material.shape.ShapeAppearanceModel
+import com.google.android.material.shape.ShapePath
+import com.google.android.material.shape.TriangleEdgeTreatment
 import timber.log.Timber
 
 /** 参考：https://blog.csdn.net/yechaoa/article/details/117339632?spm=1001.2014.3001.5501 */
@@ -16,36 +22,51 @@ class ShapeViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shape_view)
         byCode()
-        researchHowItWork()
+        researchHowItWorkByCode()
     }
 
     private fun byCode() {
         findViewById<TextView>(R.id.material_tv_01).apply {
             val appearanceModel = ShapeAppearanceModel.builder().apply {
                 setAllCorners(RoundedCornerTreatment())
-                setAllCornerSizes(50f)
-                setAllEdges(TriangleEdgeTreatment(50f, false))
+                setAllCornerSizes(50F)
             }.build()
 
             val drawable = MaterialShapeDrawable(appearanceModel).apply {
                 setTint(ContextCompat.getColor(this@ShapeViewActivity, R.color.colorPrimary))
                 paintStyle = Paint.Style.FILL_AND_STROKE
-                strokeWidth = 50f
+                strokeWidth = 50F
                 strokeColor = ContextCompat.getColorStateList(this@ShapeViewActivity, R.color.red)
             }
 
             background = drawable
         }
 
-        //需要 parent.clipChildren = false
         findViewById<TextView>(R.id.material_tv_02).apply {
             val appearanceModel = ShapeAppearanceModel.builder().apply {
                 setAllCorners(RoundedCornerTreatment())
-                setAllCornerSizes(20f)
+                setAllCornerSizes(50F)
+                setAllEdges(TriangleEdgeTreatment(50f, false))
+            }.build()
+
+            val drawable = MaterialShapeDrawable(appearanceModel).apply {
+                setTint(ContextCompat.getColor(this@ShapeViewActivity, R.color.colorPrimary))
+                paintStyle = Paint.Style.FILL_AND_STROKE
+                strokeWidth = 50F
+                strokeColor = ContextCompat.getColorStateList(this@ShapeViewActivity, R.color.red)
+            }
+
+            background = drawable
+        }
+
+        findViewById<TextView>(R.id.material_tv_03).apply {
+            val appearanceModel = ShapeAppearanceModel.builder().apply {
+                setAllCorners(RoundedCornerTreatment())
+                setAllCornerSizes(20F)
                 setRightEdge(object : TriangleEdgeTreatment(20F, false) {
                     // center 位置 ， interpolation 角的大小
                     override fun getEdgePath(length: Float, center: Float, interpolation: Float, shapePath: ShapePath) {
-                        super.getEdgePath(length, 55f, interpolation, shapePath)
+                        super.getEdgePath(length, 55F, interpolation, shapePath)
                     }
                 })
             }.build()
@@ -58,10 +79,10 @@ class ShapeViewActivity : AppCompatActivity() {
         }
     }
 
-    private fun researchHowItWork() {
+    private fun researchHowItWorkByCode() {
         findViewById<View>(R.id.material_view_test1).apply {
             val appearanceModel = ShapeAppearanceModel.builder().apply {
-                setAllCornerSizes(UnitConverter.dpToPx(15F))
+                setAllCornerSizes(Converter.dpToPx(15F))
                     .setTopLeftCorner(object : CornerTreatment() {
                         override fun getCornerPath(shapePath: ShapePath, angle: Float, interpolation: Float, radius: Float) {
                             Timber.d("getCornerPath() top-left  called with: shapePath = $shapePath, angle = $angle, interpolation = $interpolation, radius = $radius")

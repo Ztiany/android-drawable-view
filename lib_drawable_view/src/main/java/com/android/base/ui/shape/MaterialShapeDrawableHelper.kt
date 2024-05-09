@@ -10,7 +10,13 @@ import android.graphics.PorterDuff
 import android.util.AttributeSet
 import android.view.View
 import androidx.appcompat.widget.DrawableUtils
-import com.android.base.ui.drawable.*
+import com.android.base.ui.drawable.parser.ResourceInfo
+import com.android.base.ui.drawable.parser.StateChecked
+import com.android.base.ui.drawable.parser.StateEnabled
+import com.android.base.ui.drawable.parser.StateFocused
+import com.android.base.ui.drawable.parser.StatePressed
+import com.android.base.ui.drawable.parser.StateSelected
+import com.android.base.ui.drawable.parser.parseCodeColorStateListAttribute
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.ztiany.android.drawable.view.R
@@ -28,15 +34,18 @@ import com.ztiany.android.drawable.view.R
  *
  * references:
  *
- *  1. [Material Components——Shape的处理](https://xuyisheng.top/mdc-shape/)
- *  2. [Material Components——ShapeableImageView](https://xuyisheng.top/mdc-shape/)
- *  3. [to create rounded corners for a view without having to create a separate drawable](https://stackoverflow.com/questions/59046711/android-is-there-a-simple-way-to-create-rounded-corners-for-a-view-without-havi)
+ *  1. [Material Components——Shape 的处理](https://juejin.cn/post/7096291397447188517)
+ *  2. [Material Components——ShapeableImageView](https://juejin.cn/post/7111500924358492173)
+ *  3. [To create rounded corners for a view without having to create a separate drawable](https://stackoverflow.com/questions/59046711/android-is-there-a-simple-way-to-create-rounded-corners-for-a-view-without-havi)
  *
  * notes: the background attribute of views that uses MaterialShapeDrawableHelper may not work.
  *@author Ztiany
  */
 class MaterialShapeDrawableHelper(
-    context: Context, attrs: AttributeSet?, defaultStyleAttr: Int = 0, defaultStyleRes: Int = 0
+    context: Context,
+    attrs: AttributeSet?,
+    defaultStyleAttr: Int = 0,
+    defaultStyleRes: Int = 0,
 ) {
 
     private var shapeAppearanceModel: ShapeAppearanceModel
@@ -45,7 +54,6 @@ class MaterialShapeDrawableHelper(
 
     init {
         val shapeTypedValue = context.obtainStyledAttributes(attrs, R.styleable.MaterialShapeDrawableView, defaultStyleAttr, defaultStyleRes)
-        val bgTypedValue = context.obtainStyledAttributes(attrs, R.styleable.ViewBackgroundHelper, defaultStyleAttr, defaultStyleRes)
 
         val useShapeAppearance = shapeTypedValue.getBoolean(R.styleable.MaterialShapeDrawableView_msd_useShapeAppearance, true)
         shapeAppearanceModel = if (useShapeAppearance) {
@@ -53,6 +61,8 @@ class MaterialShapeDrawableHelper(
         } else {
             createShapeAppearanceModelByCustomAttr(shapeTypedValue)
         }
+        // For getting the background tint color. refers to AppCompatBackgroundHelper in AppCompat for details.
+        val bgTypedValue = context.obtainStyledAttributes(attrs, R.styleable.ViewBackgroundHelper, defaultStyleAttr, defaultStyleRes)
         drawable = MaterialShapeDrawable(shapeAppearanceModel).apply {
             setDrawableStyle(shapeTypedValue, bgTypedValue)
         }
@@ -75,24 +85,14 @@ class MaterialShapeDrawableHelper(
 
         fillColor = createFillColorListCustomAttr(shapeTypedValue)
 
-        paintStyle = when (shapeTypedValue.getInt(R.styleable.MaterialShapeDrawableView_msd_PaintStyle, 3)) {
-            1 -> Paint.Style.FILL
-            2 -> Paint.Style.STROKE
-            3 -> Paint.Style.FILL_AND_STROKE
-            else -> throw IllegalArgumentException("unsupported style")
-        }
-
         if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_strokeWidth)) {
             strokeWidth = shapeTypedValue.getDimension(R.styleable.MaterialShapeDrawableView_msd_strokeWidth, 0F)
             strokeColor = createStrokeListByCustomAttr(shapeTypedValue)
         }
-
-        setDrawableShadow(shapeTypedValue)
-        setDrawablePaddings(shapeTypedValue)
     }
 
     private fun createShapeAppearanceModelByCustomAttr(typedArray: TypedArray): ShapeAppearanceModel {
-        TODO("Not implemented yet.")
+        TODO("creating shape appearance by custom attrs  is not implemented yet.")
     }
 
     private fun createFillColorListCustomAttr(typedArray: TypedArray): ColorStateList {
@@ -120,68 +120,6 @@ class MaterialShapeDrawableHelper(
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_pressed, StatePressed, true),
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_normal, null, false)
     )
-
-    private fun MaterialShapeDrawable.setDrawablePaddings(shapeTypedValue: TypedArray) {
-        val paddings = intArrayOf(0, 0, 0, 0)
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_padding)) {
-            val padding = shapeTypedValue.getDimensionPixelOffset(R.styleable.MaterialShapeDrawableView_msd_padding, 0)
-            paddings[0] = padding
-            paddings[1] = padding
-            paddings[2] = padding
-            paddings[3] = padding
-        }
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_padding_vertical)) {
-            val paddingVertical = shapeTypedValue.getDimensionPixelOffset(R.styleable.MaterialShapeDrawableView_msd_padding_vertical, 0)
-            paddings[1] = paddingVertical
-            paddings[3] = paddingVertical
-        }
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_padding_horizontal)) {
-            val paddingHorizontal = shapeTypedValue.getDimensionPixelOffset(R.styleable.MaterialShapeDrawableView_msd_padding_horizontal, 0)
-            paddings[0] = paddingHorizontal
-            paddings[2] = paddingHorizontal
-        }
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_padding_left)) {
-            val paddingLeft = shapeTypedValue.getDimensionPixelOffset(R.styleable.MaterialShapeDrawableView_msd_padding_left, 0)
-            paddings[0] = paddingLeft
-        }
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_padding_top)) {
-            val paddingTop = shapeTypedValue.getDimensionPixelOffset(R.styleable.MaterialShapeDrawableView_msd_padding_top, 0)
-            paddings[1] = paddingTop
-        }
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_padding_right)) {
-            val paddingRight = shapeTypedValue.getDimensionPixelOffset(R.styleable.MaterialShapeDrawableView_msd_padding_right, 0)
-            paddings[2] = paddingRight
-        }
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_padding_bottom)) {
-            val paddingBottom = shapeTypedValue.getDimensionPixelOffset(R.styleable.MaterialShapeDrawableView_msd_padding_bottom, 0)
-            paddings[3] = paddingBottom
-        }
-        setPadding(paddings[0], paddings[1], paddings[2], paddings[3])
-    }
-
-    private fun MaterialShapeDrawable.setDrawableShadow(shapeTypedValue: TypedArray) {
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_shadow_color)) {
-            setShadowColor(shapeTypedValue.getColor(R.styleable.MaterialShapeDrawableView_msd_shadow_color, Color.BLACK))
-        }
-
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_shadow_use_tint)) {
-            setUseTintColorForShadow(shapeTypedValue.getBoolean(R.styleable.MaterialShapeDrawableView_msd_shadow_use_tint, true))
-        }
-
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_shadow_elevation)) {
-            elevation = shapeTypedValue.getDimension(R.styleable.MaterialShapeDrawableView_msd_shadow_elevation, 0F)
-        }
-
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_shadow_compat_mode)) {
-            shadowCompatibilityMode = shapeTypedValue.getInt(
-                R.styleable.MaterialShapeDrawableView_msd_shadow_compat_mode, MaterialShapeDrawable.SHADOW_COMPAT_MODE_DEFAULT
-            )
-        }
-
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_shadow_compat_rotation)) {
-            shadowCompatRotation = shapeTypedValue.getInt(R.styleable.MaterialShapeDrawableView_msd_shadow_compat_rotation, 0)
-        }
-    }
 
     fun update(target: View) {
         val left = target.paddingLeft

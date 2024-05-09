@@ -6,11 +6,11 @@ plugins {
 apply plugin: "com.vanniktech.maven.publish"
 
 android {
-    compileSdkVersion commonCompileSdkVersion
+    compileSdk buildVersion.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion buildVersion.minSdkVersion
-        targetSdkVersion buildVersion.targetSdkVersion
+        minSdk buildVersion.minSdkVersion
+        targetSdk buildVersion.targetSdkVersion
     }
 
     lintOptions {
@@ -30,10 +30,10 @@ android {
 
 dependencies {
     //androidx
-    implementation libraries.appcompat
-    implementation libraries.material
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.9.0"
     //kotlin
-    implementation libraries.kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     /*log*/
-    implementation libraries.timber
+    implementation "com.jakewharton.timber:timber:4.7.1"
 }

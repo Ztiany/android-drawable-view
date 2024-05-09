@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.annotation.AttrRes
 import androidx.appcompat.widget.AppCompatEditText
-import com.android.base.ui.common.TextColor
+import com.android.base.ui.common.RecoverableTextColor
 import com.google.android.material.shape.ShapeAppearanceModel
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
@@ -12,7 +12,7 @@ class ShapeableEditText @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = android.R.attr.editTextStyle
-) : AppCompatEditText(context, attrs, defStyleAttr), EnhancedShapeable, TextColor {
+) : AppCompatEditText(context, attrs, defStyleAttr), RecoverableShapeable, RecoverableTextColor {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr)
 
@@ -23,11 +23,11 @@ class ShapeableEditText @JvmOverloads constructor(
         colorHelper.setTextColor(this)
     }
 
-    override fun updateShapeDrawable() {
+    override fun recoverShapeDrawable() {
         mdHelper.update(this)
     }
 
-    override fun updateTextColor() {
+    override fun recoverTextColor() {
         colorHelper.setTextColor(this)
     }
 

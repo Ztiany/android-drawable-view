@@ -11,7 +11,7 @@ class DConstraintLayout @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0,
     @StyleRes defStyleRes: Int = 0
-) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes), DrawableView {
+) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes), RecoverableDrawableView {
 
     private val codeDrawableHelper = CodeDrawableHelper(context, attrs, defStyleAttr, defStyleRes)
 
@@ -19,7 +19,7 @@ class DConstraintLayout @JvmOverloads constructor(
         codeDrawableHelper.setBackground(this)
     }
 
-    override fun updateDrawable() {
+    override fun recoverDrawable() {
         codeDrawableHelper.setBackground(this)
     }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- 以引用的方式设置 Corner -->
     <declare-styleable name="CornerStyle">
         <attr name="corner_style_all" format="dimension|reference" />
         <attr name="corner_style_top_left" format="dimension|reference" />
@@ -9,11 +10,13 @@
         <attr name="corner_style_bottom_right" format="dimension|reference" />
     </declare-styleable>
 
+    <!-- 以引用的方式设置 Size -->
     <declare-styleable name="SizeStyle">
         <attr name="size_style_width" format="dimension|reference" />
         <attr name="size_style_height" format="dimension|reference" />
     </declare-styleable>
 
+    <!-- 以引用的方式设置 Stroke -->
     <declare-styleable name="StrokeStyle">
         <attr name="stroke_style_dash_width" format="dimension|reference" />
         <attr name="stroke_style_dash_gap" format="dimension|reference" />
@@ -21,6 +24,7 @@
         <attr name="stroke_style_width" format="dimension|reference" />
     </declare-styleable>
 
+    <!-- 以引用的方式设置 Padding -->
     <declare-styleable name="PaddingStyle">
         <attr name="padding_style_left" format="dimension|reference" />
         <attr name="padding_style_right" format="dimension|reference" />
@@ -28,6 +32,7 @@
         <attr name="padding_style_bottom" format="dimension|reference" />
     </declare-styleable>
 
+    <!-- 以引用的方式设置 Gradient -->
     <declare-styleable name="GradientStyle">
         <attr name="gradient_style_start_color" format="color|reference" />
         <attr name="gradient_style_center_color" format="color|reference" />

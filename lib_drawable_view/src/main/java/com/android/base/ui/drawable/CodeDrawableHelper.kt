@@ -6,6 +6,12 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.res.use
+import com.android.base.ui.drawable.parser.parseGradientDrawableAttribute
+import com.android.base.ui.drawable.parser.parseGradientDrawableAttributeByStyle
+import com.android.base.ui.drawable.parser.parseRippleDrawableAttribute
+import com.android.base.ui.drawable.parser.parseRippleDrawableAttributeByStyle
+import com.android.base.ui.drawable.parser.parseSelectorDrawableAttribute
+import com.android.base.ui.drawable.parser.parseSelectorDrawableAttributeByStyle
 import com.ztiany.android.drawable.view.R
 
 class CodeDrawableHelper(

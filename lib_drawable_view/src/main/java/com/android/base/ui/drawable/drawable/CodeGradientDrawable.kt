@@ -1,4 +1,4 @@
-package com.android.base.ui.drawable
+package com.android.base.ui.drawable.drawable
 
 import android.content.Context
 import android.content.res.Resources
@@ -9,7 +9,7 @@ import android.util.TypedValue
 import androidx.annotation.IntDef
 
 /**
- * 参考
+ * 参考：
  *
  * - [又一个减少冗余 Drawable 资源的解决方案](https://mp.weixin.qq.com/s/qxMoI7UTw3WtiRR6oIDGKA)
  * - [CodeGradientDrawable](https://github.com/lizijin/zijiexiaozhan/blob/main/app/src/main/java/com/peter/viewgrouptutorial/drawable/CodeGradientDrawable.kt)
@@ -23,13 +23,14 @@ class CodeGradientDrawable private constructor(
     stroke: Stroke?,
     padding: Padding?,
     width: Int,
-    height: Int
+    height: Int,
 ) : GradientDrawable() {
 
     /*
     当将该 Drawable 设置为某个 View 的背景时，该 Drawable 的 setBounds 方法将会被调用，然后 Drawable 的绘制区域也会发生变化，
     而如果启动缓存机制的话，多个 View 可能共享同一个  Drawable，而如果不同 View 的 Size 不同，或者 View 的 Size 动态变化，都会导致
-    Drawable 的共享出现问题，此问题貌似无法解决，因此暂时禁用缓存。
+    Drawable 的共享出现问题。
+     TODO: 后续计划添加一个属性来控制是否共享。
      */
     /*companion object {
         private val sCache = HashMap<Int, WeakReference<CodeGradientDrawable>>()
@@ -211,7 +212,7 @@ class Gradient private constructor(
     internal val gradientType: Int,
     internal val gradientRadius: Float,
     internal val orientation: GradientDrawable.Orientation,
-    internal val gradientColors: IntArray
+    internal val gradientColors: IntArray,
 ) {
 
     class Builder constructor(context: Context) {
@@ -291,7 +292,7 @@ class Gradient private constructor(
 }
 
 class Corner private constructor(
-    internal val radius: Float, internal val radii: FloatArray? = null
+    internal val radius: Float, internal val radii: FloatArray? = null,
 ) {
 
     class Builder constructor(context: Context) {
@@ -369,7 +370,7 @@ class Corner private constructor(
 }
 
 class Stroke private constructor(
-    internal val width: Int, internal val colorStateList: CodeColorStateList, internal val dashWidth: Float, internal val dashGap: Float
+    internal val width: Int, internal val colorStateList: CodeColorStateList, internal val dashWidth: Float, internal val dashGap: Float,
 ) {
 
     class Builder constructor(context: Context) {
@@ -387,7 +388,7 @@ class Stroke private constructor(
 
         @JvmOverloads
         fun setStroke(
-            width: Float, colorStateList: CodeColorStateList, dashWidth: Float, dashGap: Float, @UnixValue unit: Int = DP_UNIT
+            width: Float, colorStateList: CodeColorStateList, dashWidth: Float, dashGap: Float, @UnixValue unit: Int = DP_UNIT,
         ) = apply {
             this.width = getDimensionPixelSize(unit, width, metrics)
             this.colorStateList = colorStateList
@@ -428,7 +429,7 @@ class Stroke private constructor(
 }
 
 class Padding private constructor(
-    internal val top: Int, internal val bottom: Int, internal val left: Int, internal val right: Int
+    internal val top: Int, internal val bottom: Int, internal val left: Int, internal val right: Int,
 ) {
 
     class Builder constructor(context: Context) {

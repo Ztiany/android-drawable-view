@@ -13,7 +13,7 @@ class ShapeableFrameLayout @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0,
     @StyleRes defStyleRes: Int = 0
-) : FrameLayout(context, attrs, defStyleAttr, defStyleRes), EnhancedShapeable {
+) : FrameLayout(context, attrs, defStyleAttr, defStyleRes), RecoverableShapeable {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr, defStyleRes)
 
@@ -21,7 +21,7 @@ class ShapeableFrameLayout @JvmOverloads constructor(
         mdHelper.update(this)
     }
 
-    override fun updateShapeDrawable() {
+    override fun recoverShapeDrawable() {
         mdHelper.update(this)
     }
 

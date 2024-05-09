@@ -5,6 +5,14 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.widget.TextView
 import androidx.core.content.res.use
+import com.android.base.ui.drawable.drawable.CodeColorStateList
+import com.android.base.ui.drawable.parser.ResourceInfo
+import com.android.base.ui.drawable.parser.StateChecked
+import com.android.base.ui.drawable.parser.StateEnabled
+import com.android.base.ui.drawable.parser.StateFocused
+import com.android.base.ui.drawable.parser.StatePressed
+import com.android.base.ui.drawable.parser.StateSelected
+import com.android.base.ui.drawable.parser.parseCodeColorStateListAttribute
 import com.ztiany.android.drawable.view.R
 
 class CodeTextColorStateListHelper(

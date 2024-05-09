@@ -1,4 +1,4 @@
-package com.android.base.ui.drawable
+package com.android.base.ui.drawable.parser
 
 internal class StateInfo<out T>(
     val value: T,

@@ -4,13 +4,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion commonCompileSdkVersion
-    buildToolsVersion commonBuildToolsVersion
+    compileSdk buildVersion.compileSdkVersion
 
     defaultConfig {
         applicationId "me.ztiany.drawable.view.example"
-        minSdkVersion buildVersion.minSdkVersion
-        targetSdkVersion buildVersion.targetSdkVersion
+        minSdk buildVersion.minSdkVersion
+        targetSdk buildVersion.targetSdkVersion
         versionCode 1
         versionName "1.0.1"
     }
@@ -34,14 +33,16 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //androidx
-    implementation libraries.appcompat
-    implementation libraries.material
-    //kotlin
-    implementation libraries.kotlin
-    /*log*/
-    implementation libraries.timber
-    //the lib
+    // androidx
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.9.0"
+
+    // kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // log
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
+    // the lib
     implementation project(':lib_drawable_view')
 }

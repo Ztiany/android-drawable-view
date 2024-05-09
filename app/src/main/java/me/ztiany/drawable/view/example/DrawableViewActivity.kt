@@ -7,7 +7,15 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
-import com.android.base.ui.drawable.*
+import com.android.base.ui.drawable.drawable.CodeColorStateList
+import com.android.base.ui.drawable.drawable.CodeGradientDrawable
+import com.android.base.ui.drawable.drawable.CodeStateListDrawable
+import com.android.base.ui.drawable.drawable.Corner
+import com.android.base.ui.drawable.drawable.Gradient
+import com.android.base.ui.drawable.drawable.SelectorColorItem
+import com.android.base.ui.drawable.drawable.SelectorDrawableItem
+import com.android.base.ui.drawable.parser.StateChecked
+import com.android.base.ui.drawable.parser.StatePressed
 
 class DrawableViewActivity : AppCompatActivity() {
 
