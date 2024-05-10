@@ -7,9 +7,10 @@ import android.os.Build
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import androidx.annotation.IntDef
+import java.lang.ref.WeakReference
 
 /**
- * 参考：
+ * References：
  *
  * - [又一个减少冗余 Drawable 资源的解决方案](https://mp.weixin.qq.com/s/qxMoI7UTw3WtiRR6oIDGKA)
  * - [CodeGradientDrawable](https://github.com/lizijin/zijiexiaozhan/blob/main/app/src/main/java/com/peter/viewgrouptutorial/drawable/CodeGradientDrawable.kt)
@@ -26,15 +27,9 @@ class CodeGradientDrawable private constructor(
     height: Int,
 ) : GradientDrawable() {
 
-    /*
-    当将该 Drawable 设置为某个 View 的背景时，该 Drawable 的 setBounds 方法将会被调用，然后 Drawable 的绘制区域也会发生变化，
-    而如果启动缓存机制的话，多个 View 可能共享同一个  Drawable，而如果不同 View 的 Size 不同，或者 View 的 Size 动态变化，都会导致
-    Drawable 的共享出现问题。
-     TODO: 后续计划添加一个属性来控制是否共享。
-     */
-    /*companion object {
+    companion object {
         private val sCache = HashMap<Int, WeakReference<CodeGradientDrawable>>()
-    }*/
+    }
 
     init {
         applyTheme(theme)
@@ -93,7 +88,7 @@ class CodeGradientDrawable private constructor(
         }
     }
 
-    class Builder constructor(context: Context) {
+    class Builder(context: Context) {
 
         private var debugName: String? = "Debug"
 
@@ -146,11 +141,19 @@ class CodeGradientDrawable private constructor(
             this.height = getDimensionPixelSize(unit, height.toFloat(), metrics)
         }
 
-        fun build(): CodeGradientDrawable {
-            return CodeGradientDrawable(
-                theme, shape, gradient?.build(), corner?.build(), solidColor, stroke?.build(), padding?.build(), width, height
-            )
-            /*synchronized(sCache) {
+        /**
+         * 当将一个 Drawable 设置为某个 View 的背景时，该 Drawable 的 setBounds 方法将会被调用，然后 Drawable 的绘制区域也会发生变化，
+         * 而如果启动缓存机制的话，多个 View 可能共享同一个  Drawable，而如果不同 View 的 Size 不同，或者 View 的 Size 动态变化，都会导致
+         * Drawable 的共享出现问题。当你确定 Drawable 的 Size 是固定的时候，可以启动缓存机制（即设置 [cacheable] 为 true），否则不要启动缓存机制。
+         */
+        fun build(cacheable: Boolean = false): CodeGradientDrawable {
+            if (!cacheable) {
+                return CodeGradientDrawable(
+                    theme, shape, gradient?.build(), corner?.build(), solidColor, stroke?.build(), padding?.build(), width, height
+                )
+            }
+
+            synchronized(sCache) {
                 val key = hashCode()
                 val cached = sCache[key]?.get()
                 if (cached == null) {
@@ -164,7 +167,7 @@ class CodeGradientDrawable private constructor(
                     println("CodeGradientDrawable not null $this")
                     return cached
                 }
-            }*/
+            }
         }
 
         override fun equals(other: Any?): Boolean {
@@ -202,7 +205,9 @@ class CodeGradientDrawable private constructor(
         override fun toString(): String {
             return "Builder(debugName=$debugName, solidColor=$solidColor, shape=$shape, width=$width, height=$height, gradient=$gradient, corner=$corner, stroke=$stroke, padding=$padding)"
         }
-    }
+
+    }// Builder end.
+
 }
 
 class Gradient private constructor(

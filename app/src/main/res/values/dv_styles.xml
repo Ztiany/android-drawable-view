@@ -24,55 +24,55 @@
         <item name="stroke_style_width">4dp</item>
     </style>
 
-    <style name="CodingGradientDrawable_Gradient_1">
+    <style name="CodeGradientDrawable_Gradient_1">
         <item name="cgd_shape">rectangle</item>
         <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round_TL20</item>
         <item name="cgd_shape_gradient_style">@style/GradientStyle_1</item>
     </style>
 
-    <style name="CodingGradientDrawable_Gradient_2">
+    <style name="CodeGradientDrawable_Gradient_2">
         <item name="cgd_shape">rectangle</item>
         <item name="cgd_shape_corner_style">@style/CornerAppearance.Rounded20</item>
         <item name="cgd_shape_gradient_style">@style/GradientStyle_2</item>
     </style>
 
-    <style name="CodingGradientDrawable_Solid_1">
+    <style name="CodeGradientDrawable_Solid_1">
         <item name="cgd_shape">rectangle</item>
         <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round_TL20</item>
         <item name="cgd_shape_solid">@color/gold</item>
     </style>
 
-    <style name="CodingGradientDrawable_Solid_2">
+    <style name="CodeGradientDrawable_Solid_2">
         <item name="cgd_shape">rectangle</item>
         <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round_TL20</item>
         <item name="cgd_shape_solid">@color/green</item>
     </style>
 
-    <style name="CodingGradientDrawable_Solid_3">
+    <style name="CodeGradientDrawable_Solid_3">
         <item name="cgd_shape">rectangle</item>
         <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round_TL20</item>
         <item name="cgd_shape_solid">@color/gray</item>
     </style>
 
-    <style name="CodingGradientDrawable_Solid_4">
+    <style name="CodeGradientDrawable_Solid_4">
         <item name="cgd_shape">rectangle</item>
         <item name="cgd_shape_solid">@color/gold</item>
     </style>
 
-    <style name="CodingSelectorDrawable_Solid_1">
-        <item name="csd_selector_state_normal">@style/CodingGradientDrawable_Solid_1</item>
-        <item name="csd_selector_state_pressed">@style/CodingGradientDrawable_Solid_2</item>
-        <item name="csd_selector_state_disabled">@style/CodingGradientDrawable_Solid_3</item>
+    <style name="CodeSelectorDrawable_Solid_1">
+        <item name="csd_selector_state_normal">@style/CodeGradientDrawable_Solid_1</item>
+        <item name="csd_selector_state_pressed">@style/CodeGradientDrawable_Solid_2</item>
+        <item name="csd_selector_state_disabled">@style/CodeGradientDrawable_Solid_3</item>
     </style>
 
-    <style name="CodingRippleDrawable_WithGradientGradient">
+    <style name="CodeRippleDrawable_WithGradientGradient">
         <item name="crd_ripple_color">@color/colorPrimary</item>
-        <item name="crd_ripple_content_drawable">@style/CodingGradientDrawable_Gradient_1</item>
+        <item name="crd_ripple_content_drawable">@style/CodeGradientDrawable_Gradient_1</item>
     </style>
 
-    <style name="CodingRippleDrawable_WithSelector">
+    <style name="CodeRippleDrawable_WithSelector">
         <item name="crd_ripple_color">@color/colorPrimary</item>
-        <item name="crd_ripple_content_drawable">@style/CodingSelectorDrawable_Solid_1</item>
+        <item name="crd_ripple_content_drawable">@style/CodeSelectorDrawable_Solid_1</item>
     </style>
 
 </resources>

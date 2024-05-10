@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
+import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
@@ -12,8 +13,8 @@ class ShapeableView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0,
-    @StyleRes defStyleRes: Int = 0
-) : View(context, attrs, defStyleAttr, defStyleRes), RecoverableShapeable {
+    @StyleRes defStyleRes: Int = 0,
+) : View(context, attrs, defStyleAttr, defStyleRes), EnhancedShapeable {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr, defStyleRes)
 
@@ -31,6 +32,10 @@ class ShapeableView @JvmOverloads constructor(
 
     override fun getShapeAppearanceModel(): ShapeAppearanceModel {
         return mdHelper.obtainShapeAppearanceModel()
+    }
+
+    override fun getShapeDrawable(): MaterialShapeDrawable {
+        return mdHelper.drawable
     }
 
 }

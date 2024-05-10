@@ -8,7 +8,7 @@ import com.android.base.ui.drawable.parser.State
 import java.lang.ref.WeakReference
 
 /**
- * 参考
+ * References:
  *
  * - [又一个减少冗余 Drawable 资源的解决方案](https://mp.weixin.qq.com/s/qxMoI7UTw3WtiRR6oIDGKA)
  * - [CodeColorStateList](https://github.com/lizijin/zijiexiaozhan/blob/main/app/src/main/java/com/peter/viewgrouptutorial/drawable/CodeColorStateList.kt)
@@ -35,7 +35,6 @@ class CodeColorStateList private constructor(
                     if (cached != null) {
                         return cached
                     }
-
                     // Prune missing entry.
                     sCache.removeAt(index)
                 }
@@ -99,6 +98,7 @@ class CodeColorStateList private constructor(
             return CodeColorStateList(states, colors)
         }
     }
+
 }
 
 class SelectorColorItem private constructor(val color: Int, val states: MutableList<Int>) {

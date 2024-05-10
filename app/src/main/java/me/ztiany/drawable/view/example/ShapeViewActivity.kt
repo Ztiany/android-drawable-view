@@ -77,6 +77,27 @@ class ShapeViewActivity : AppCompatActivity() {
             }
             background = drawable
         }
+
+        findViewById<TextView>(R.id.material_tv_04).apply {
+            val appearanceModel = ShapeAppearanceModel.builder().apply {
+                setAllCorners(RoundedCornerTreatment())
+                setAllCornerSizes(20F)
+                setRightEdge(object : TriangleEdgeTreatment(20F, false) {
+                    // center 位置 ， interpolation 角的大小
+                    override fun getEdgePath(length: Float, center: Float, interpolation: Float, shapePath: ShapePath) {
+                        super.getEdgePath(length, 55F, interpolation, shapePath)
+                    }
+                })
+            }.build()
+
+            val drawable = MaterialShapeDrawable(appearanceModel).apply {
+                setTint(ContextCompat.getColor(this@ShapeViewActivity, R.color.colorPrimary))
+                paintStyle = Paint.Style.FILL_AND_STROKE
+                strokeWidth = Converter.dpToPx(5F)
+                setStrokeTint(ContextCompat.getColorStateList(this@ShapeViewActivity, R.color.color_state_test1))
+            }
+            background = drawable
+        }
     }
 
     private fun researchHowItWorkByCode() {

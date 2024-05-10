@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
@@ -13,7 +14,7 @@ class ShapeableConstraintLayout @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0,
     @StyleRes defStyleRes: Int = 0
-) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes), RecoverableShapeable {
+) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes), EnhancedShapeable {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr, defStyleRes)
 
@@ -31,6 +32,10 @@ class ShapeableConstraintLayout @JvmOverloads constructor(
 
     override fun getShapeAppearanceModel(): ShapeAppearanceModel {
         return mdHelper.obtainShapeAppearanceModel()
+    }
+
+    override fun getShapeDrawable(): MaterialShapeDrawable {
+        return mdHelper.drawable
     }
 
 }

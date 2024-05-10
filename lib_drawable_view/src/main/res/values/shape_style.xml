@@ -81,7 +81,7 @@
         <item name="cornerSizeBottomRight">50%</item>
     </style>
 
-    <!-- 这种 Style 要求宽度必须大于高度 -->
+    <!-- The View's width must be greater than it's height if it applies this style.  -->
     <style name="ShapeAppearance.Hexagon" parent="">
         <item name="cornerFamily">cut</item>
         <item name="cornerSizeTopLeft">50%</item>

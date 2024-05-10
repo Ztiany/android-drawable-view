@@ -24,7 +24,7 @@ class CodeDrawableHelper(
     private var drawable: Drawable? = null
 
     init {
-        withStyleable(R.styleable.CodingDrawableView) {
+        withStyleable(R.styleable.CodeDrawableView) {
             buildDrawableByAttributes(this)
         }
     }
@@ -47,8 +47,8 @@ class CodeDrawableHelper(
     }
 
     private fun buildDrawableByAttributes(codingDrawableView: TypedArray) {
-        if (codingDrawableView.hasValue(R.styleable.CodingDrawableView_cdv_drawable_type)) {
-            when (codingDrawableView.getInt(R.styleable.CodingDrawableView_cdv_drawable_type, -1)) {
+        if (codingDrawableView.hasValue(R.styleable.CodeDrawableView_cdv_drawable_type)) {
+            when (codingDrawableView.getInt(R.styleable.CodeDrawableView_cdv_drawable_type, -1)) {
                 1/*gradient*/ -> buildGradientDrawable()
                 2/*selector*/ -> buildSelectorDrawable()
                 3/*ripple*/ -> buildRippleDrawable()
@@ -61,19 +61,19 @@ class CodeDrawableHelper(
     }
 
     private fun buildDrawableByAppearance(codingDrawableView: TypedArray) {
-        var resourceId = codingDrawableView.getResourceId(R.styleable.CodingDrawableView_cdv_gradient_appearance, -1)
+        var resourceId = codingDrawableView.getResourceId(R.styleable.CodeDrawableView_cdv_gradient_appearance, -1)
         if (resourceId != -1) {
             drawable = parseGradientDrawableAttributeByStyle(context, resourceId)
             return
         }
 
-        resourceId = codingDrawableView.getResourceId(R.styleable.CodingDrawableView_cdv_selector_appearance, -1)
+        resourceId = codingDrawableView.getResourceId(R.styleable.CodeDrawableView_cdv_selector_appearance, -1)
         if (resourceId != -1) {
             drawable = parseSelectorDrawableAttributeByStyle(context, resourceId)
             return
         }
 
-        resourceId = codingDrawableView.getResourceId(R.styleable.CodingDrawableView_cdv_ripple_appearance, -1)
+        resourceId = codingDrawableView.getResourceId(R.styleable.CodeDrawableView_cdv_ripple_appearance, -1)
         if (resourceId != -1) {
             drawable = parseRippleDrawableAttributeByStyle(context, resourceId)
             return
@@ -81,19 +81,19 @@ class CodeDrawableHelper(
     }
 
     private fun buildSelectorDrawable() {
-        withStyleable(R.styleable.CodingSelectorDrawable) {
+        withStyleable(R.styleable.CodeSelectorDrawable) {
             drawable = parseSelectorDrawableAttribute(context, this)
         }
     }
 
     private fun buildGradientDrawable() {
-        withStyleable(R.styleable.CodingGradientDrawable) {
+        withStyleable(R.styleable.CodeGradientDrawable) {
             drawable = parseGradientDrawableAttribute(context, this)
         }
     }
 
     private fun buildRippleDrawable() {
-        withStyleable(R.styleable.CodingRippleDrawable) {
+        withStyleable(R.styleable.CodeRippleDrawable) {
             drawable = parseRippleDrawableAttribute(context, this)
         }
     }

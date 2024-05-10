@@ -10,8 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -145,10 +145,10 @@
                 app:cgd_corner="10dp"
                 app:cgd_corner_bottom_right="40dp"
                 app:cgd_corner_top_right="30dp"
-                app:cgd_stroke_color="@color/red"
-                app:cgd_stroke_width="10dp"
                 app:cgd_shape="rectangle"
-                app:cgd_shape_solid="@color/black" />
+                app:cgd_shape_solid="@color/black"
+                app:cgd_stroke_color="@color/red"
+                app:cgd_stroke_width="10dp" />
 
             <com.android.base.ui.drawable.DTextView
                 android:layout_width="150dp"
@@ -190,7 +190,6 @@
                 app:cgd_shape_gradient_style="@style/GradientStyle_1"
                 app:cgd_shape_stroke_style="@style/StrokeStyle_1" />
 
-
             <com.android.base.ui.drawable.DTextView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -201,8 +200,8 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cdv_drawable_type="selector"
-                app:csd_selector_state_normal="@style/CodingGradientDrawable_Gradient_1"
-                app:csd_selector_state_pressed="@style/CodingGradientDrawable_Solid_1" />
+                app:csd_selector_state_normal="@style/CodeGradientDrawable_Gradient_1"
+                app:csd_selector_state_pressed="@style/CodeGradientDrawable_Solid_1" />
 
             <com.android.base.ui.drawable.DTextView
                 android:layout_width="150dp"
@@ -215,7 +214,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cdv_drawable_type="selector"
-                app:csd_selector_state_normal="@style/CodingGradientDrawable_Solid_4"
+                app:csd_selector_state_normal="@style/CodeGradientDrawable_Solid_4"
                 app:csd_selector_state_pressed="@drawable/google_logo" />
 
             <com.android.base.ui.drawable.DTextView
@@ -229,8 +228,8 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cdv_drawable_type="selector"
-                app:csd_selector_state_disabled="@style/CodingGradientDrawable_Solid_1"
-                app:csd_selector_state_normal="@style/CodingGradientDrawable_Gradient_1"
+                app:csd_selector_state_disabled="@style/CodeGradientDrawable_Solid_1"
+                app:csd_selector_state_normal="@style/CodeGradientDrawable_Gradient_1"
                 app:csd_selector_state_pressed="@drawable/google_logo" />
 
             <com.android.base.ui.drawable.DTextView
@@ -241,7 +240,7 @@
                 android:gravity="center"
                 android:text="Click me"
                 android:textStyle="bold"
-                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_1"
+                app:cdv_gradient_appearance="@style/CodeGradientDrawable_Gradient_1"
                 app:dtv_text_color_disabled="@color/purple"
                 app:dtv_text_color_normal="@color/black"
                 app:dtv_text_color_pressed="@color/red" />
@@ -251,7 +250,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="Click me"
-                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_1"
+                app:cdv_gradient_appearance="@style/CodeGradientDrawable_Gradient_1"
                 app:dtv_text_color_disabled="@color/purple"
                 app:dtv_text_color_normal="@color/black"
                 app:dtv_text_color_pressed="@color/red" />
@@ -262,7 +261,7 @@
                 android:layout_margin="5dp"
                 android:enabled="false"
                 android:text="Disabled"
-                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_1"
+                app:cdv_gradient_appearance="@style/CodeGradientDrawable_Gradient_1"
                 app:dtv_text_color_disabled="@color/purple"
                 app:dtv_text_color_normal="@color/black"
                 app:dtv_text_color_pressed="@color/red" />
@@ -272,7 +271,7 @@
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
                 android:clickable="true"
-                app:cdv_ripple_appearance="@style/CodingRippleDrawable_WithGradientGradient">
+                app:cdv_ripple_appearance="@style/CodeRippleDrawable_WithGradientGradient">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -288,7 +287,7 @@
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
                 android:clickable="true"
-                app:cdv_ripple_appearance="@style/CodingRippleDrawable_WithSelector">
+                app:cdv_ripple_appearance="@style/CodeRippleDrawable_WithSelector">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -304,14 +303,14 @@
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
                 android:clickable="true"
-                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_2" />
+                app:cdv_gradient_appearance="@style/CodeGradientDrawable_Gradient_2" />
 
             <com.android.base.ui.drawable.DEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
                 android:padding="3dp"
-                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Solid_1"
+                app:cdv_gradient_appearance="@style/CodeGradientDrawable_Solid_1"
                 app:dtv_text_color_focused="@color/red"
                 app:dtv_text_color_normal="@color/white" />
 
@@ -320,7 +319,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
                 android:padding="3dp"
-                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Solid_1"
+                app:cdv_gradient_appearance="@style/CodeGradientDrawable_Solid_1"
                 app:dtv_text_color_focused="@color/white"
                 app:dtv_text_color_normal="@color/red" />
 
@@ -328,7 +327,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:layout_marginVertical="5dp"
-                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Solid_1" />
+                app:cdv_gradient_appearance="@style/CodeGradientDrawable_Solid_1" />
 
         </LinearLayout>
 

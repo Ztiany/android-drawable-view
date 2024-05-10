@@ -5,11 +5,8 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.PorterDuff
 import android.util.AttributeSet
 import android.view.View
-import androidx.appcompat.widget.DrawableUtils
 import com.android.base.ui.drawable.parser.ResourceInfo
 import com.android.base.ui.drawable.parser.StateChecked
 import com.android.base.ui.drawable.parser.StateEnabled
@@ -17,6 +14,7 @@ import com.android.base.ui.drawable.parser.StateFocused
 import com.android.base.ui.drawable.parser.StatePressed
 import com.android.base.ui.drawable.parser.StateSelected
 import com.android.base.ui.drawable.parser.parseCodeColorStateListAttribute
+import com.google.android.material.resources.MaterialResources
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.ztiany.android.drawable.view.R
@@ -42,7 +40,7 @@ import com.ztiany.android.drawable.view.R
  *@author Ztiany
  */
 class MaterialShapeDrawableHelper(
-    context: Context,
+    private val context: Context,
     attrs: AttributeSet?,
     defaultStyleAttr: Int = 0,
     defaultStyleRes: Int = 0,
@@ -50,49 +48,38 @@ class MaterialShapeDrawableHelper(
 
     private var shapeAppearanceModel: ShapeAppearanceModel
 
-    private var drawable: MaterialShapeDrawable
+    var drawable: MaterialShapeDrawable
+        private set
 
     init {
-        val shapeTypedValue = context.obtainStyledAttributes(attrs, R.styleable.MaterialShapeDrawableView, defaultStyleAttr, defaultStyleRes)
+        val typedValue = context.obtainStyledAttributes(attrs, R.styleable.MaterialShapeDrawableView, defaultStyleAttr, defaultStyleRes)
 
-        val useShapeAppearance = shapeTypedValue.getBoolean(R.styleable.MaterialShapeDrawableView_msd_useShapeAppearance, true)
-        shapeAppearanceModel = if (useShapeAppearance) {
-            ShapeAppearanceModel.builder(context, attrs, defaultStyleAttr, defaultStyleRes).build()
-        } else {
-            createShapeAppearanceModelByCustomAttr(shapeTypedValue)
-        }
-        // For getting the background tint color. refers to AppCompatBackgroundHelper in AppCompat for details.
-        val bgTypedValue = context.obtainStyledAttributes(attrs, R.styleable.ViewBackgroundHelper, defaultStyleAttr, defaultStyleRes)
+        shapeAppearanceModel = ShapeAppearanceModel.builder(context, attrs, defaultStyleAttr, defaultStyleRes).build()
+
         drawable = MaterialShapeDrawable(shapeAppearanceModel).apply {
-            setDrawableStyle(shapeTypedValue, bgTypedValue)
+            setDrawableStyle(typedValue)
         }
 
-        bgTypedValue.recycle()
-        shapeTypedValue.recycle()
+        typedValue.recycle()
     }
 
     @SuppressLint("RestrictedApi")
-    private fun MaterialShapeDrawable.setDrawableStyle(shapeTypedValue: TypedArray, bgTypedValue: TypedArray) {
-        if (bgTypedValue.hasValue(R.styleable.ViewBackgroundHelper_backgroundTint)) {
-            tintList = bgTypedValue.getColorStateList(R.styleable.ViewBackgroundHelper_backgroundTint)
+    private fun MaterialShapeDrawable.setDrawableStyle(typedValue: TypedArray) {
+        fillColor = if (typedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_backgroundColor)) {
+            MaterialResources.getColorStateList(context, typedValue, R.styleable.MaterialShapeDrawableView_msd_backgroundColor)
+        } else {
+            createFillColorListCustomAttr(typedValue)
         }
 
-        if (bgTypedValue.hasValue(R.styleable.ViewBackgroundHelper_backgroundTintMode)) {
-            val tintModeValue = shapeTypedValue.getInt(R.styleable.ViewBackgroundHelper_backgroundTintMode, -1)
-            val tintMode = DrawableUtils.parseTintMode(tintModeValue, PorterDuff.Mode.SRC_IN)
-            setTintMode(tintMode)
+
+        if (typedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_strokeWidth)) {
+            strokeWidth = typedValue.getDimension(R.styleable.MaterialShapeDrawableView_msd_strokeWidth, 0F)
+            strokeColor = if (typedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_strokeColor)) {
+                MaterialResources.getColorStateList(context, typedValue, R.styleable.MaterialShapeDrawableView_msd_strokeColor)
+            } else {
+                createStrokeListByCustomAttr(typedValue)
+            }
         }
-
-        fillColor = createFillColorListCustomAttr(shapeTypedValue)
-
-        if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_strokeWidth)) {
-            strokeWidth = shapeTypedValue.getDimension(R.styleable.MaterialShapeDrawableView_msd_strokeWidth, 0F)
-            strokeColor = createStrokeListByCustomAttr(shapeTypedValue)
-        }
-    }
-
-    private fun createShapeAppearanceModelByCustomAttr(typedArray: TypedArray): ShapeAppearanceModel {
-        TODO("creating shape appearance by custom attrs  is not implemented yet.")
     }
 
     private fun createFillColorListCustomAttr(typedArray: TypedArray): ColorStateList {

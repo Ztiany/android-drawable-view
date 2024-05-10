@@ -1,7 +1,7 @@
 package com.android.base.ui.drawable.parser
 
 /** 将系统 android.R.attr.state_checked 等常量封装，方便调用**/
-sealed class State constructor(val value: Int)
+sealed class State(val value: Int)
 
 /** @see android.R.attr.state_activated*/
 object StateActivated : State(android.R.attr.state_activated)

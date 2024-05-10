@@ -10,13 +10,13 @@ import com.ztiany.android.drawable.view.R
 
 internal fun parseSelectorDrawableAttributeByStyle(context: Context, resourceId: Int): Drawable? {
     val contextThemeWrapper = ContextThemeWrapper(context, resourceId)
-    val gradientTypedValue = contextThemeWrapper.obtainStyledAttributes(R.styleable.CodingSelectorDrawable)
+    val gradientTypedValue = contextThemeWrapper.obtainStyledAttributes(R.styleable.CodeSelectorDrawable)
     val drawable = parseSelectorDrawableAttribute(contextThemeWrapper, gradientTypedValue)
     gradientTypedValue.recycle()
     return drawable
 }
 
-/** refer [R.styleable.CodingSelectorDrawable] */
+/** refer [R.styleable.CodeSelectorDrawable] */
 internal fun parseSelectorDrawableAttribute(context: Context, typedArray: TypedArray): Drawable? {
     val drawableList = mutableListOf<StateInfo<Drawable>>()
 
@@ -26,12 +26,12 @@ internal fun parseSelectorDrawableAttribute(context: Context, typedArray: TypedA
         }
     }
 
-    collectStateDrawable(R.styleable.CodingSelectorDrawable_csd_selector_state_disabled, StateEnabled, false)
-    collectStateDrawable(R.styleable.CodingSelectorDrawable_csd_selector_state_focused, StateFocused, true)
-    collectStateDrawable(R.styleable.CodingSelectorDrawable_csd_selector_state_checked, StateChecked, true)
-    collectStateDrawable(R.styleable.CodingSelectorDrawable_csd_selector_state_selected, StateSelected, true)
-    collectStateDrawable(R.styleable.CodingSelectorDrawable_csd_selector_state_pressed, StatePressed, true)
-    collectStateDrawable(R.styleable.CodingSelectorDrawable_csd_selector_state_normal, null, false)
+    collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_disabled, StateEnabled, false)
+    collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_focused, StateFocused, true)
+    collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_checked, StateChecked, true)
+    collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_selected, StateSelected, true)
+    collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_pressed, StatePressed, true)
+    collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_normal, null, false)
 
     if (drawableList.isEmpty()) {
         return null
@@ -62,7 +62,7 @@ private fun parseDrawableByStyleOrDrawable(context: Context, typedArray: TypedAr
     if (typeName == "drawable") {
         return typedArray.getDrawable(drawableResourceId)
     } else if (typeName == "style") {
-        val gradientTypedArray = ContextThemeWrapper(context, resourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawable)
+        val gradientTypedArray = ContextThemeWrapper(context, resourceId).obtainStyledAttributes(R.styleable.CodeGradientDrawable)
         val drawable = parseGradientDrawableAttribute(context, gradientTypedArray)
         gradientTypedArray.recycle()
         return drawable

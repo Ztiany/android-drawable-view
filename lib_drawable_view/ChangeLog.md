@@ -46,3 +46,8 @@
 ## V 1.1.6
 
 - Rename styles.
+
+## V 1.2.0
+
+- Remove unuseful attributes.
+- Optimize code.

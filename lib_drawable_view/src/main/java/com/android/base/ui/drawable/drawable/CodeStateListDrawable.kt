@@ -6,12 +6,10 @@ import android.os.Build
 import com.android.base.ui.drawable.parser.State
 
 /**
- * 参考
+ * References：
  *
  * - [又一个减少冗余 Drawable 资源的解决方案](https://mp.weixin.qq.com/s/qxMoI7UTw3WtiRR6oIDGKA)
  * - [CodeStateListDrawable](https://github.com/lizijin/zijiexiaozhan/blob/main/app/src/main/java/com/peter/viewgrouptutorial/drawable/CodeStateListDrawable.kt)
- *
- * TODO: 增加缓存机制。
  */
 class CodeStateListDrawable private constructor() : StateListDrawable() {
 
@@ -86,7 +84,7 @@ class CodeStateListDrawable private constructor() : StateListDrawable() {
             }
             return stateListDrawable
         }
-    }
+    }// builder end.
 
 }
 
@@ -121,6 +119,6 @@ class SelectorDrawableItem private constructor(
         internal fun build(): SelectorDrawableItem {
             return SelectorDrawableItem(drawable, states)
         }
-    }
+    }// builder end.
 
 }

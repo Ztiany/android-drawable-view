@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
-        android:clipChildren="false"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clipChildren="false"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
@@ -52,6 +52,16 @@
             <TextView
                 android:id="@+id/material_tv_03"
                 style="@style/StyleShapeView"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/material_tv_04"
+                style="@style/StyleShapeView"
+                android:clickable="true"
                 android:gravity="center"
                 android:text="Ztiany"
                 android:textColor="@color/white"
@@ -115,10 +125,25 @@
                 app:stv_text_color_normal="@color/gold"
                 app:stv_text_color_pressed="@color/red" />
 
+            <com.android.base.ui.shape.ShapeableTextView
+                style="@style/StyleShapeView"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Click me!"
+                android:textColor="@color/color_state_test1"
+                android:textStyle="bold"
+                app:msd_backgroundColor="@color/color_state_test2"
+                app:msd_strokeColor="@color/color_state_test1"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/ShapeAppearance.Hexagon" />
+
             <com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
-                android:backgroundTintMode="src_over"
-                app:backgroundTint="@color/colorPrimary"
+                app:msd_backgroundColor="@color/colorPrimary"
                 app:shapeAppearance="@style/ShapeAppearance.Rounded10" />
 
             <com.android.base.ui.shape.ShapeableFrameLayout
@@ -130,7 +155,7 @@
             <com.android.base.ui.shape.ShapeableFrameLayout
                 style="@style/StyleShapeView"
                 android:padding="2dp"
-                app:backgroundTint="@color/colorPrimary"
+                app:msd_backgroundColor="@color/colorPrimary"
                 app:msd_strokeColor_disabled="#AABBDD"
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeWidth="4dp"

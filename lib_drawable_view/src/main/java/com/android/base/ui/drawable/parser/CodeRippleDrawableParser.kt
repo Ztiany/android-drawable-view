@@ -11,14 +11,14 @@ import android.view.ContextThemeWrapper
 import com.ztiany.android.drawable.view.R
 import timber.log.Timber
 
-/** refer [R.styleable.CodingRippleDrawable] */
+/** refer [R.styleable.CodeRippleDrawable] */
 internal fun parseRippleDrawableAttribute(context: Context, typedArray: TypedArray): Drawable? {
     return internalParseRippleDrawableAttribute(context, typedArray)
 }
 
 internal fun parseRippleDrawableAttributeByStyle(context: Context, resourceId: Int): Drawable? {
     val contextThemeWrapper = ContextThemeWrapper(context, resourceId)
-    val gradientTypedValue = contextThemeWrapper.obtainStyledAttributes(R.styleable.CodingRippleDrawable)
+    val gradientTypedValue = contextThemeWrapper.obtainStyledAttributes(R.styleable.CodeRippleDrawable)
     val drawable = parseRippleDrawableAttribute(contextThemeWrapper, gradientTypedValue)
     gradientTypedValue.recycle()
     return drawable
@@ -26,8 +26,8 @@ internal fun parseRippleDrawableAttributeByStyle(context: Context, resourceId: I
 
 private fun internalParseRippleDrawableAttribute(context: Context, typedArray: TypedArray): Drawable? {
     val colorStateList = parseRippleColorList(typedArray) ?: return null
-    val contentDrawable = parseDrawableByStyleOrDrawable(context, typedArray, R.styleable.CodingRippleDrawable_crd_ripple_content_drawable)
-    val maskDrawable = parseDrawableByStyleOrDrawable(context, typedArray, R.styleable.CodingRippleDrawable_crd_ripple_mask_drawable)
+    val contentDrawable = parseDrawableByStyleOrDrawable(context, typedArray, R.styleable.CodeRippleDrawable_crd_ripple_content_drawable)
+    val maskDrawable = parseDrawableByStyleOrDrawable(context, typedArray, R.styleable.CodeRippleDrawable_crd_ripple_mask_drawable)
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
         RippleDrawable(colorStateList, contentDrawable, maskDrawable)
     } else {
@@ -37,8 +37,8 @@ private fun internalParseRippleDrawableAttribute(context: Context, typedArray: T
 }
 
 private fun parseRippleColorList(typedArray: TypedArray): ColorStateList? {
-    if (typedArray.hasValue(R.styleable.CodingRippleDrawable_crd_ripple_color)) {
-        val color = typedArray.getColor(R.styleable.CodingRippleDrawable_crd_ripple_color, Color.WHITE)
+    if (typedArray.hasValue(R.styleable.CodeRippleDrawable_crd_ripple_color)) {
+        val color = typedArray.getColor(R.styleable.CodeRippleDrawable_crd_ripple_color, Color.WHITE)
         return ColorStateList.valueOf(color)
     }
     return null
@@ -55,13 +55,13 @@ private fun parseDrawableByStyleOrDrawable(context: Context, typedArray: TypedAr
     } else if (typeName == "style") {
 
         //尝试按照 Gradient 解析
-        val gradientTypedArray = ContextThemeWrapper(context, resourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawable)
+        val gradientTypedArray = ContextThemeWrapper(context, resourceId).obtainStyledAttributes(R.styleable.CodeGradientDrawable)
         var drawable = parseGradientDrawableAttribute(context, gradientTypedArray)
         gradientTypedArray.recycle()
 
         //尝试按照 Selector 解析
         if (drawable == null) {
-            val selectorTypedArray = ContextThemeWrapper(context, resourceId).obtainStyledAttributes(R.styleable.CodingSelectorDrawable)
+            val selectorTypedArray = ContextThemeWrapper(context, resourceId).obtainStyledAttributes(R.styleable.CodeSelectorDrawable)
             drawable = parseSelectorDrawableAttribute(context, gradientTypedArray)
             selectorTypedArray.recycle()
         }

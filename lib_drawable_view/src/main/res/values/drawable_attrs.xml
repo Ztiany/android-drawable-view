@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- 以引用的方式设置 Corner -->
+    <!-- 以引用的方式设置 Corner，参考 cgd_shape_corner_style -->
     <declare-styleable name="CornerStyle">
         <attr name="corner_style_all" format="dimension|reference" />
         <attr name="corner_style_top_left" format="dimension|reference" />
@@ -10,13 +10,13 @@
         <attr name="corner_style_bottom_right" format="dimension|reference" />
     </declare-styleable>
 
-    <!-- 以引用的方式设置 Size -->
+    <!-- 以引用的方式设置 Size，参考 cgd_shape_size_style -->
     <declare-styleable name="SizeStyle">
         <attr name="size_style_width" format="dimension|reference" />
         <attr name="size_style_height" format="dimension|reference" />
     </declare-styleable>
 
-    <!-- 以引用的方式设置 Stroke -->
+    <!-- 以引用的方式设置 Stroke，参考 cgd_shape_stroke_style -->
     <declare-styleable name="StrokeStyle">
         <attr name="stroke_style_dash_width" format="dimension|reference" />
         <attr name="stroke_style_dash_gap" format="dimension|reference" />
@@ -24,7 +24,7 @@
         <attr name="stroke_style_width" format="dimension|reference" />
     </declare-styleable>
 
-    <!-- 以引用的方式设置 Padding -->
+    <!-- 以引用的方式设置 Padding，参考 cgd_shape_padding_style -->
     <declare-styleable name="PaddingStyle">
         <attr name="padding_style_left" format="dimension|reference" />
         <attr name="padding_style_right" format="dimension|reference" />
@@ -32,11 +32,12 @@
         <attr name="padding_style_bottom" format="dimension|reference" />
     </declare-styleable>
 
-    <!-- 以引用的方式设置 Gradient -->
+    <!-- 以引用的方式设置 Gradient，参考 cgd_shape_gradient_style -->
     <declare-styleable name="GradientStyle">
         <attr name="gradient_style_start_color" format="color|reference" />
         <attr name="gradient_style_center_color" format="color|reference" />
         <attr name="gradient_style_end_color" format="color|reference" />
+
         <!-- value 与 GradientDrawable 中的常量对应 -->
         <attr name="gradient_style_orientation" format="enum">
             <enum name="TOP_BOTTOM" value="0" />
@@ -52,6 +53,7 @@
         <attr name="gradient_style_center_y" format="float" />
         <attr name="gradient_style_radius" format="dimension|reference" />
         <attr name="gradient_style_user_level" format="boolean" />
+
         <!-- value 与 GradientDrawable 中的常量对应 -->
         <attr name="gradient_style_type" format="enum">
             <enum name="linear" value="0" />
@@ -60,7 +62,8 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="CodingGradientDrawable">
+    <declare-styleable name="CodeGradientDrawable">
+        
         <!-- value 与 GradientDrawable 中的常量对应 -->
         <attr name="cgd_shape" format="enum">
             <enum name="rectangle" value="0" />
@@ -68,31 +71,55 @@
             <enum name="line" value="2" />
             <enum name="ring" value="3" />
         </attr>
+
         <attr name="cgd_shape_solid" format="color|reference" />
 
-        <!--以引用的方式设置属性-->
+        <!--以引用的方式设置 corner 属性，参考 CornerStyle -->
         <attr name="cgd_shape_corner_style" format="reference" />
-        <attr name="cgd_shape_size_style" format="reference" />
-        <attr name="cgd_shape_gradient_style" format="reference" />
-        <attr name="cgd_shape_stroke_style" format="reference" />
-        <attr name="cgd_shape_padding_style" format="reference" />
-
-        <!--如果不想以引用的方式设置属性，也可以直接使用下列属性直接设置，优先级大于 style 系列 -->
+        <!--如果不想以引用的方式设置 corner 相关属性，则直接使用 cgd_corner 属性设置，优先级大于 cgd_shape_corner_style  -->
         <attr name="cgd_corner" format="dimension|reference" />
+        <!--如果不想以引用的方式设置 corner 相关属性，则直接使用 cgd_corner_top_left 属性设置，优先级大于 cgd_shape_corner_style  -->
         <attr name="cgd_corner_top_left" format="dimension|reference" />
+        <!--如果不想以引用的方式设置 corner 相关属性，则直接使用 cgd_corner_top_right 属性设置，优先级大于 cgd_shape_corner_style  -->
         <attr name="cgd_corner_top_right" format="dimension|reference" />
+        <!--如果不想以引用的方式设置 corner 相关属性，则直接使用 cgd_corner_bottom_left 属性设置，优先级大于 cgd_shape_corner_style  -->
         <attr name="cgd_corner_bottom_left" format="dimension|reference" />
+        <!--如果不想以引用的方式设置 corner 相关属性，则直接使用 cgd_corner_bottom_right 属性设置，优先级大于 cgd_shape_corner_style  -->
         <attr name="cgd_corner_bottom_right" format="dimension|reference" />
+
+
+        <!--以引用的方式设置 size 属性，参考 SizeStyle -->
+        <attr name="cgd_shape_size_style" format="reference" />
+        <!--如果不想以引用的方式设置 size 相关属性，则直接使用 cgd_width 属性设置，优先级大于 cgd_shape_size_style -->
         <attr name="cgd_width" format="dimension|reference" />
+        <!--如果不想以引用的方式设置 size 相关属性，则直接使用 cgd_height 属性设置，优先级大于 cgd_shape_size_style -->
         <attr name="cgd_height" format="dimension|reference" />
+
+
+        <!--以引用的方式设置 gradient 属性，参考 GradientStyle -->
+        <attr name="cgd_shape_gradient_style" format="reference" />
+        <!--如果不想以引用的方式设置 stroke 相关属性，则直接使用 cgd_stroke_dash_width 属性设置，优先级大于 cgd_shape_gradient_style -->
         <attr name="cgd_stroke_dash_width" format="dimension|reference" />
+        <!--如果不想以引用的方式设置 stroke 相关属性，则直接使用 cgd_stroke_dash_gap 属性设置，优先级大于 cgd_shape_gradient_style -->
         <attr name="cgd_stroke_dash_gap" format="dimension|reference" />
+        <!--如果不想以引用的方式设置 stroke 相关属性，则直接使用 cgd_stroke_color 属性设置，优先级大于 cgd_shape_gradient_style -->
         <attr name="cgd_stroke_color" format="color|reference" />
+        <!--如果不想以引用的方式设置 stroke 相关属性，则直接使用 cgd_stroke_width 属性设置，优先级大于 cgd_shape_gradient_style -->
         <attr name="cgd_stroke_width" format="dimension|reference" />
+
+
+        <!--以引用的方式设置 stroke 属性，参考 StrokeStyle -->
+        <attr name="cgd_shape_stroke_style" format="reference" />
+        <!--如果不想以引用的方式设置 gradient 相关属性，则直接使用 cgd_gradient_start_color 属性设置，优先级大于 cgd_gradient_type -->
         <attr name="cgd_gradient_start_color" format="color|reference" />
+        <!--如果不想以引用的方式设置 gradient 相关属性，则直接使用 cgd_gradient_center_color 属性设置，优先级大于 cgd_gradient_type -->
         <attr name="cgd_gradient_center_color" format="color|reference" />
+        <!--如果不想以引用的方式设置 gradient 相关属性，则直接使用 cgd_gradient_end_color 属性设置，优先级大于 cgd_gradient_type -->
         <attr name="cgd_gradient_end_color" format="color|reference" />
-        <!-- value 与 GradientDrawable 中的常量对应 -->
+        <!--
+        如果不想以引用的方式设置 gradient 相关属性，则直接使用 cgd_gradient_orientation 属性设置，优先级大于 cgd_gradient_type。
+        value 与 GradientDrawable 中的常量对应。
+         -->
         <attr name="cgd_gradient_orientation" format="enum">
             <enum name="TOP_BOTTOM" value="0" />
             <enum name="TR_BL" value="1" />
@@ -103,58 +130,81 @@
             <enum name="LEFT_RIGHT" value="6" />
             <enum name="TL_BR" value="7" />
         </attr>
+        <!--如果不想以引用的方式设置 gradient 相关属性，则直接使用 cgd_gradient_center_x 属性设置，优先级大于 cgd_gradient_type -->
         <attr name="cgd_gradient_center_x" format="float" />
+        <!--如果不想以引用的方式设置 gradient 相关属性，则直接使用 cgd_gradient_center_y 属性设置，优先级大于 cgd_gradient_type -->
         <attr name="cgd_gradient_center_y" format="float" />
+        <!--如果不想以引用的方式设置 gradient 相关属性，则直接使用 cgd_gradient_radius 属性设置，优先级大于 cgd_gradient_type -->
         <attr name="cgd_gradient_radius" format="dimension|reference" />
+        <!--如果不想以引用的方式设置 gradient 相关属性，则直接使用 cgd_gradient_user_level 属性设置，优先级大于 cgd_gradient_type -->
         <attr name="cgd_gradient_user_level" format="boolean" />
-        <!-- value 与 GradientDrawable 中的常量对应 -->
+        <!--
+        如果不想以引用的方式设置 gradient 相关属性，则直接使用 cgd_gradient_type 属性设置，优先级大于 cgd_gradient_type。
+        value 与 GradientDrawable 中的常量对应。
+        -->
         <attr name="cgd_gradient_type" format="enum">
             <enum name="linear" value="0" />
             <enum name="radial" value="1" />
             <enum name="sweep" value="2" />
         </attr>
+        
+        
+        <!--以引用的方式设置 padding 属性，参考 PaddingStyle -->
+        <attr name="cgd_shape_padding_style" format="reference" />
+        <!--如果不想以引用的方式设置 padding 相关属性，则直接使用 cgd_padding_left 属性设置，优先级大于 cgd_shape_padding_style  -->
         <attr name="cgd_padding_left" format="dimension|reference" />
+        <!--如果不想以引用的方式设置 padding 相关属性，则直接使用 cgd_padding_right 属性设置，优先级大于 cgd_shape_padding_style  -->
         <attr name="cgd_padding_right" format="dimension|reference" />
+        <!--如果不想以引用的方式设置 padding 相关属性，则直接使用 cgd_padding_top 属性设置，优先级大于 cgd_shape_padding_style  -->
         <attr name="cgd_padding_top" format="dimension|reference" />
+        <!--如果不想以引用的方式设置 padding 相关属性，则直接使用 cgd_padding_bottom 属性设置，优先级大于 cgd_shape_padding_style  -->
         <attr name="cgd_padding_bottom" format="dimension|reference" />
     </declare-styleable>
 
-    <declare-styleable name="CodingSelectorDrawable">
-        <attr name="csd_selector_state_disabled" format="reference" />
-        <attr name="csd_selector_state_checked" format="reference" />
-        <attr name="csd_selector_state_focused" format="reference" />
-        <attr name="csd_selector_state_selected" format="reference" />
-        <attr name="csd_selector_state_pressed" format="reference" />
-        <attr name="csd_selector_state_normal" format="reference" />
-    </declare-styleable>
-
-    <declare-styleable name="CodingRippleDrawable">
+    <declare-styleable name="CodeRippleDrawable">
         <attr name="crd_ripple_color" format="color|reference" />
-        <!-- 一个 drawable 文件，或者一个 CodingGradientDrawable Style-->
+        <!-- 引用一个 drawable 文件，或者一个 CodeGradientDrawable Style -->
         <attr name="crd_ripple_content_drawable" format="reference" />
-        <!-- 一个 drawable 文件，或者一个 CodingGradientDrawable Style-->
+        <!-- 引用一个 drawable 文件，或者一个 CodeGradientDrawable Style -->
         <attr name="crd_ripple_mask_drawable" format="reference" />
     </declare-styleable>
 
-    <declare-styleable name="CodingDrawableView">
+    <declare-styleable name="CodeSelectorDrawable">
+        <!-- 引用一个 drawable 文件，或者一个 CodeGradientDrawable/CodeRippleDrawable Style -->
+        <attr name="csd_selector_state_disabled" format="reference" />
+        <!-- 引用一个 drawable 文件，或者一个 CodeGradientDrawable/CodeRippleDrawable Style -->
+        <attr name="csd_selector_state_checked" format="reference" />
+        <!-- 引用一个 drawable 文件，或者一个 CodeGradientDrawable/CodeRippleDrawable Style -->
+        <attr name="csd_selector_state_focused" format="reference" />
+        <!-- 引用一个 drawable 文件，或者一个 CodeGradientDrawable/CodeRippleDrawable Style -->
+        <attr name="csd_selector_state_selected" format="reference" />
+        <!-- 引用一个 drawable 文件，或者一个 CodeGradientDrawable/CodeRippleDrawable Style -->
+        <attr name="csd_selector_state_pressed" format="reference" />
+        <!-- 引用一个 drawable 文件，或者一个 CodeGradientDrawable/CodeRippleDrawable Style -->
+        <attr name="csd_selector_state_normal" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CodeDrawableView">
+        <!-- 指定应用哪种类型的 Drawable，与 appearance 系列属性互斥  -->
         <attr name="cdv_drawable_type" format="enum">
             <enum name="gradient" value="1" />
             <enum name="selector" value="2" />
             <enum name="ripple" value="3" />
         </attr>
+        <!-- 引用一个 Style 类型的 selector drawable（参考 CodeSelectorDrawable），与 cdv_drawable_type 和其他 appearance 属性互斥  -->
         <attr name="cdv_selector_appearance" format="reference" />
+        <!-- 引用一个 Style 类型的 gradient drawable（参考 CodeGradientDrawable），与 cdv_drawable_type 和其他 appearance 属性互斥  -->
         <attr name="cdv_gradient_appearance" format="reference" />
+        <!-- 引用一个 Style 类型的 ripple drawable（参考 CodeRippleDrawable），与 cdv_drawable_type 和其他 appearance 属性互斥  -->
         <attr name="cdv_ripple_appearance" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="DTextView">
-        <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
 
-        <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
@@ -162,7 +212,6 @@
         <attr name="csd_selector_state_pressed" />
         <attr name="csd_selector_state_normal" />
 
-        <!-- 当 cdv_drawable_type = gradient 时，可以按需指定下面属性-->
         <attr name="cgd_shape" />
         <attr name="cgd_shape_solid" />
         <attr name="cgd_shape_corner_style" />
@@ -196,22 +245,25 @@
         <attr name="cgd_gradient_user_level" />
         <attr name="cgd_gradient_type" />
 
-        <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
         <attr name="crd_ripple_content_drawable" />
         <attr name="crd_ripple_mask_drawable" />
 
-        <!-- 指定文字的状态颜色 -->
+        <!-- disable 时的颜色，与 TextView 的 textColor 属性不能同时工作。 -->
         <attr name="dtv_text_color_disabled" format="color|reference" />
+        <!-- focused 时的颜色，与 TextView 的 textColor 属性不能同时工作。 -->
         <attr name="dtv_text_color_focused" format="color|reference" />
+        <!-- checked 时的颜色，与 TextView 的 textColor 属性不能同时工作。 -->
         <attr name="dtv_text_color_checked" format="color|reference" />
+        <!-- selected 时的颜色，与 TextView 的 textColor 属性不能同时工作。 -->
         <attr name="dtv_text_color_selected" format="color|reference" />
+        <!-- pressed 时的颜色，与 TextView 的 textColor 属性不能同时工作。 -->
         <attr name="dtv_text_color_pressed" format="color|reference" />
+        <!-- normal 时的颜色，与 TextView 的 textColor 属性不能同时工作。 -->
         <attr name="dtv_text_color_normal" format="color|reference" />
     </declare-styleable>
 
     <declare-styleable name="DEditText">
-        <!-- 指定文字的状态颜色 -->
         <attr name="dtv_text_color_disabled" />
         <attr name="dtv_text_color_focused" />
         <attr name="dtv_text_color_checked" />
@@ -219,13 +271,11 @@
         <attr name="dtv_text_color_pressed" />
         <attr name="dtv_text_color_normal" />
 
-        <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
 
-        <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
@@ -233,7 +283,6 @@
         <attr name="csd_selector_state_pressed" />
         <attr name="csd_selector_state_normal" />
 
-        <!-- 当 cdv_drawable_type = gradient 时，可以按需指定下面属性-->
         <attr name="cgd_shape" />
         <attr name="cgd_shape_solid" />
         <attr name="cgd_shape_corner_style" />
@@ -267,14 +316,12 @@
         <attr name="cgd_gradient_user_level" />
         <attr name="cgd_gradient_type" />
 
-        <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
         <attr name="crd_ripple_content_drawable" />
         <attr name="crd_ripple_mask_drawable" />
     </declare-styleable>
 
     <declare-styleable name="DButton">
-        <!-- 指定文字的状态颜色 -->
         <attr name="dtv_text_color_disabled" />
         <attr name="dtv_text_color_focused" />
         <attr name="dtv_text_color_checked" />
@@ -282,13 +329,11 @@
         <attr name="dtv_text_color_pressed" />
         <attr name="dtv_text_color_normal" />
 
-        <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
 
-        <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
@@ -296,7 +341,6 @@
         <attr name="csd_selector_state_pressed" />
         <attr name="csd_selector_state_normal" />
 
-        <!-- 当 cdv_drawable_type = gradient 时，可以按需指定下面属性-->
         <attr name="cgd_shape" />
         <attr name="cgd_shape_solid" />
         <attr name="cgd_shape_corner_style" />
@@ -330,20 +374,17 @@
         <attr name="cgd_gradient_user_level" />
         <attr name="cgd_gradient_type" />
 
-        <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
         <attr name="crd_ripple_content_drawable" />
         <attr name="crd_ripple_mask_drawable" />
     </declare-styleable>
 
     <declare-styleable name="DFrameLayout">
-        <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
 
-        <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
@@ -351,7 +392,6 @@
         <attr name="csd_selector_state_pressed" />
         <attr name="csd_selector_state_normal" />
 
-        <!-- 当 cdv_drawable_type = gradient 时，可以按需指定下面属性-->
         <attr name="cgd_shape" />
         <attr name="cgd_shape_solid" />
         <attr name="cgd_shape_corner_style" />
@@ -385,21 +425,17 @@
         <attr name="cgd_gradient_user_level" />
         <attr name="cgd_gradient_type" />
 
-        <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
         <attr name="crd_ripple_content_drawable" />
         <attr name="crd_ripple_mask_drawable" />
     </declare-styleable>
 
     <declare-styleable name="DConstraintLayout">
-
-        <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
 
-        <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
@@ -407,7 +443,6 @@
         <attr name="csd_selector_state_pressed" />
         <attr name="csd_selector_state_normal" />
 
-        <!-- 当 cdv_drawable_type = gradient 时，可以按需指定下面属性-->
         <attr name="cgd_shape" />
         <attr name="cgd_shape_solid" />
         <attr name="cgd_shape_corner_style" />
@@ -441,21 +476,17 @@
         <attr name="cgd_gradient_user_level" />
         <attr name="cgd_gradient_type" />
 
-        <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
         <attr name="crd_ripple_content_drawable" />
         <attr name="crd_ripple_mask_drawable" />
     </declare-styleable>
 
     <declare-styleable name="DLinearLayout">
-
-        <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
 
-        <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
@@ -463,7 +494,6 @@
         <attr name="csd_selector_state_pressed" />
         <attr name="csd_selector_state_normal" />
 
-        <!-- 当 cdv_drawable_type = gradient 时，可以按需指定下面属性-->
         <attr name="cgd_shape" />
         <attr name="cgd_shape_solid" />
         <attr name="cgd_shape_corner_style" />
@@ -497,21 +527,17 @@
         <attr name="cgd_gradient_user_level" />
         <attr name="cgd_gradient_type" />
 
-        <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
         <attr name="crd_ripple_content_drawable" />
         <attr name="crd_ripple_mask_drawable" />
     </declare-styleable>
 
     <declare-styleable name="DRelativeLayout">
-
-        <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
 
-        <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
@@ -519,7 +545,6 @@
         <attr name="csd_selector_state_pressed" />
         <attr name="csd_selector_state_normal" />
 
-        <!-- 当 cdv_drawable_type = gradient 时，可以按需指定下面属性-->
         <attr name="cgd_shape" />
         <attr name="cgd_shape_solid" />
         <attr name="cgd_shape_corner_style" />
@@ -553,21 +578,17 @@
         <attr name="cgd_gradient_user_level" />
         <attr name="cgd_gradient_type" />
 
-        <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
         <attr name="crd_ripple_content_drawable" />
         <attr name="crd_ripple_mask_drawable" />
     </declare-styleable>
 
     <declare-styleable name="DView">
-
-        <!-- 下面属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
         <attr name="cdv_drawable_type" />
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
 
-        <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
@@ -575,7 +596,6 @@
         <attr name="csd_selector_state_pressed" />
         <attr name="csd_selector_state_normal" />
 
-        <!-- 当 cdv_drawable_type = gradient 时，可以按需指定下面属性-->
         <attr name="cgd_shape" />
         <attr name="cgd_shape_solid" />
         <attr name="cgd_shape_corner_style" />
@@ -609,7 +629,6 @@
         <attr name="cgd_gradient_user_level" />
         <attr name="cgd_gradient_type" />
 
-        <!-- 当 cdv_drawable_type = ripple 时，可以按需指定下面属性-->
         <attr name="crd_ripple_color" />
         <attr name="crd_ripple_content_drawable" />
         <attr name="crd_ripple_mask_drawable" />
