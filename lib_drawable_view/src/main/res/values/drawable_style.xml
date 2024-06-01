@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="CornerAppearance.Rounded2" parent="">
+        <item name="corner_style_all">2dp</item>
+    </style>
+
     <style name="CornerAppearance.Rounded5" parent="">
         <item name="corner_style_all">5dp</item>
     </style>
@@ -13,12 +17,32 @@
         <item name="corner_style_all">10dp</item>
     </style>
 
+    <style name="CornerAppearance.Rounded12" parent="">
+        <item name="corner_style_all">12dp</item>
+    </style>
+
     <style name="CornerAppearance.Rounded15" parent="">
         <item name="corner_style_all">15dp</item>
     </style>
 
     <style name="CornerAppearance.Rounded20" parent="">
         <item name="corner_style_all">20dp</item>
+    </style>
+
+    <style name="CornerAppearance.Rounded25" parent="">
+        <item name="corner_style_all">25dp</item>
+    </style>
+
+    <style name="CornerAppearance.Rounded30" parent="">
+        <item name="corner_style_all">30dp</item>
+    </style>
+
+    <style name="CornerAppearance.Rounded40" parent="">
+        <item name="corner_style_all">40dp</item>
+    </style>
+
+    <style name="CornerAppearance.Rounded50" parent="">
+        <item name="corner_style_all">50dp</item>
     </style>
 
 </resources>

@@ -9,7 +9,7 @@ import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
-class ShapeableButton @JvmOverloads constructor(
+open class ShapeableButton @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = android.R.attr.buttonStyle
@@ -22,6 +22,7 @@ class ShapeableButton @JvmOverloads constructor(
     init {
         mdHelper.update(this)
         colorHelper.setTextColor(this)
+        ShapeViewStateHelper.setSelectedState(attrs, defStyleAttr, 0, this)
     }
 
     override fun recoverShapeDrawable() {

@@ -28,9 +28,9 @@ internal fun parseSelectorDrawableAttribute(context: Context, typedArray: TypedA
 
     collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_disabled, StateEnabled, false)
     collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_focused, StateFocused, true)
+    collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_pressed, StatePressed, true)
     collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_checked, StateChecked, true)
     collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_selected, StateSelected, true)
-    collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_pressed, StatePressed, true)
     collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_normal, null, false)
 
     if (drawableList.isEmpty()) {

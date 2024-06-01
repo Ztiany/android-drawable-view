@@ -6,7 +6,7 @@ import android.widget.RelativeLayout
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 
-class DRelativeLayout @JvmOverloads constructor(
+open class DRelativeLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0,
@@ -17,6 +17,7 @@ class DRelativeLayout @JvmOverloads constructor(
 
     init {
         codeDrawableHelper.setBackground(this)
+        CodeViewStateHelper.setSelectedState(attrs, defStyleAttr, 0, this)
     }
 
     override fun recoverDrawable() {

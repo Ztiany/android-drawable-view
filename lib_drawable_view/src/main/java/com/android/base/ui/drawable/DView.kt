@@ -6,7 +6,7 @@ import android.view.View
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 
-class DView @JvmOverloads constructor(
+open class DView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0,
@@ -17,6 +17,7 @@ class DView @JvmOverloads constructor(
 
     init {
         codeDrawableHelper.setBackground(this)
+        CodeViewStateHelper.setSelectedState(attrs, defStyleAttr, 0, this)
     }
 
     override fun recoverDrawable() {

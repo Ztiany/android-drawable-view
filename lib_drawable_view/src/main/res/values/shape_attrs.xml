@@ -42,7 +42,33 @@
         <attr name="msd_backgroundColor_normal" format="color|reference" />
     </declare-styleable>
 
+    <declare-styleable name="ShapeableView">
+        <attr name="msd_selected" format="boolean|reference" />
+
+        <attr name="shapeAppearance" />
+        <attr name="shapeAppearanceOverlay" />
+
+        <attr name="msd_strokeWidth" />
+        <attr name="msd_strokeColor" />
+        <attr name="msd_strokeColor_disabled" />
+        <attr name="msd_strokeColor_focused" />
+        <attr name="msd_strokeColor_checked" />
+        <attr name="msd_strokeColor_selected" />
+        <attr name="msd_strokeColor_pressed" />
+        <attr name="msd_strokeColor_normal" />
+
+        <attr name="msd_backgroundColor" />
+        <attr name="msd_backgroundColor_disabled" />
+        <attr name="msd_backgroundColor_focused" />
+        <attr name="msd_backgroundColor_checked" />
+        <attr name="msd_backgroundColor_selected" />
+        <attr name="msd_backgroundColor_pressed" />
+        <attr name="msd_backgroundColor_normal" />
+    </declare-styleable>
+
     <declare-styleable name="ShapeableFrameLayout">
+        <attr name="msd_selected" />
+
         <attr name="shapeAppearance" />
         <attr name="shapeAppearanceOverlay" />
 
@@ -65,6 +91,8 @@
     </declare-styleable>
 
     <declare-styleable name="ShapeableConstraintLayout">
+        <attr name="msd_selected" />
+
         <attr name="shapeAppearance" />
         <attr name="shapeAppearanceOverlay" />
 
@@ -87,6 +115,8 @@
     </declare-styleable>
 
     <declare-styleable name="ShapeableRelativeLayout">
+        <attr name="msd_selected" />
+
         <attr name="shapeAppearance" />
         <attr name="shapeAppearanceOverlay" />
 
@@ -109,28 +139,8 @@
     </declare-styleable>
 
     <declare-styleable name="ShapeableLinearLayout">
-        <attr name="shapeAppearance" />
-        <attr name="shapeAppearanceOverlay" />
+        <attr name="msd_selected" />
 
-        <attr name="msd_strokeWidth" />
-        <attr name="msd_strokeColor" />
-        <attr name="msd_strokeColor_disabled" />
-        <attr name="msd_strokeColor_focused" />
-        <attr name="msd_strokeColor_checked" />
-        <attr name="msd_strokeColor_selected" />
-        <attr name="msd_strokeColor_pressed" />
-        <attr name="msd_strokeColor_normal" />
-
-        <attr name="msd_backgroundColor" />
-        <attr name="msd_backgroundColor_disabled" />
-        <attr name="msd_backgroundColor_focused" />
-        <attr name="msd_backgroundColor_checked" />
-        <attr name="msd_backgroundColor_selected" />
-        <attr name="msd_backgroundColor_pressed" />
-        <attr name="msd_backgroundColor_normal" />
-    </declare-styleable>
-
-    <declare-styleable name="ShapeableView">
         <attr name="shapeAppearance" />
         <attr name="shapeAppearanceOverlay" />
 
@@ -160,6 +170,8 @@
         <attr name="stv_text_color_pressed" format="color|reference" />
         <attr name="stv_text_color_normal" format="color|reference" />
 
+        <attr name="msd_selected" />
+
         <attr name="shapeAppearance" />
         <attr name="shapeAppearanceOverlay" />
 
@@ -188,6 +200,8 @@
         <attr name="stv_text_color_selected" />
         <attr name="stv_text_color_pressed" />
         <attr name="stv_text_color_normal" />
+
+        <attr name="msd_selected" />
 
         <attr name="shapeAppearance" />
         <attr name="shapeAppearanceOverlay" />

@@ -6,7 +6,7 @@ import androidx.annotation.AttrRes
 import androidx.appcompat.widget.AppCompatButton
 import com.android.base.ui.common.RecoverableTextColor
 
-class DButton @JvmOverloads constructor(
+open class DButton @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = android.R.attr.buttonStyle
@@ -19,6 +19,7 @@ class DButton @JvmOverloads constructor(
     init {
         codeDrawableHelper.setBackground(this)
         codeTextColorStateListHelper.setTextColor(this)
+        CodeViewStateHelper.setSelectedState(attrs, defStyleAttr, 0, this)
     }
 
     override fun recoverDrawable() {

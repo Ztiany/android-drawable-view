@@ -9,7 +9,7 @@ import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
-class ShapeableFrameLayout @JvmOverloads constructor(
+open class ShapeableFrameLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0,
@@ -20,6 +20,7 @@ class ShapeableFrameLayout @JvmOverloads constructor(
 
     init {
         mdHelper.update(this)
+        ShapeViewStateHelper.setSelectedState(attrs, defStyleAttr, 0, this)
     }
 
     override fun recoverShapeDrawable() {

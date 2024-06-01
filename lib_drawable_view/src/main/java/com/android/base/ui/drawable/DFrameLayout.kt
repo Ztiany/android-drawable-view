@@ -6,7 +6,7 @@ import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 
-class DFrameLayout @JvmOverloads constructor(
+open class DFrameLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0,
@@ -17,6 +17,7 @@ class DFrameLayout @JvmOverloads constructor(
 
     init {
         codeDrawableHelper.setBackground(this)
+        CodeViewStateHelper.setSelectedState(attrs, defStyleAttr, 0, this)
     }
 
     override fun recoverDrawable() {

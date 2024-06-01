@@ -6,7 +6,7 @@ import androidx.annotation.AttrRes
 import androidx.appcompat.widget.AppCompatEditText
 import com.android.base.ui.common.RecoverableTextColor
 
-class DEditText @JvmOverloads constructor(
+open class DEditText @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = android.R.attr.editTextStyle

@@ -33,9 +33,9 @@ class CodeTextColorStateListHelper(
     private fun buildResourceList() = listOf(
         ResourceInfo(R.styleable.DTextView_dtv_text_color_disabled, StateEnabled, false),
         ResourceInfo(R.styleable.DTextView_dtv_text_color_focused, StateFocused, true),
+        ResourceInfo(R.styleable.DTextView_dtv_text_color_pressed, StatePressed, true),
         ResourceInfo(R.styleable.DTextView_dtv_text_color_checked, StateChecked, true),
         ResourceInfo(R.styleable.DTextView_dtv_text_color_selected, StateSelected, true),
-        ResourceInfo(R.styleable.DTextView_dtv_text_color_pressed, StatePressed, true),
         ResourceInfo(R.styleable.DTextView_dtv_text_color_normal, null, false)
     )
 
