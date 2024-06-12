@@ -51,3 +51,7 @@
 
 - Remove unuseful attributes.
 - Optimize code.
+
+## V 1.2.1
+
+- fix `recoverShapeDrawable`

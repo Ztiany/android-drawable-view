@@ -108,13 +108,18 @@ class MaterialShapeDrawableHelper(
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_normal, null, false)
     )
 
-    fun update(target: View) {
+    fun setShapeDrawable(target: View) {
         val left = target.paddingLeft
         val top = target.paddingTop
         val right = target.paddingRight
         val bottom = target.paddingBottom
         target.background = drawable
         target.setPadding(left, top, right, bottom)
+    }
+
+    fun recoverShapeDrawable(target: View) {
+        drawable.shapeAppearanceModel = shapeAppearanceModel
+        setShapeDrawable(target)
     }
 
     fun updateShapeAppearanceModel(shapeAppearanceModel: ShapeAppearanceModel) {
