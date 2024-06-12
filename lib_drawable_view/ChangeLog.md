@@ -54,4 +54,8 @@
 
 ## V 1.2.1
 
+- Support `selected` attribute.
+
+## V 1.2.2
+
 - fix `recoverShapeDrawable`

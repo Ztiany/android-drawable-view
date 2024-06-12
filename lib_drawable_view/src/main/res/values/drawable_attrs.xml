@@ -63,7 +63,7 @@
     </declare-styleable>
 
     <declare-styleable name="CodeGradientDrawable">
-        
+
         <!-- value 与 GradientDrawable 中的常量对应 -->
         <attr name="cgd_shape" format="enum">
             <enum name="rectangle" value="0" />
@@ -147,8 +147,8 @@
             <enum name="radial" value="1" />
             <enum name="sweep" value="2" />
         </attr>
-        
-        
+
+
         <!--以引用的方式设置 padding 属性，参考 PaddingStyle -->
         <attr name="cgd_shape_padding_style" format="reference" />
         <!--如果不想以引用的方式设置 padding 相关属性，则直接使用 cgd_padding_left 属性设置，优先级大于 cgd_shape_padding_style  -->
@@ -204,6 +204,7 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_selected"/>
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -333,6 +334,7 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_selected"/>
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -384,6 +386,7 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_selected"/>
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -435,6 +438,7 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_selected"/>
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -486,6 +490,7 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_selected"/>
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -537,6 +542,7 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_selected"/>
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -588,6 +594,7 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_selected" format="boolean|reference" />
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />

@@ -6,6 +6,11 @@
         <item name="cornerSize">0dp</item>
     </style>
 
+    <style name="ShapeAppearance.Rounded2" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">2dp</item>
+    </style>
+
     <style name="ShapeAppearance.Rounded5" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">5dp</item>
@@ -34,6 +39,26 @@
     <style name="ShapeAppearance.Rounded20" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Rounded25" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">25dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Rounded30" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Rounded40" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">40dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Rounded50" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50dp</item>
     </style>
 
     <style name="ShapeAppearance.Circle" parent="">

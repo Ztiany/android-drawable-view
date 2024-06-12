@@ -9,7 +9,7 @@ import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
-class ShapeableTextView @JvmOverloads constructor(
+open class ShapeableTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = android.R.attr.textViewStyle
@@ -22,6 +22,7 @@ class ShapeableTextView @JvmOverloads constructor(
     init {
         mdHelper.setShapeDrawable(this)
         colorHelper.setTextColor(this)
+        ShapeViewStateHelper.setSelectedState(attrs, defStyleAttr, 0, this)
     }
 
     override fun recoverShapeDrawable() {

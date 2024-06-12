@@ -89,9 +89,9 @@ class MaterialShapeDrawableHelper(
     private fun buildBackgroundResourceList() = listOf(
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_backgroundColor_disabled, StateEnabled, false),
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_backgroundColor_focused, StateFocused, true),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_backgroundColor_pressed, StatePressed, true),
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_backgroundColor_checked, StateChecked, true),
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_backgroundColor_selected, StateSelected, true),
-        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_backgroundColor_pressed, StatePressed, true),
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_backgroundColor_normal, null, false)
     )
 
@@ -102,9 +102,9 @@ class MaterialShapeDrawableHelper(
     private fun buildStrokeResourceList() = listOf(
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_disabled, StateEnabled, false),
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_focused, StateFocused, true),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_pressed, StatePressed, true),
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_checked, StateChecked, true),
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_selected, StateSelected, true),
-        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_pressed, StatePressed, true),
         ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_normal, null, false)
     )
 

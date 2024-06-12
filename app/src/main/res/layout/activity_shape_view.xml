@@ -108,6 +108,44 @@
                 app:stv_text_color_normal="@color/red"
                 app:stv_text_color_pressed="@color/black" />
 
+            <com.android.base.ui.shape.ShapeableTextView
+                style="@style/StyleShapeView"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Selected, Click me"
+                android:textStyle="bold"
+                app:msd_selected="true"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeColor_pressed="@color/black"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/ShapeAppearance.Hexagon"
+                app:stv_text_color_normal="@color/red"
+                app:stv_text_color_selected="@color/yellow"
+                app:stv_text_color_pressed="@color/black" />
+
+            <com.android.base.ui.shape.ShapeableTextView
+                style="@style/StyleShapeView"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Not selected, Click me"
+                android:textStyle="bold"
+                app:msd_selected="false"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeColor_pressed="@color/black"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/ShapeAppearance.Hexagon"
+                app:stv_text_color_normal="@color/red"
+                app:stv_text_color_selected="@color/yellow"
+                app:stv_text_color_pressed="@color/black" />
+
             <com.android.base.ui.shape.ShapeableButton
                 style="@style/StyleShapeView"
                 android:layout_width="match_parent"

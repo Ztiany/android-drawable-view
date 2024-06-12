@@ -5,8 +5,8 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.widget.TextView
 import androidx.core.content.res.use
-import com.android.base.ui.drawable.parser.ResourceInfo
 import com.android.base.ui.drawable.drawable.CodeColorStateList
+import com.android.base.ui.drawable.parser.ResourceInfo
 import com.android.base.ui.drawable.parser.StateChecked
 import com.android.base.ui.drawable.parser.StateEnabled
 import com.android.base.ui.drawable.parser.StateFocused
@@ -33,9 +33,9 @@ class ShapeTextColorHelper(
     private fun buildResourceList() = listOf(
         ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_disabled, StateEnabled, false),
         ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_focused, StateFocused, true),
+        ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_pressed, StatePressed, true),
         ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_checked, StateChecked, true),
         ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_selected, StateSelected, true),
-        ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_pressed, StatePressed, true),
         ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_normal, null, false)
     )
 
