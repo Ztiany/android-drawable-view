@@ -59,3 +59,8 @@
 ## V 1.2.2
 
 - fix `recoverShapeDrawable`
+
+## V 1.2.3
+
+- adjust the order of state.
+- add clip attribute.

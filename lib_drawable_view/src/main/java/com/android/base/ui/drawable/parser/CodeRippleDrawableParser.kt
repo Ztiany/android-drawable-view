@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.RippleDrawable
 import android.os.Build
 import android.view.ContextThemeWrapper
-import com.ztiany.android.drawable.view.R
+import com.android.base.ui.drawables.R
 import timber.log.Timber
 
 /** refer [R.styleable.CodeRippleDrawable] */

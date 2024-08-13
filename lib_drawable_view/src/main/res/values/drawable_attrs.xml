@@ -204,7 +204,8 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
-        <attr name="cdv_selected"/>
+        <attr name="cdv_selected" />
+        <attr name="cdv_clip_to_outline" />
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -334,7 +335,8 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
-        <attr name="cdv_selected"/>
+        <attr name="cdv_selected" />
+        <attr name="cdv_clip_to_outline" />
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -386,7 +388,8 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
-        <attr name="cdv_selected"/>
+        <attr name="cdv_selected" />
+        <attr name="cdv_clip_to_outline" />
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -438,7 +441,8 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
-        <attr name="cdv_selected"/>
+        <attr name="cdv_selected" />
+        <attr name="cdv_clip_to_outline" />
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -490,7 +494,8 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
-        <attr name="cdv_selected"/>
+        <attr name="cdv_selected" />
+        <attr name="cdv_clip_to_outline" />
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -542,7 +547,8 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
-        <attr name="cdv_selected"/>
+        <attr name="cdv_selected" />
+        <attr name="cdv_clip_to_outline" />
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -595,6 +601,7 @@
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
         <attr name="cdv_selected" format="boolean|reference" />
+        <attr name="cdv_clip_to_outline" format="boolean|reference" />
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />

@@ -15,7 +15,7 @@ import com.android.base.ui.drawable.drawable.Gradient
 import com.android.base.ui.drawable.drawable.PX_UNIT
 import com.android.base.ui.drawable.drawable.Padding
 import com.android.base.ui.drawable.drawable.Stroke
-import com.ztiany.android.drawable.view.R
+import com.android.base.ui.drawables.R
 
 /** refer [R.styleable.CodeGradientDrawable] */
 internal fun parseGradientDrawableAttribute(context: Context, typedArray: TypedArray): Drawable? {

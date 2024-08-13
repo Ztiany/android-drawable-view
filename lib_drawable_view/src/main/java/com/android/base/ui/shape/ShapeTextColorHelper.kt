@@ -13,7 +13,7 @@ import com.android.base.ui.drawable.parser.StateFocused
 import com.android.base.ui.drawable.parser.StatePressed
 import com.android.base.ui.drawable.parser.StateSelected
 import com.android.base.ui.drawable.parser.parseCodeColorStateListAttribute
-import com.ztiany.android.drawable.view.R
+import com.android.base.ui.drawables.R
 
 class ShapeTextColorHelper(
     private val context: Context,
@@ -32,10 +32,10 @@ class ShapeTextColorHelper(
 
     private fun buildResourceList() = listOf(
         ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_disabled, StateEnabled, false),
-        ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_focused, StateFocused, true),
         ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_pressed, StatePressed, true),
         ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_checked, StateChecked, true),
         ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_selected, StateSelected, true),
+        ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_focused, StateFocused, true),
         ResourceInfo(R.styleable.ShapeableTextView_stv_text_color_normal, null, false)
     )
 

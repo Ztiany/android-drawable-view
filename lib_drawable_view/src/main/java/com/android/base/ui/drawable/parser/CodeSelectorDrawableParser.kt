@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable
 import android.view.ContextThemeWrapper
 import com.android.base.ui.drawable.drawable.CodeStateListDrawable
 import com.android.base.ui.drawable.drawable.SelectorDrawableItem
-import com.ztiany.android.drawable.view.R
+import com.android.base.ui.drawables.R
 
 internal fun parseSelectorDrawableAttributeByStyle(context: Context, resourceId: Int): Drawable? {
     val contextThemeWrapper = ContextThemeWrapper(context, resourceId)
@@ -27,10 +27,10 @@ internal fun parseSelectorDrawableAttribute(context: Context, typedArray: TypedA
     }
 
     collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_disabled, StateEnabled, false)
-    collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_focused, StateFocused, true)
     collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_pressed, StatePressed, true)
     collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_checked, StateChecked, true)
     collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_selected, StateSelected, true)
+    collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_focused, StateFocused, true)
     collectStateDrawable(R.styleable.CodeSelectorDrawable_csd_selector_state_normal, null, false)
 
     if (drawableList.isEmpty()) {

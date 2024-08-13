@@ -12,7 +12,7 @@ import com.android.base.ui.drawable.parser.parseRippleDrawableAttribute
 import com.android.base.ui.drawable.parser.parseRippleDrawableAttributeByStyle
 import com.android.base.ui.drawable.parser.parseSelectorDrawableAttribute
 import com.android.base.ui.drawable.parser.parseSelectorDrawableAttributeByStyle
-import com.ztiany.android.drawable.view.R
+import com.android.base.ui.drawables.R
 
 class CodeDrawableHelper(
     private val context: Context,

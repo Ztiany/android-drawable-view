@@ -27,7 +27,7 @@
                 android:background="@color/colorPrimary"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="By Coding"
+                android:text="By Programmatically"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
@@ -87,9 +87,52 @@
                 android:background="@color/colorPrimary"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="By CustomView"
+                android:text="By XML"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
+
+            <com.android.base.ui.shape.ShapeableFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:elevation="4dp"
+                app:msd_backgroundColor_normal="@color/blue"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded25">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="Click Me!"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </com.android.base.ui.shape.ShapeableFrameLayout>
+
+            <com.android.base.ui.shape.ShapeableFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:elevation="4dp"
+                app:msd_backgroundColor_normal="@color/blue"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded25">
+
+                <com.android.base.ui.shape.ShapeableTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="Click Me!"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:msd_backgroundColor_normal="@color/white"
+                    app:msd_backgroundColor_pressed="@color/red" />
+
+            </com.android.base.ui.shape.ShapeableFrameLayout>
 
             <com.android.base.ui.shape.ShapeableTextView
                 style="@style/StyleShapeView"
@@ -124,8 +167,8 @@
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/ShapeAppearance.Hexagon"
                 app:stv_text_color_normal="@color/red"
-                app:stv_text_color_selected="@color/yellow"
-                app:stv_text_color_pressed="@color/black" />
+                app:stv_text_color_pressed="@color/black"
+                app:stv_text_color_selected="@color/yellow" />
 
             <com.android.base.ui.shape.ShapeableTextView
                 style="@style/StyleShapeView"
@@ -143,8 +186,8 @@
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/ShapeAppearance.Hexagon"
                 app:stv_text_color_normal="@color/red"
-                app:stv_text_color_selected="@color/yellow"
-                app:stv_text_color_pressed="@color/black" />
+                app:stv_text_color_pressed="@color/black"
+                app:stv_text_color_selected="@color/yellow" />
 
             <com.android.base.ui.shape.ShapeableButton
                 style="@style/StyleShapeView"
