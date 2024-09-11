@@ -64,3 +64,7 @@
 
 - adjust the order of state.
 - add clip attribute.
+
+## V 1.2.4
+
+- enhance stability.
