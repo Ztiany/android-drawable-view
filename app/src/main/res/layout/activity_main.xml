@@ -24,4 +24,18 @@
         android:onClick="drawableView"
         android:text="Drawable View" />
 
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="shapeViewDialog"
+        android:text="Shape View in Dialog" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="drawableViewDialog"
+        android:text="Drawable View in Dialog" />
+
 </LinearLayout>

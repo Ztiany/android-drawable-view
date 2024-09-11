@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:ignore="HardcodedText">
 
     <LinearLayout
@@ -113,6 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:layout_margin="10dp"
+                android:clipToOutline="true"
                 android:elevation="4dp"
                 app:cdv_drawable_type="gradient"
                 app:cgd_shape="rectangle"

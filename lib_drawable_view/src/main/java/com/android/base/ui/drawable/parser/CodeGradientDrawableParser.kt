@@ -2,7 +2,6 @@ package com.android.base.ui.drawable.parser
 
 import android.content.Context
 import android.content.res.TypedArray
-import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
@@ -16,6 +15,8 @@ import com.android.base.ui.drawable.drawable.PX_UNIT
 import com.android.base.ui.drawable.drawable.Padding
 import com.android.base.ui.drawable.drawable.Stroke
 import com.android.base.ui.drawables.R
+import com.android.base.ui.utils.getColorSafely
+import com.android.base.ui.utils.getColorStateListSafely
 
 /** refer [R.styleable.CodeGradientDrawable] */
 internal fun parseGradientDrawableAttribute(context: Context, typedArray: TypedArray): Drawable? {
@@ -31,7 +32,7 @@ internal fun parseGradientDrawableAttributeByStyle(context: Context, resourceId:
 }
 
 private fun internalParseGradientDrawableAttribute(
-    context: Context, typedArray: TypedArray
+    context: Context, typedArray: TypedArray,
 ): CodeGradientDrawable? {
     val shapeValue = typedArray.getInt(R.styleable.CodeGradientDrawable_cgd_shape, -1)
     if (shapeValue == -1) {
@@ -48,7 +49,12 @@ private fun internalParseGradientDrawableAttribute(
         shape(shapeValue)
 
         if (typedArray.hasValue(R.styleable.CodeGradientDrawable_cgd_shape_solid)) {
-            solidColor(CodeColorStateList.valueOf(typedArray.getColor(R.styleable.CodeGradientDrawable_cgd_shape_solid, Color.WHITE)))
+            solidColor(
+                typedArray.getColorStateListSafely(
+                    "cgd_shape_solid",
+                    R.styleable.CodeGradientDrawable_cgd_shape_solid
+                )
+            )
         }
 
         size.let { size(it[0], it[1], PX_UNIT) }
@@ -98,13 +104,13 @@ private fun parseGradientAttribute(context: Context, typedArray: TypedArray): Gr
 private fun getGradientAttributeValue(gradientTypedValue: TypedArray, gradientValues: GradientValues) {
     val colorList = mutableListOf<Int>()
     if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_start_color)) {
-        colorList.add(gradientTypedValue.getColor(R.styleable.GradientStyle_gradient_style_start_color, Color.WHITE))
+        colorList.add(gradientTypedValue.getColorSafely("gradient_style_start_color", R.styleable.GradientStyle_gradient_style_start_color))
     }
     if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_center_color)) {
-        colorList.add(gradientTypedValue.getColor(R.styleable.GradientStyle_gradient_style_center_color, Color.WHITE))
+        colorList.add(gradientTypedValue.getColorSafely("gradient_style_center_color", R.styleable.GradientStyle_gradient_style_center_color))
     }
     if (gradientTypedValue.hasValue(R.styleable.GradientStyle_gradient_style_end_color)) {
-        colorList.add(gradientTypedValue.getColor(R.styleable.GradientStyle_gradient_style_end_color, Color.WHITE))
+        colorList.add(gradientTypedValue.getColorSafely("gradient_style_end_color", R.styleable.GradientStyle_gradient_style_end_color))
     }
     if (colorList.isNotEmpty()) {
         gradientValues.gradientColors = colorList.toIntArray()
@@ -140,13 +146,28 @@ private fun getGradientAttributeValue(gradientTypedValue: TypedArray, gradientVa
 private fun getGradientAttributeValue2(gradientTypedValue: TypedArray, gradientValues: GradientValues) {
     val colorList = mutableListOf<Int>()
     if (gradientTypedValue.hasValue(R.styleable.CodeGradientDrawable_cgd_gradient_start_color)) {
-        colorList.add(gradientTypedValue.getColor(R.styleable.CodeGradientDrawable_cgd_gradient_start_color, Color.WHITE))
+        colorList.add(
+            gradientTypedValue.getColorSafely(
+                "cgd_gradient_start_color",
+                R.styleable.CodeGradientDrawable_cgd_gradient_start_color
+            )
+        )
     }
     if (gradientTypedValue.hasValue(R.styleable.CodeGradientDrawable_cgd_gradient_center_color)) {
-        colorList.add(gradientTypedValue.getColor(R.styleable.CodeGradientDrawable_cgd_gradient_center_color, Color.WHITE))
+        colorList.add(
+            gradientTypedValue.getColorSafely(
+                "cgd_gradient_center_color",
+                R.styleable.CodeGradientDrawable_cgd_gradient_center_color
+            )
+        )
     }
     if (gradientTypedValue.hasValue(R.styleable.CodeGradientDrawable_cgd_gradient_end_color)) {
-        colorList.add(gradientTypedValue.getColor(R.styleable.CodeGradientDrawable_cgd_gradient_end_color, Color.WHITE))
+        colorList.add(
+            gradientTypedValue.getColorSafely(
+                "cgd_gradient_end_color",
+                R.styleable.CodeGradientDrawable_cgd_gradient_end_color
+            )
+        )
     }
     if (colorList.isNotEmpty()) {
         gradientValues.gradientColors = colorList.toIntArray()
@@ -216,7 +237,10 @@ private fun getStrokeAttributeValue(strokeTypedValue: TypedArray, strokeValues: 
         strokeValues.width = strokeTypedValue.getDimension(R.styleable.StrokeStyle_stroke_style_width, 0F)
     }
     if (strokeTypedValue.hasValue(R.styleable.StrokeStyle_stroke_style_color)) {
-        strokeValues.color = strokeTypedValue.getColor(R.styleable.StrokeStyle_stroke_style_color, Color.TRANSPARENT)
+        strokeValues.color = strokeTypedValue.getColorSafely(
+            "stroke_style_color",
+            R.styleable.StrokeStyle_stroke_style_color
+        )
     }
 }
 
@@ -231,7 +255,10 @@ private fun getStrokeAttributeValue2(strokeTypedValue: TypedArray, strokeValues:
         strokeValues.width = strokeTypedValue.getDimension(R.styleable.CodeGradientDrawable_cgd_stroke_width, 0F)
     }
     if (strokeTypedValue.hasValue(R.styleable.CodeGradientDrawable_cgd_stroke_color)) {
-        strokeValues.color = strokeTypedValue.getColor(R.styleable.CodeGradientDrawable_cgd_stroke_color, Color.TRANSPARENT)
+        strokeValues.color = strokeTypedValue.getColorSafely(
+            "cgd_stroke_color",
+            R.styleable.CodeGradientDrawable_cgd_stroke_color
+        )
     }
 }
 

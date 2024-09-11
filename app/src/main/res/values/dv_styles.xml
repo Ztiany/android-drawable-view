@@ -45,7 +45,7 @@
     <style name="CodeGradientDrawable_Solid_2">
         <item name="cgd_shape">rectangle</item>
         <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round_TL20</item>
-        <item name="cgd_shape_solid">@color/green</item>
+        <item name="cgd_shape_solid">?android:windowBackground</item>
     </style>
 
     <style name="CodeGradientDrawable_Solid_3">

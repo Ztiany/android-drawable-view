@@ -4,10 +4,16 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.Bridge">
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/silver</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="tabSelectedTextColor">@color/colorAccent</item>
         <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@color/silver</item>
     </style>
 
 </resources>

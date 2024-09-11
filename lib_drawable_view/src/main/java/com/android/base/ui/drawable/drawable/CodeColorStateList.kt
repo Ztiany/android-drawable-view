@@ -127,7 +127,7 @@ class SelectorColorItem private constructor(val color: Int, val states: MutableL
         }
 
         internal fun build(): SelectorColorItem {
-            /** 两个SelectorColorItem添加state的内容相同，添加顺序不同，会被认为是相同
+            /** 两个 SelectorColorItem 添加 state 的内容相同，添加顺序不同，会被认为是相同
              * @see CodeColorStateList.equals(other: Any?)
              */
             states.sort()

@@ -3,12 +3,12 @@ package com.android.base.ui.drawable.parser
 import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.TypedArray
-import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.RippleDrawable
 import android.os.Build
 import android.view.ContextThemeWrapper
 import com.android.base.ui.drawables.R
+import com.android.base.ui.utils.getColorSafely
 import timber.log.Timber
 
 /** refer [R.styleable.CodeRippleDrawable] */
@@ -38,7 +38,7 @@ private fun internalParseRippleDrawableAttribute(context: Context, typedArray: T
 
 private fun parseRippleColorList(typedArray: TypedArray): ColorStateList? {
     if (typedArray.hasValue(R.styleable.CodeRippleDrawable_crd_ripple_color)) {
-        val color = typedArray.getColor(R.styleable.CodeRippleDrawable_crd_ripple_color, Color.WHITE)
+        val color = typedArray.getColorSafely("crd_ripple_color", R.styleable.CodeRippleDrawable_crd_ripple_color)
         return ColorStateList.valueOf(color)
     }
     return null

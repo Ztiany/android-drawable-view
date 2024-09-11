@@ -1,6 +1,7 @@
 package com.android.base.ui.drawable.drawable
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
@@ -20,7 +21,7 @@ class CodeGradientDrawable private constructor(
     shapeType: Int,
     gradient: Gradient?,
     corner: Corner?,
-    solidColor: CodeColorStateList?,
+    solidColor: ColorStateList?,
     stroke: Stroke?,
     padding: Padding?,
     width: Int,
@@ -92,7 +93,7 @@ class CodeGradientDrawable private constructor(
 
         private var debugName: String? = "Debug"
 
-        private var solidColor: CodeColorStateList? = null
+        private var solidColor: ColorStateList? = null
         private var shape: Int = RECTANGLE
 
         private var width: Int = -1
@@ -113,7 +114,7 @@ class CodeGradientDrawable private constructor(
             this.shape = shape
         }
 
-        fun solidColor(solidColor: CodeColorStateList) = apply {
+        fun solidColor(solidColor: ColorStateList) = apply {
             this.solidColor = solidColor
             this.gradient = null
         }
