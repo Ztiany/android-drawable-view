@@ -3,8 +3,10 @@ package com.android.base.ui.drawable
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.util.AttributeSet
 import android.view.View
+import android.widget.FrameLayout
 import androidx.core.content.res.use
 import com.android.base.ui.drawable.parser.parseGradientDrawableAttribute
 import com.android.base.ui.drawable.parser.parseGradientDrawableAttributeByStyle
@@ -18,10 +20,12 @@ class CodeDrawableHelper(
     private val context: Context,
     private val attrs: AttributeSet?,
     private val defaultStyleAttr: Int = 0,
-    private val defaultStyleRes: Int = 0
+    private val defaultStyleRes: Int = 0,
 ) {
 
-    private var drawable: Drawable? = null
+    private var backgroundDrawable: Drawable? = null
+
+    private var foregroundDrawable: Drawable? = null
 
     init {
         withStyleable(R.styleable.CodeDrawableView) {
@@ -29,8 +33,13 @@ class CodeDrawableHelper(
         }
     }
 
+    fun setDrawable(view: View) {
+        setBackground(view)
+        setForeground(view)
+    }
+
     fun setBackground(view: View) {
-        drawable?.let {
+        backgroundDrawable?.let {
             val left = view.paddingLeft
             val top = view.paddingTop
             val right = view.paddingRight
@@ -40,61 +49,106 @@ class CodeDrawableHelper(
         }
     }
 
+    fun setForeground(view: View) {
+        if (view is FrameLayout) {
+            foregroundDrawable?.let {
+                val left = view.paddingLeft
+                val top = view.paddingTop
+                val right = view.paddingRight
+                val bottom = view.paddingBottom
+                view.foreground = it
+                view.setPadding(left, top, right, bottom)
+            }
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            foregroundDrawable?.let {
+                val left = view.paddingLeft
+                val top = view.paddingTop
+                val right = view.paddingRight
+                val bottom = view.paddingBottom
+                view.foreground = it
+                view.setPadding(left, top, right, bottom)
+            }
+        }
+    }
+
     private fun withStyleable(styleId: IntArray, action: TypedArray.() -> Unit) {
         context.obtainStyledAttributes(attrs, styleId, defaultStyleAttr, defaultStyleRes).use {
             it.action()
         }
     }
 
-    private fun buildDrawableByAttributes(codingDrawableView: TypedArray) {
-        if (codingDrawableView.hasValue(R.styleable.CodeDrawableView_cdv_drawable_type)) {
-            when (codingDrawableView.getInt(R.styleable.CodeDrawableView_cdv_drawable_type, -1)) {
+    private fun buildDrawableByAttributes(typedArray: TypedArray) {
+        if (typedArray.hasValue(R.styleable.CodeDrawableView_cdv_drawable_type)) {
+            when (typedArray.getInt(R.styleable.CodeDrawableView_cdv_drawable_type, -1)) {
                 1/*gradient*/ -> buildGradientDrawable()
                 2/*selector*/ -> buildSelectorDrawable()
                 3/*ripple*/ -> buildRippleDrawable()
                 else -> throw IllegalArgumentException("Unsupported drawable type")
             }
-            return
+        } else {
+            buildDrawableByAppearance(typedArray)
         }
 
-        buildDrawableByAppearance(codingDrawableView)
-    }
-
-    private fun buildDrawableByAppearance(codingDrawableView: TypedArray) {
-        var resourceId = codingDrawableView.getResourceId(R.styleable.CodeDrawableView_cdv_gradient_appearance, -1)
-        if (resourceId != -1) {
-            drawable = parseGradientDrawableAttributeByStyle(context, resourceId)
-            return
-        }
-
-        resourceId = codingDrawableView.getResourceId(R.styleable.CodeDrawableView_cdv_selector_appearance, -1)
-        if (resourceId != -1) {
-            drawable = parseSelectorDrawableAttributeByStyle(context, resourceId)
-            return
-        }
-
-        resourceId = codingDrawableView.getResourceId(R.styleable.CodeDrawableView_cdv_ripple_appearance, -1)
-        if (resourceId != -1) {
-            drawable = parseRippleDrawableAttributeByStyle(context, resourceId)
-            return
-        }
+        buildForegroundDrawableByAppearance(typedArray)
     }
 
     private fun buildSelectorDrawable() {
         withStyleable(R.styleable.CodeSelectorDrawable) {
-            drawable = parseSelectorDrawableAttribute(context, this)
+            backgroundDrawable = parseSelectorDrawableAttribute(context, this)
         }
     }
 
     private fun buildGradientDrawable() {
         withStyleable(R.styleable.CodeGradientDrawable) {
-            drawable = parseGradientDrawableAttribute(context, this)
+            backgroundDrawable = parseGradientDrawableAttribute(context, this)
         }
     }
 
     private fun buildRippleDrawable() {
         withStyleable(R.styleable.CodeRippleDrawable) {
-            drawable = parseRippleDrawableAttribute(context, this)
+            backgroundDrawable = parseRippleDrawableAttribute(context, this)
+        }
+    }
+
+    private fun buildDrawableByAppearance(typedArray: TypedArray) {
+        var resourceId = typedArray.getResourceId(R.styleable.CodeDrawableView_cdv_gradient_appearance, -1)
+        if (resourceId != -1) {
+            backgroundDrawable = parseGradientDrawableAttributeByStyle(context, resourceId)
+            return
+        }
+
+        resourceId = typedArray.getResourceId(R.styleable.CodeDrawableView_cdv_selector_appearance, -1)
+        if (resourceId != -1) {
+            backgroundDrawable = parseSelectorDrawableAttributeByStyle(context, resourceId)
+            return
+        }
+
+        resourceId = typedArray.getResourceId(R.styleable.CodeDrawableView_cdv_ripple_appearance, -1)
+        if (resourceId != -1) {
+            backgroundDrawable = parseRippleDrawableAttributeByStyle(context, resourceId)
+            return
+        }
+    }
+
+    private fun buildForegroundDrawableByAppearance(typedArray: TypedArray) {
+        var resourceId = typedArray.getResourceId(R.styleable.CodeDrawableView_cdv_foreground_gradient_appearance, -1)
+        if (resourceId != -1) {
+            foregroundDrawable = parseGradientDrawableAttributeByStyle(context, resourceId)
+            return
+        }
+
+        resourceId = typedArray.getResourceId(R.styleable.CodeDrawableView_cdv_foreground_selector_appearance, -1)
+        if (resourceId != -1) {
+            foregroundDrawable = parseSelectorDrawableAttributeByStyle(context, resourceId)
+            return
+        }
+
+        resourceId = typedArray.getResourceId(R.styleable.CodeDrawableView_cdv_foreground_ripple_appearance, -1)
+        if (resourceId != -1) {
+            foregroundDrawable = parseRippleDrawableAttributeByStyle(context, resourceId)
+            return
         }
     }
 

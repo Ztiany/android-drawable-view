@@ -16,12 +16,12 @@ open class DConstraintLayout @JvmOverloads constructor(
     private val codeDrawableHelper = CodeDrawableHelper(context, attrs, defStyleAttr, defStyleRes)
 
     init {
-        codeDrawableHelper.setBackground(this)
+        codeDrawableHelper.setDrawable(this)
         CodeViewStateHelper.setSelectedState(attrs, defStyleAttr, 0, this)
     }
 
     override fun recoverDrawable() {
-        codeDrawableHelper.setBackground(this)
+        codeDrawableHelper.setDrawable(this)
     }
 
 }

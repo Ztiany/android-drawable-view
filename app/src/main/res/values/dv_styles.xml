@@ -48,6 +48,12 @@
         <item name="cgd_shape_solid">?android:windowBackground</item>
     </style>
 
+    <style name="CodeGradientDrawable_TranslucentSolid_2">
+        <item name="cgd_shape">rectangle</item>
+        <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round_TL20</item>
+        <item name="cgd_shape_solid">#80FFFFFF</item>
+    </style>
+
     <style name="CodeGradientDrawable_Solid_3">
         <item name="cgd_shape">rectangle</item>
         <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round_TL20</item>
@@ -65,14 +71,33 @@
         <item name="csd_selector_state_disabled">@style/CodeGradientDrawable_Solid_3</item>
     </style>
 
+    <style name="CodeSelectorDrawable_TranslucentSolid_1">
+        <item name="csd_selector_state_normal">@style/CodeGradientDrawable_Solid_1</item>
+        <item name="csd_selector_state_pressed">@style/CodeGradientDrawable_TranslucentSolid_2</item>
+    </style>
+
     <style name="CodeRippleDrawable_WithGradientGradient">
         <item name="crd_ripple_color">@color/colorPrimary</item>
         <item name="crd_ripple_content_drawable">@style/CodeGradientDrawable_Gradient_1</item>
     </style>
 
-    <style name="CodeRippleDrawable_WithSelector">
+    <style name="CodeRippleDrawable_WithSelector0">
         <item name="crd_ripple_color">@color/colorPrimary</item>
         <item name="crd_ripple_content_drawable">@style/CodeSelectorDrawable_Solid_1</item>
+    </style>
+
+    <style name="CodeRippleDrawable_WithMaskSelector1">
+        <item name="crd_ripple_color">@color/colorPrimary</item>
+        <item name="crd_ripple_mask_drawable">@style/CodeSelectorDrawable_Solid_1</item>
+    </style>
+
+    <style name="CodeRippleDrawable_WithMaskSelector2">
+        <item name="crd_ripple_color">@color/colorPrimary</item>
+        <item name="crd_ripple_mask_drawable">@drawable/icon_date_picker</item>
+    </style>
+
+    <style name="CodeRippleDrawable_WithMaskSelector3">
+        <item name="crd_ripple_color">@color/colorPrimary</item>
     </style>
 
 </resources>

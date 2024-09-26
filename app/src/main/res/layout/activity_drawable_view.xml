@@ -346,7 +346,92 @@
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
                 android:clickable="true"
-                app:cdv_ripple_appearance="@style/CodeRippleDrawable_WithSelector">
+                app:cdv_ripple_appearance="@style/CodeRippleDrawable_WithSelector0">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Click me"
+                    android:textColor="@color/red" />
+
+            </com.android.base.ui.drawable.DFrameLayout>
+
+            <com.android.base.ui.drawable.DFrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                app:cdv_clip_to_outline="false"
+                app:cdv_ripple_appearance="@style/CodeRippleDrawable_WithMaskSelector1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Click me"
+                    android:textColor="@color/red" />
+
+            </com.android.base.ui.drawable.DFrameLayout>
+
+            <com.android.base.ui.drawable.DFrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                app:cdv_clip_to_outline="false"
+                app:cdv_ripple_appearance="@style/CodeRippleDrawable_WithMaskSelector2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Click me"
+                    android:textColor="@color/red" />
+
+            </com.android.base.ui.drawable.DFrameLayout>
+
+            <com.android.base.ui.drawable.DFrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                app:cdv_clip_to_outline="false"
+                app:cdv_ripple_appearance="@style/CodeRippleDrawable_WithMaskSelector3">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Click me"
+                    android:textColor="@color/red" />
+
+            </com.android.base.ui.drawable.DFrameLayout>
+
+            <com.android.base.ui.drawable.DFrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                app:cdv_clip_to_outline="false"
+                app:cdv_foreground_ripple_appearance="@style/CodeRippleDrawable_WithMaskSelector3">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Click me"
+                    android:textColor="@color/red" />
+
+            </com.android.base.ui.drawable.DFrameLayout>
+
+            <com.android.base.ui.drawable.DFrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                app:cdv_clip_to_outline="false"
+                app:cdv_foreground_selector_appearance="@style/CodeSelectorDrawable_TranslucentSolid_1">
 
                 <TextView
                     android:layout_width="wrap_content"

@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.Color
+import android.graphics.drawable.RippleDrawable
 import android.util.AttributeSet
 import android.view.View
 import com.android.base.ui.drawable.parser.ResourceInfo
@@ -14,10 +15,11 @@ import com.android.base.ui.drawable.parser.StateFocused
 import com.android.base.ui.drawable.parser.StatePressed
 import com.android.base.ui.drawable.parser.StateSelected
 import com.android.base.ui.drawable.parser.parseCodeColorStateListAttribute
+import com.android.base.ui.drawables.R
+import com.android.base.ui.utils.getColorStateListSafely
 import com.google.android.material.resources.MaterialResources
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
-import com.android.base.ui.drawables.R
 
 /**
  * The Shapeable function in material only supports following components:
@@ -48,19 +50,38 @@ class MaterialShapeDrawableHelper(
 
     private var shapeAppearanceModel: ShapeAppearanceModel
 
-    var drawable: MaterialShapeDrawable
+    var shapeDrawable: MaterialShapeDrawable
+        private set
+
+    var rippleDrawable: RippleDrawable? = null
         private set
 
     init {
-        val typedValue = context.obtainStyledAttributes(attrs, R.styleable.MaterialShapeDrawableView, defaultStyleAttr, defaultStyleRes)
-
+        val mdTypedValue = context.obtainStyledAttributes(attrs, R.styleable.MaterialShapeDrawableView, defaultStyleAttr, defaultStyleRes)
         shapeAppearanceModel = ShapeAppearanceModel.builder(context, attrs, defaultStyleAttr, defaultStyleRes).build()
+        shapeDrawable = MaterialShapeDrawable(shapeAppearanceModel).apply {
+            setDrawableStyle(mdTypedValue)
+        }
+        mdTypedValue.recycle()
 
-        drawable = MaterialShapeDrawable(shapeAppearanceModel).apply {
-            setDrawableStyle(typedValue)
+        val rippleTypedValue = context.obtainStyledAttributes(attrs, R.styleable.ShapeableView, defaultStyleAttr, defaultStyleRes)
+
+        if (rippleTypedValue.hasValue(R.styleable.ShapeableView_msd_ripple_color)) {
+            val rippleColor = rippleTypedValue.getColorStateListSafely("msd_ripple_color", R.styleable.ShapeableView_msd_ripple_color)
+            /*
+                <enum name="content" value="1" />
+                <enum name="mask" value="2" />
+                <enum name="none" value="3" />
+             */
+            when (rippleTypedValue.getInt(R.styleable.ShapeableView_msd_ripple_type, 1)) {
+                1 -> rippleDrawable = RippleDrawable(rippleColor, shapeDrawable, null)
+                2 -> rippleDrawable = RippleDrawable(rippleColor, null, shapeDrawable)
+//                3 -> rippleDrawable = RippleDrawable(rippleColor, null, null)
+                3 -> rippleDrawable =RippleDrawable(ColorStateList.valueOf(Color.RED), null, null)
+            }
         }
 
-        typedValue.recycle()
+        rippleTypedValue.recycle()
     }
 
     @SuppressLint("RestrictedApi")
@@ -70,7 +91,6 @@ class MaterialShapeDrawableHelper(
         } else {
             createFillColorListCustomAttr(typedValue)
         }
-
 
         if (typedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_strokeWidth)) {
             strokeWidth = typedValue.getDimension(R.styleable.MaterialShapeDrawableView_msd_strokeWidth, 0F)
@@ -113,21 +133,28 @@ class MaterialShapeDrawableHelper(
         val top = target.paddingTop
         val right = target.paddingRight
         val bottom = target.paddingBottom
-        target.background = drawable
+
+        rippleDrawable?.let {
+            target.background = it
+        } ?: run {
+            target.background = shapeDrawable
+        }
+
         target.setPadding(left, top, right, bottom)
     }
 
     fun recoverShapeDrawable(target: View) {
-        drawable.shapeAppearanceModel = shapeAppearanceModel
+        shapeDrawable.shapeAppearanceModel = shapeAppearanceModel
         setShapeDrawable(target)
     }
 
     fun updateShapeAppearanceModel(shapeAppearanceModel: ShapeAppearanceModel) {
-        drawable.shapeAppearanceModel = shapeAppearanceModel
+        shapeDrawable.shapeAppearanceModel = shapeAppearanceModel
+        rippleDrawable?.invalidateSelf()
     }
 
     fun obtainShapeAppearanceModel(): ShapeAppearanceModel {
-        return drawable.shapeAppearanceModel
+        return shapeDrawable.shapeAppearanceModel
     }
 
 }

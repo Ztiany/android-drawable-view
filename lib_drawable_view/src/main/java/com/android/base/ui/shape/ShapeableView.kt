@@ -36,7 +36,7 @@ open class ShapeableView @JvmOverloads constructor(
     }
 
     override fun getShapeDrawable(): MaterialShapeDrawable {
-        return mdHelper.drawable
+        return mdHelper.shapeDrawable
     }
 
 }

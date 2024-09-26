@@ -9,7 +9,7 @@ import com.android.base.ui.common.RecoverableTextColor
 open class DEditText @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    @AttrRes defStyleAttr: Int = android.R.attr.editTextStyle
+    @AttrRes defStyleAttr: Int = android.R.attr.editTextStyle,
 ) : AppCompatEditText(context, attrs, defStyleAttr), RecoverableDrawableView, RecoverableTextColor {
 
     private val codeDrawableHelper = CodeDrawableHelper(context, attrs, defStyleAttr)
@@ -17,12 +17,12 @@ open class DEditText @JvmOverloads constructor(
     private val codeTextColorStateListHelper = CodeTextColorStateListHelper(context, attrs, defStyleAttr)
 
     init {
-        codeDrawableHelper.setBackground(this)
+        codeDrawableHelper.setDrawable(this)
         codeTextColorStateListHelper.setTextColor(this)
     }
 
     override fun recoverDrawable() {
-        codeDrawableHelper.setBackground(this)
+        codeDrawableHelper.setDrawable(this)
     }
 
     override fun recoverTextColor() {

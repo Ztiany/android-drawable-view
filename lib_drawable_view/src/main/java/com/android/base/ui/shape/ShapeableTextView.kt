@@ -12,7 +12,7 @@ import com.google.android.material.shape.ShapeAppearanceModel
 open class ShapeableTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    @AttrRes defStyleAttr: Int = android.R.attr.textViewStyle
+    @AttrRes defStyleAttr: Int = android.R.attr.textViewStyle,
 ) : AppCompatTextView(context, attrs, defStyleAttr), EnhancedShapeable, RecoverableTextColor {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr)
@@ -42,7 +42,7 @@ open class ShapeableTextView @JvmOverloads constructor(
     }
 
     override fun getShapeDrawable(): MaterialShapeDrawable {
-        return mdHelper.drawable
+        return mdHelper.shapeDrawable
     }
 
 }

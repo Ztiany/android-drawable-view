@@ -73,6 +73,16 @@
                 android:id="@+id/material_view_test1"
                 style="@style/StyleShapeView" />
 
+            <TextView
+                android:id="@+id/ripple_tv_01"
+                style="@style/StyleShapeView"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textColor="@color/blue"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -112,6 +122,167 @@
                     android:textStyle="bold" />
 
             </com.android.base.ui.shape.ShapeableFrameLayout>
+
+            <com.android.base.ui.shape.ShapeableFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:elevation="4dp"
+                app:msd_backgroundColor_normal="@color/blue"
+                app:msd_ripple_color="#80000000"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded25">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Click Me!"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </com.android.base.ui.shape.ShapeableFrameLayout>
+
+            <com.android.base.ui.shape.ShapeableFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                app:msd_backgroundColor_normal="@color/white"
+                app:msd_ripple_color="#FFFF0000"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded25">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Click Me!"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </com.android.base.ui.shape.ShapeableFrameLayout>
+
+            <com.android.base.ui.shape.ShapeableFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                app:msd_backgroundColor="@color/black"
+                app:msd_ripple_color="@color/red"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded25">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Click Me!"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </com.android.base.ui.shape.ShapeableFrameLayout>
+
+            <com.android.base.ui.shape.ShapeableFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                app:msd_backgroundColor="@color/blue"
+                app:msd_ripple_color="@color/red"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded25">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Click Me!"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </com.android.base.ui.shape.ShapeableFrameLayout>
+
+            <com.android.base.ui.shape.ShapeableFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                app:msd_backgroundColor="@color/black"
+                app:msd_clip_to_outline="false"
+                app:msd_ripple_color="@color/red"
+                app:msd_ripple_type="mask"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded25">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Click Me! (mask)"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </com.android.base.ui.shape.ShapeableFrameLayout>
+
+            <com.android.base.ui.shape.ShapeableFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                app:msd_clip_to_outline="false"
+                app:msd_ripple_color="@color/red"
+                app:msd_ripple_type="none">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Click Me! (none)"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </com.android.base.ui.shape.ShapeableFrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/ripple1"
+                android:clickable="true"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Click Me!  (mask)"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/ripple2"
+                android:clickable="true"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Click Me! (none)"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
 
             <com.android.base.ui.shape.ShapeableFrameLayout
                 android:layout_width="match_parent"
@@ -276,6 +447,7 @@
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/ShapeAppearance.Hexagon" />
 
+
             <com.android.base.ui.shape.ShapeableFrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -295,6 +467,18 @@
                     android:text="Ztiany" />
 
             </com.android.base.ui.shape.ShapeableFrameLayout>
+
+            <com.android.base.ui.shape.ShapeableTextView
+                style="@style/StyleShapeView"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textColor="@color/blue"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:msd_clip_to_outline="false"
+                app:msd_ripple_color="@color/red"
+                app:msd_ripple_type="none" />
 
             <com.android.base.ui.shape.ShapeableEditText
                 android:layout_width="match_parent"

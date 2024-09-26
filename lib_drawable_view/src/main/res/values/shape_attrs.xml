@@ -65,6 +65,14 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
+
+        <attr name="msd_ripple_color" format="color|reference" />
+        <!-- default is content -->
+        <attr name="msd_ripple_type" format="enum">
+            <enum name="content" value="1" />
+            <enum name="mask" value="2" />
+            <enum name="none" value="3" />
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="ShapeableFrameLayout">
@@ -90,6 +98,9 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
+
+        <attr name="msd_ripple_color" />
+        <attr name="msd_ripple_type" />
     </declare-styleable>
 
     <declare-styleable name="ShapeableConstraintLayout">
@@ -115,6 +126,9 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
+
+        <attr name="msd_ripple_color" />
+        <attr name="msd_ripple_type" />
     </declare-styleable>
 
     <declare-styleable name="ShapeableRelativeLayout">
@@ -140,6 +154,9 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
+
+        <attr name="msd_ripple_color" />
+        <attr name="msd_ripple_type" />
     </declare-styleable>
 
     <declare-styleable name="ShapeableLinearLayout">
@@ -165,6 +182,9 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
+
+        <attr name="msd_ripple_color" />
+        <attr name="msd_ripple_type" />
     </declare-styleable>
 
     <declare-styleable name="ShapeableTextView">
@@ -197,6 +217,9 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
+
+        <attr name="msd_ripple_color" />
+        <attr name="msd_ripple_type" />
     </declare-styleable>
 
     <declare-styleable name="ShapeableButton">
@@ -229,6 +252,9 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
+
+        <attr name="msd_ripple_color" />
+        <attr name="msd_ripple_type" />
     </declare-styleable>
 
     <declare-styleable name="ShapeableEditText">
@@ -258,6 +284,9 @@
         <attr name="msd_backgroundColor_selected" />
         <attr name="msd_backgroundColor_pressed" />
         <attr name="msd_backgroundColor_normal" />
+
+        <attr name="msd_ripple_color" />
+        <attr name="msd_ripple_type" />
     </declare-styleable>
 
 </resources>

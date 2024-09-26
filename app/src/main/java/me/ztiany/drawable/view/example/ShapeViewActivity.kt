@@ -1,6 +1,9 @@
 package me.ztiany.drawable.view.example
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.drawable.RippleDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -97,6 +100,10 @@ class ShapeViewActivity : AppCompatActivity() {
                 setStrokeTint(ContextCompat.getColorStateList(this@ShapeViewActivity, R.color.color_state_test1))
             }
             background = drawable
+        }
+
+        findViewById<TextView>(R.id.ripple_tv_01).apply {
+            background = RippleDrawable(ColorStateList.valueOf(Color.RED), null, null)
         }
     }
 

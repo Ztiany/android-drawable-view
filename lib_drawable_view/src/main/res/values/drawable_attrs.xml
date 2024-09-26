@@ -197,6 +197,13 @@
         <attr name="cdv_gradient_appearance" format="reference" />
         <!-- 引用一个 Style 类型的 ripple drawable（参考 CodeRippleDrawable），与 cdv_drawable_type 和其他 appearance 属性互斥  -->
         <attr name="cdv_ripple_appearance" format="reference" />
+
+        <!-- 引用一个 Style 类型的 selector drawable（参考 CodeSelectorDrawable），作为其 foreground。 -->
+        <attr name="cdv_foreground_selector_appearance" format="reference" />
+        <!-- 引用一个 Style 类型的 gradient drawable（参考 CodeGradientDrawable），作为其 foreground。-->
+        <attr name="cdv_foreground_gradient_appearance" format="reference" />
+        <!-- 引用一个 Style 类型的 ripple drawable（参考 CodeRippleDrawable），作为其 foreground。-->
+        <attr name="cdv_foreground_ripple_appearance" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="DTextView">
@@ -204,6 +211,9 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_foreground_selector_appearance" />
+        <attr name="cdv_foreground_gradient_appearance" />
+        <attr name="cdv_foreground_ripple_appearance" />
         <attr name="cdv_selected" />
         <attr name="cdv_clip_to_outline" />
 
@@ -277,6 +287,9 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_foreground_selector_appearance" />
+        <attr name="cdv_foreground_gradient_appearance" />
+        <attr name="cdv_foreground_ripple_appearance" />
 
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
@@ -335,6 +348,9 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_foreground_selector_appearance" />
+        <attr name="cdv_foreground_gradient_appearance" />
+        <attr name="cdv_foreground_ripple_appearance" />
         <attr name="cdv_selected" />
         <attr name="cdv_clip_to_outline" />
 
@@ -388,6 +404,9 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_foreground_selector_appearance" />
+        <attr name="cdv_foreground_gradient_appearance" />
+        <attr name="cdv_foreground_ripple_appearance" />
         <attr name="cdv_selected" />
         <attr name="cdv_clip_to_outline" />
 
@@ -441,6 +460,9 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_foreground_selector_appearance" />
+        <attr name="cdv_foreground_gradient_appearance" />
+        <attr name="cdv_foreground_ripple_appearance" />
         <attr name="cdv_selected" />
         <attr name="cdv_clip_to_outline" />
 
@@ -494,6 +516,9 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_foreground_selector_appearance" />
+        <attr name="cdv_foreground_gradient_appearance" />
+        <attr name="cdv_foreground_ripple_appearance" />
         <attr name="cdv_selected" />
         <attr name="cdv_clip_to_outline" />
 
@@ -547,6 +572,9 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_foreground_selector_appearance" />
+        <attr name="cdv_foreground_gradient_appearance" />
+        <attr name="cdv_foreground_ripple_appearance" />
         <attr name="cdv_selected" />
         <attr name="cdv_clip_to_outline" />
 
@@ -600,9 +628,13 @@
         <attr name="cdv_selector_appearance" />
         <attr name="cdv_gradient_appearance" />
         <attr name="cdv_ripple_appearance" />
+        <attr name="cdv_foreground_selector_appearance" />
+        <attr name="cdv_foreground_gradient_appearance" />
+        <attr name="cdv_foreground_ripple_appearance" />
         <attr name="cdv_selected" format="boolean|reference" />
         <attr name="cdv_clip_to_outline" format="boolean|reference" />
 
+        <!-- 当 cdv_drawable_type 为 selector 时，以下属性才会生效，否则无效。 -->
         <attr name="csd_selector_state_disabled" />
         <attr name="csd_selector_state_focused" />
         <attr name="csd_selector_state_checked" />
@@ -610,6 +642,7 @@
         <attr name="csd_selector_state_pressed" />
         <attr name="csd_selector_state_normal" />
 
+        <!-- 当 cdv_drawable_type 为 gradient 时，以下属性才会生效，否则无效。 -->
         <attr name="cgd_shape" />
         <attr name="cgd_shape_solid" />
         <attr name="cgd_shape_corner_style" />
@@ -643,6 +676,7 @@
         <attr name="cgd_gradient_user_level" />
         <attr name="cgd_gradient_type" />
 
+        <!-- 当 cdv_drawable_type 为 ripple 时，以下属性才会生效，否则无效。 -->
         <attr name="crd_ripple_color" />
         <attr name="crd_ripple_content_drawable" />
         <attr name="crd_ripple_mask_drawable" />

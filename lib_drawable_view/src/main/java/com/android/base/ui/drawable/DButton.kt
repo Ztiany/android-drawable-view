@@ -9,7 +9,7 @@ import com.android.base.ui.common.RecoverableTextColor
 open class DButton @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    @AttrRes defStyleAttr: Int = android.R.attr.buttonStyle
+    @AttrRes defStyleAttr: Int = android.R.attr.buttonStyle,
 ) : AppCompatButton(context, attrs, defStyleAttr), RecoverableDrawableView, RecoverableTextColor {
 
     private val codeDrawableHelper = CodeDrawableHelper(context, attrs, defStyleAttr)
@@ -17,13 +17,13 @@ open class DButton @JvmOverloads constructor(
     private val codeTextColorStateListHelper = CodeTextColorStateListHelper(context, attrs, defStyleAttr)
 
     init {
-        codeDrawableHelper.setBackground(this)
+        codeDrawableHelper.setDrawable(this)
         codeTextColorStateListHelper.setTextColor(this)
         CodeViewStateHelper.setSelectedState(attrs, defStyleAttr, 0, this)
     }
 
     override fun recoverDrawable() {
-        codeDrawableHelper.setBackground(this)
+        codeDrawableHelper.setDrawable(this)
     }
 
     override fun recoverTextColor() {

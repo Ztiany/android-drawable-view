@@ -8,7 +8,7 @@ import android.graphics.drawable.RippleDrawable
 import android.os.Build
 import android.view.ContextThemeWrapper
 import com.android.base.ui.drawables.R
-import com.android.base.ui.utils.getColorSafely
+import com.android.base.ui.utils.getColorStateListSafely
 import timber.log.Timber
 
 /** refer [R.styleable.CodeRippleDrawable] */
@@ -37,11 +37,9 @@ private fun internalParseRippleDrawableAttribute(context: Context, typedArray: T
 }
 
 private fun parseRippleColorList(typedArray: TypedArray): ColorStateList? {
-    if (typedArray.hasValue(R.styleable.CodeRippleDrawable_crd_ripple_color)) {
-        val color = typedArray.getColorSafely("crd_ripple_color", R.styleable.CodeRippleDrawable_crd_ripple_color)
-        return ColorStateList.valueOf(color)
-    }
-    return null
+    return if (typedArray.hasValue(R.styleable.CodeRippleDrawable_crd_ripple_color)) {
+        typedArray.getColorStateListSafely("crd_ripple_color", R.styleable.CodeRippleDrawable_crd_ripple_color)
+    } else null
 }
 
 private fun parseDrawableByStyleOrDrawable(context: Context, typedArray: TypedArray, drawableResourceId: Int): Drawable? {
@@ -50,10 +48,14 @@ private fun parseDrawableByStyleOrDrawable(context: Context, typedArray: TypedAr
     }
     val resourceId = typedArray.getResourceId(drawableResourceId, -1)
     val typeName = context.resources.getResourceTypeName(resourceId)
-    if (typeName == "drawable") {
-        return typedArray.getDrawable(drawableResourceId)
-    } else if (typeName == "style") {
+    Timber.d("parseDrawableByStyleOrDrawable: resourceId=$resourceId, typeName=$typeName")
+    if (typeName == "drawable" || typeName == "mipmap" || typeName == "color") {
+        return typedArray.getDrawable(drawableResourceId).apply {
+            Timber.d("parseDrawableByStyleOrDrawable: drawable=$this")
+        }
+    }
 
+    if (typeName == "style") {
         //尝试按照 Gradient 解析
         val gradientTypedArray = ContextThemeWrapper(context, resourceId).obtainStyledAttributes(R.styleable.CodeGradientDrawable)
         var drawable = parseGradientDrawableAttribute(context, gradientTypedArray)
@@ -65,8 +67,8 @@ private fun parseDrawableByStyleOrDrawable(context: Context, typedArray: TypedAr
             drawable = parseSelectorDrawableAttribute(context, gradientTypedArray)
             selectorTypedArray.recycle()
         }
-
         return drawable
     }
+
     return null
 }
