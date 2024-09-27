@@ -76,8 +76,7 @@ class MaterialShapeDrawableHelper(
             when (rippleTypedValue.getInt(R.styleable.ShapeableView_msd_ripple_type, 1)) {
                 1 -> rippleDrawable = RippleDrawable(rippleColor, shapeDrawable, null)
                 2 -> rippleDrawable = RippleDrawable(rippleColor, null, shapeDrawable)
-//                3 -> rippleDrawable = RippleDrawable(rippleColor, null, null)
-                3 -> rippleDrawable =RippleDrawable(ColorStateList.valueOf(Color.RED), null, null)
+                3 -> rippleDrawable = RippleDrawable(rippleColor, null, null)
             }
         }
 
