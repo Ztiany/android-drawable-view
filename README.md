@@ -77,5 +77,5 @@ Acknowledgment: The core code of Lib DrawableView is copied from [又一个减�
 ## 3  Installation
 
 ```groovy
-implementation "com.github.Ztiany:android-drawable-view:Tag"
+implementation "io.github.ztiany:android-drawable-view:1.2.6"
 ```

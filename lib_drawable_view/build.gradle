@@ -1,10 +1,13 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
     id "com.android.library"
     id "kotlin-android"
-    id "maven-publish"
+    id "com.vanniktech.maven.publish" version "0.30.0"
 }
 
 android {
+    namespace "com.android.base.ui.drawables"
     compileSdk buildVersion.compileSdkVersion
 
     defaultConfig {
@@ -17,12 +20,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
 }
@@ -37,16 +40,38 @@ dependencies {
     implementation "com.jakewharton.timber:timber:4.7.1"
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
-                groupId = 'io.github.ztiany'
-                artifactId = 'drawable-view'
-                version = '1.2.3'
+mavenPublishing {
+    // configuring maven central
+    // or when publishing to https://central.sonatype.com/
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    signAllPublications()
+
+    // configuring the pom
+    coordinates("io.github.ztiany", "android-drawable-view", "1.2.6")
+
+    pom {
+        name = "android-drawable-view"
+        description = "An android library for developers to avoid writing drawable XML files."
+        inceptionYear = "2020"
+        url = "https://github.com/Ztiany/android-drawable-view/"
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                distribution = "http://www.apache.org/licenses/LICENSE-2.0.txt"
             }
+        }
+        developers {
+            developer {
+                id = "ztiany"
+                name = "Alien"
+                url = "https://github.com/Ztiany/"
+            }
+        }
+        scm {
+            url = "https://github.com/Ztiany/android-drawable-view"
+            connection = "scm:git:git://github.com/Ztiany/android-drawable-view.git"
+            developerConnection = "scm:git:ssh://git@github.com/Ztiany/android-drawable-view.git"
         }
     }
 }
